@@ -14,7 +14,7 @@
         position: relative;
         width: 100%;
         height: 100vh;
-        padding-top: 10px;
+        /* padding-top: 10px; */
     }
 </style>
 
@@ -27,4 +27,34 @@
                 class="fw-bold fs-1">To Everyone</span>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 @endsection

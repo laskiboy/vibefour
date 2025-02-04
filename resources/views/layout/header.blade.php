@@ -7,22 +7,59 @@
     <title>VibeFour</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
         body {
-            font-family: 'Inter';
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
+        /* Navbar awal transparan */
         .navbar {
-            z-index: 10;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Navbar saat di-scroll */
+        .navbar.scrolled {
+            background-color: white !important;
+            backdrop-filter: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Warna link navbar */
+        .nav-link {
+            color: white !important;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Warna link navbar saat di-scroll */
+        .navbar.scrolled .nav-link {
+            color: black !important;
+        }
+
+        /* Warna brand (logo teks) */
+        .navbar-brand {
+            color: #72B5F6 !important;
+        }
+
+        /* Pastikan navbar tetap di atas */
+        .navbar-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light p-3 shadow position-fixed w-100 top-0 z-index-5">
+    <nav class="navbar navbar-expand-lg navbar-fixed p-3 shadow">
         <div class="container-fluid mx-5">
-            <a class="navbar-brand fs-4 fw-bold" style="color: #72B5F6;" href="#">VibeFour</a>
+            <a class="navbar-brand fs-4 fw-bold" href="#">VibeFour</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,20 +67,20 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item ms-3">
-                        <a class="nav-link text-dark" href="#">Beranda</a>
+                        <a class="nav-link" href="#">Beranda</a>
                     </li>
                     <li class="nav-item ms-3">
-                        <a class="nav-link text-dark" href="#">Tentang</a>
+                        <a class="nav-link" href="#">Tentang</a>
                     </li>
                     <li class="nav-item ms-3">
-                        <a class="nav-link text-dark" href="#">Kontak</a>
+                        <a class="nav-link" href="#">Kontak</a>
                     </li>
                     <li class="nav-item ms-3">
-                        <a class="nav-link text-dark" href="#">Produk</a>
+                        <a class="nav-link" href="#">Produk</a>
                     </li>
                     <li class="nav-item dropdown ms-3">
-                        <a class="nav-link dropdown-toggle text-dark" href="#" id="languageDropdown"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="{{ asset('img/indo.png') }}" width="25" height="25"
                                 class="border rounded-pill" alt="">
                         </a>
@@ -70,6 +107,16 @@
     @yield('konten')
 
     <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            let navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 
 </html>
