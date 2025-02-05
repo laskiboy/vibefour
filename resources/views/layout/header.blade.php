@@ -7,45 +7,39 @@
     <title>VibeFour</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        /* Navbar awal transparan */
         .navbar {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            /* backdrop-filter: blur(10px); */
             transition: all 0.3s ease-in-out;
         }
 
-        /* Navbar saat di-scroll */
         .navbar.scrolled {
             background-color: white !important;
             backdrop-filter: none;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Warna link navbar */
         .nav-link {
             color: white !important;
             transition: color 0.3s ease-in-out;
         }
 
-        /* Warna link navbar saat di-scroll */
         .navbar.scrolled .nav-link {
             color: black !important;
         }
 
-        /* Warna brand (logo teks) */
         .navbar-brand {
             color: #72B5F6 !important;
         }
 
-        /* Pastikan navbar tetap di atas */
         .navbar-fixed {
             position: fixed;
             top: 0;
@@ -56,7 +50,7 @@
     </style>
 </head>
 
-<body>
+<body class="bg-dark">
     <nav class="navbar navbar-expand-lg navbar-fixed p-3 shadow">
         <div class="container-fluid mx-5">
             <a class="navbar-brand fs-4 fw-bold" href="#">VibeFour</a>
@@ -107,7 +101,31 @@
     @yield('konten')
 
     <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script>
+        ScrollReveal({
+            reset: true,
+            distance: '60px',
+            duration: 1000,
+            delay: 400
+        });
+        ScrollReveal().reveal('.span-title, .span-sub, .oi, .container', {
+            delay: 500,
+            origin: 'top'
+        });
+        ScrollReveal().reveal('.card-duwa', {
+            delay: 500,
+            origin: 'bottom'
+        });
+        ScrollReveal().reveal('.card, .fitur-2, .card-3', {
+            delay: 500,
+            origin: 'right'
+        });
+        ScrollReveal().reveal('.fitur, .card-2, .card-1', {
+            delay: 500,
+            origin: 'left'
+        });
+
         window.addEventListener('scroll', function() {
             let navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
