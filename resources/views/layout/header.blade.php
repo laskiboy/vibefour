@@ -61,10 +61,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item ms-3">
-                        <a class="nav-link" href="#">Beranda</a>
+                        <a class="nav-link" href="{{ url('/') }}">Beranda</a>
                     </li>
                     <li class="nav-item ms-3">
-                        <a class="nav-link" href="#">Tentang</a>
+                        <a class="nav-link" href="{{ url('/tentang') }}">Tentang</a>
                     </li>
                     <li class="nav-item ms-3">
                         <a class="nav-link" href="#">Kontak</a>
@@ -117,11 +117,11 @@
             delay: 500,
             origin: 'bottom'
         });
-        ScrollReveal().reveal('.card, .fitur-2, .card-3', {
+        ScrollReveal().reveal('.card, .fitur-2, .card-3, .gambar-1, .kiri-2', {
             delay: 500,
             origin: 'right'
         });
-        ScrollReveal().reveal('.fitur, .card-2, .card-1', {
+        ScrollReveal().reveal('.fitur, .card-2, .card-1, .gambar-2, .kiri-1', {
             delay: 500,
             origin: 'left'
         });
