@@ -5,7 +5,6 @@
             background: url('img/wedding-decoration-Listing-and-Top-image123.jpg') center/cover no-repeat;
             width: 100%;
             height: 100vh;
-            /* filter: brightness(50%); */
             position: relative;
             top: 0;
             left: 0;
@@ -68,9 +67,34 @@
     <div class="bg-light vh-100 w-100 d-flex justify-content-around flex-row align-items-center">
         <div class="kiri-1 d-flex w-50 flex-column">
             <span class="fs-1 fw-bold mb-4" style="color: #000">Mengapa Memilih VibeFour?</span>
-            <span class="fs-5 w-75">Mudah Digunakan : Antarmuka yang intuitif untuk pengalaman pengguna yang lebih
-                baik.</span>
+            <div class="d-flex">
+                <a data-bs-toggle="collapse" href="#multiCollapseExample1" class="fs-3 me-5 fw-bold mb-4"
+                    style="color: #8854BB; text-decoration: none;" role="button" aria-expanded="true"
+                    aria-controls="multiCollapseExample1">1</a>
+                <a data-bs-toggle="collapse" href="#multiCollapseExample2" class="fs-3 me-5 fw-bold mb-4"
+                    style="color: #8854BB; text-decoration: none;" role="button" aria-expanded="false"
+                    aria-controls="multiCollapseExample2">2</a>
+                <a data-bs-toggle="collapse" href="#multiCollapseExample3" class="fs-3 me-5 fw-bold mb-4"
+                    style="color: #8854BB; text-decoration: none;" role="button" aria-expanded="false"
+                    aria-controls="multiCollapseExample3">3</a>
+            </div>
+
+            <div id="collapseGroup">
+                <div class="collapse multi-collapse show" id="multiCollapseExample1" data-bs-parent="#collapseGroup">
+                    <span class="fs-5 w-75">Mudah Digunakan : Antarmuka yang intuitif untuk pengalaman pengguna yang lebih
+                        baik.</span>
+                </div>
+                <div class="collapse multi-collapse" id="multiCollapseExample2" data-bs-parent="#collapseGroup">
+                    <span class="fs-5 w-75">Akurat & Transparan : Data yang valid dan terpercaya untuk proses yang
+                        adil.</span>
+                </div>
+                <div class="collapse multi-collapse" id="multiCollapseExample3" data-bs-parent="#collapseGroup">
+                    <span class="fs-5 w-75">Fleksibel & Adaptif : Cocok untuk berbagai kebutuhan, baik personal maupun
+                        profesional.</span>
+                </div>
+            </div>
         </div>
+
         <img class="gambar-1" src="{{ asset('img/image.png') }}" width="300" alt="">
     </div>
     {{-- end konten keempat --}}

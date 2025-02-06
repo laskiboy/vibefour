@@ -89,8 +89,8 @@
                 style="width: 17rem; height: 20rem; margin: 20px; border-radius: 20px; background-color: #8854BB">
                 <img src="{{ asset('img/party.png') }}" class="position-absolute" style="margin-top: -250" width="230px">
                 <div class="d-flex flex-column mt-auto">
-                    <p class="fs-4 fw-bold">100+</p>
-                    <p class="fs-5 mb-5">Penggunaan Fitur</p>
+                    <p class="fs-4 text-light fw-bold">100+</p>
+                    <p class="fs-5 text-light mb-5">Penggunaan Fitur</p>
                 </div>
             </div>
             <div class="card-3 shadow d-flex justify-content-center align-items-center"
@@ -111,14 +111,12 @@
         <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 70px">Dokumentasi</span>
         <div class="container mt-5">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                <!-- Indicators -->
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
                     <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
                     <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
                 </div>
 
-                <!-- Slides -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img style="border-radius: 20px; object-fit: cover"
@@ -153,4 +151,5 @@
 
     {{-- footer --}}
     @include('layout.footer')
+
 @endsection

@@ -32,7 +32,7 @@
     <footer class="py-5 shadow" style="background-color: #f4f4f4">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-4">
+                <div class="col mb-4">
                     <h4 class="mb-4" style="color: #72B5F6">VibeFour</h4>
                     <p class="text-muted">
                         <i class="fas fa-map-marker-alt me-2"></i>
@@ -54,13 +54,13 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-4">
+                <div class="col-md-3 mb-4">
                     <h5 class="mb-4">Produk</h5>
                     <a href="#" class="footer-link">Voting</a>
                     <a href="#" class="footer-link">Penjadwalan</a>
                 </div>
 
-                <div class="col-md-4 mb-4">
+                <div class="col-md-2 mb-4 ms-0">
                     <h5 class="mb-4">Perusahaan</h5>
                     <a href="#" class="footer-link">Tentang</a>
                     <a href="#" class="footer-link">Kontak</a>
