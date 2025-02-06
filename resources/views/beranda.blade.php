@@ -44,10 +44,10 @@
     <div class="d-flex flex-column align-items-center bg-dark vh-100 m-5">
         <span class="fs-2 fw-bold span-title" style="color: #72B5F6;">Fitur Unggulan</span>
         <span class="mb-5 span-sub" style="color: #dbdbdb;">Kami menyediakan dua fitur unggulan dari produk kami</span>
-        <div class="satu d-flex w-100 align-items-center mt-5 justify-content-around">
+        <div class="satu w-75 d-flex w-100 align-items-center mt-5 justify-content-around">
             <div class="fitur">
-                <span style="color: #8854BB" class="fw-bold fs-5">Fitur Voting</span>
-                <ul>
+                <span style="color: #72B5F6" class="fw-bold fs-5">Fitur Voting</span>
+                <ul style="margin-left: -14px">
                     <li style="color: #dbdbdb;">Keamanan vote terjamin</li>
                     <li style="color: #dbdbdb;">Penggunaan kurun waktu</li>
                     <li style="color: #dbdbdb;">Penggunaan filterisasi</li>
@@ -62,8 +62,8 @@
                 style="width: 30rem; height: 15rem; margin: 20px; border-radius: 20px; background-color: #adadad">
             </div>
             <div class="fitur-2 text-end">
-                <span style="color: #8854BB" class="fw-bold fs-5">Fitur Penjadwalan</span>
-                <ul style="direction: rtl;">
+                <span style="color: #72B5F6; margin-right: 75px" class="fw-bold fs-5">Fitur Penjadwalan</span>
+                <ul style="direction: rtl; margin-right: 54px;">
                     <li style="color: #dbdbdb;">Terdapat fitur membuat group</li>
                     <li style="color: #dbdbdb;">Pemilihan jadwal secara flexible</li>
                     <li style="color: #dbdbdb;">Tidak ada bentrokan jadwal</li>
@@ -109,7 +109,7 @@
     {{-- konten keempat --}}
     <div class="bg-light vh-100 d-flex justify-content-center flex-column align-items-center pb-5">
         <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 70px">Dokumentasi</span>
-        <div class="container mt-5">
+        <div class="container slide mt-5">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
@@ -151,5 +151,4 @@
 
     {{-- footer --}}
     @include('layout.footer')
-
 @endsection

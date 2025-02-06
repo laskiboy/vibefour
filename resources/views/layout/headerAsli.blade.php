@@ -17,24 +17,13 @@
         }
 
         .navbar {
-            background: rgba(255, 255, 255, 0.1);
-            /* backdrop-filter: blur(10px); */
+            background: #FFF;
             transition: all 0.3s ease-in-out;
         }
 
-        .navbar.scrolled {
-            background-color: white !important;
-            backdrop-filter: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
         .nav-link {
-            color: white !important;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .navbar.scrolled .nav-link {
             color: black !important;
+            transition: color 0.3s ease-in-out;
         }
 
         .navbar-brand {
@@ -120,7 +109,7 @@
             duration: 1000,
             delay: 400
         });
-        ScrollReveal().reveal('.span-title, .span-sub, .oi, .slide', {
+        ScrollReveal().reveal('.span-title, .span-sub, .oi, .slide, .map', {
             delay: 500,
             origin: 'top'
         });
@@ -128,22 +117,13 @@
             delay: 500,
             origin: 'bottom'
         });
-        ScrollReveal().reveal('.card, .fitur-2, .card-3, .gambar-1, .kiri-2', {
+        ScrollReveal().reveal('.card, .fitur-2, .card-3, .gambar-1, .kiri-2, .kanan', {
             delay: 500,
             origin: 'right'
         });
-        ScrollReveal().reveal('.fitur, .card-2, .card-1, .gambar-2, .kiri-1', {
+        ScrollReveal().reveal('.fitur, .card-2, .card-1, .gambar-2, .kiri-1, .kiri', {
             delay: 500,
             origin: 'left'
-        });
-
-        window.addEventListener('scroll', function() {
-            let navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
         });
     </script>
 </body>

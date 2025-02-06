@@ -68,15 +68,15 @@
         <div class="kiri-1 d-flex w-50 flex-column">
             <span class="fs-1 fw-bold mb-4" style="color: #000">Mengapa Memilih VibeFour?</span>
             <div class="d-flex">
-                <a data-bs-toggle="collapse" href="#multiCollapseExample1" class="fs-3 me-5 fw-bold mb-4"
-                    style="color: #8854BB; text-decoration: none;" role="button" aria-expanded="true"
-                    aria-controls="multiCollapseExample1">1</a>
-                <a data-bs-toggle="collapse" href="#multiCollapseExample2" class="fs-3 me-5 fw-bold mb-4"
-                    style="color: #8854BB; text-decoration: none;" role="button" aria-expanded="false"
-                    aria-controls="multiCollapseExample2">2</a>
-                <a data-bs-toggle="collapse" href="#multiCollapseExample3" class="fs-3 me-5 fw-bold mb-4"
-                    style="color: #8854BB; text-decoration: none;" role="button" aria-expanded="false"
-                    aria-controls="multiCollapseExample3">3</a>
+                <button style="color: #000" data-bs-toggle="collapse" href="#multiCollapseExample1"
+                    class="fs-3 badge me-5 fw-bold mb-4" role="button" aria-expanded="true"
+                    aria-controls="multiCollapseExample1">1</button>
+                <button style="color: #000" data-bs-toggle="collapse" href="#multiCollapseExample2"
+                    class="fs-3 badge me-5 fw-bold mb-4" role="button" aria-expanded="false"
+                    aria-controls="multiCollapseExample2">2</button>
+                <button style="color: #000" data-bs-toggle="collapse" href="#multiCollapseExample3"
+                    class="fs-3 badge me-5 fw-bold mb-4" role="button" aria-expanded="false"
+                    aria-controls="multiCollapseExample3">3</button>
             </div>
 
             <div id="collapseGroup">
