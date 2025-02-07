@@ -48,7 +48,7 @@
 <body class="bg-dark">
     <nav class="navbar navbar-expand-lg navbar-fixed p-3 shadow-sm">
         <div class="container-fluid mx-5">
-            <a class="navbar-brand fs-4 fw-bold" href="#">VibeFour</a>
+            <a class="navbar-brand fs-4 fw-bold" href="/">VibeFour</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -60,16 +60,16 @@
                             href="{{ url('/') }}">Beranda</a>
                     </li>
                     <li class="nav-item ms-3">
+                        <a class="nav-link {{ Request::is('produk') ? 'active' : '' }}"
+                            href="{{ url('/produk') }}">Produk</a>
+                    </li>
+                    <li class="nav-item ms-3">
                         <a class="nav-link {{ Request::is('tentang') ? 'active' : '' }}"
                             href="{{ url('/tentang') }}">Tentang</a>
                     </li>
                     <li class="nav-item ms-3">
                         <a class="nav-link {{ Request::is('kontak') ? 'active' : '' }}"
                             href="{{ url('/kontak') }}">Kontak</a>
-                    </li>
-                    <li class="nav-item ms-3">
-                        <a class="nav-link {{ Request::is('produk') ? 'active' : '' }}"
-                            href="{{ url('/produk') }}">Produk</a>
                     </li>
                     <li class="nav-item dropdown ms-3">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
@@ -109,19 +109,19 @@
             duration: 1000,
             delay: 400
         });
-        ScrollReveal().reveal('.span-title, .span-sub, .oi, .slide, .map', {
+        ScrollReveal().reveal('.span-title, .span-sub, .map, .atas', {
             delay: 500,
             origin: 'top'
         });
-        ScrollReveal().reveal('.card-duwa', {
+        ScrollReveal().reveal('.bawah', {
             delay: 500,
             origin: 'bottom'
         });
-        ScrollReveal().reveal('.card, .fitur-2, .card-3, .gambar-1, .kiri-2, .kanan', {
+        ScrollReveal().reveal('.kanan', {
             delay: 500,
             origin: 'right'
         });
-        ScrollReveal().reveal('.fitur, .card-2, .card-1, .gambar-2, .kiri-1, .kiri', {
+        ScrollReveal().reveal('.kiri', {
             delay: 500,
             origin: 'left'
         });

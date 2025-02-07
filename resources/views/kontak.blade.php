@@ -52,4 +52,6 @@
             </div>
         </div>
     </div>
+    {{-- footer --}}
+    @include('layout.footer')
 @endsection

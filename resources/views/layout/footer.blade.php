@@ -61,8 +61,8 @@
 
                 <div class="col-md-2 mb-4 ms-0">
                     <h5 class="mb-4">Perusahaan</h5>
-                    <a href="#" class="footer-link">Tentang</a>
-                    <a href="#" class="footer-link">Kontak</a>
+                    <a href="{{ url('/tentang') }}" class="footer-link">Tentang</a>
+                    <a href="{{ url('/kontak') }}" class="footer-link">Kontak</a>
                     <a href="#" class="footer-link">Berita</a>
                     <a href="#" class="footer-link">Syarat dan Ketentuan</a>
                     <a href="#" class="footer-link">Kebijakan dan Privasi</a>

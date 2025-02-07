@@ -71,16 +71,16 @@
                             href="{{ url('/') }}">Beranda</a>
                     </li>
                     <li class="nav-item ms-3">
+                        <a class="nav-link {{ Request::is('produk') ? 'active' : '' }}"
+                            href="{{ url('/produk') }}">Produk</a>
+                    </li>
+                    <li class="nav-item ms-3">
                         <a class="nav-link {{ Request::is('tentang') ? 'active' : '' }}"
                             href="{{ url('/tentang') }}">Tentang</a>
                     </li>
                     <li class="nav-item ms-3">
                         <a class="nav-link {{ Request::is('kontak') ? 'active' : '' }}"
                             href="{{ url('/kontak') }}">Kontak</a>
-                    </li>
-                    <li class="nav-item ms-3">
-                        <a class="nav-link {{ Request::is('produk') ? 'active' : '' }}"
-                            href="{{ url('/produk') }}">Produk</a>
                     </li>
                     <li class="nav-item dropdown ms-3">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
