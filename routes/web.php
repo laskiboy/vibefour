@@ -25,3 +25,18 @@ Route::get('/kontak', function () {
 Route::get('/produk', function () {
     return view('produk');
 });
+Route::get('/berita', function () {
+    return view('berita');
+});
+Route::get('/detail-berita', function () {
+    return view('detailBerita');
+});
+Route::get('/tnc', function () {
+    return view('tnc');
+});
+Route::get('/privacy', function () {
+    return view('privacy');
+});
+Route::get('/faq', function () {
+    return view('faq');
+});

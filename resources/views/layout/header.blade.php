@@ -114,6 +114,15 @@
     <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
+        window.addEventListener('scroll', function() {
+            let navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
         ScrollReveal({
             reset: true,
             distance: '60px',
@@ -135,15 +144,6 @@
         ScrollReveal().reveal('.fitur, .card-2, .card-1, .gambar-2, .kiri-1', {
             delay: 500,
             origin: 'left'
-        });
-
-        window.addEventListener('scroll', function() {
-            let navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
         });
     </script>
 </body>

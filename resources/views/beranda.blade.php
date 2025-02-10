@@ -55,11 +55,17 @@
             </div>
             <div class="card"
                 style="width: 30rem; height: 15rem; margin: 20px; border-radius: 20px; background-color: #adadad">
+                <video autoplay loop muted style="border-radius: 20px">
+                    <source src="{{ asset('img/video.mp4') }}" type="video/mp4" />
+                </video>
             </div>
         </div>
         <div class="dua d-flex w-100 align-items-center mt-5 justify-content-around ">
             <div class="card-2"
                 style="width: 30rem; height: 15rem; margin: 20px; border-radius: 20px; background-color: #adadad">
+                <video autoplay loop muted style="border-radius: 20px">
+                    <source src="{{ asset('img/video.mp4') }}" type="video/mp4" />
+                </video>
             </div>
             <div class="fitur-2 text-end">
                 <span style="color: #72B5F6; margin-right: 75px" class="fw-bold fs-5">Fitur Penjadwalan</span>

@@ -53,13 +53,70 @@
         .step-connector2 {
             position: absolute;
             top: 20px;
-            left: 25%;
-            right: 25%;
+            left: 15%;
+            right: 15%;
             height: 4px;
             background-color: #8854BB;
             z-index: 0;
         }
+
+        .collapse-trigger {
+            position: relative;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .collapse-trigger.active::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            width: 300%;
+            height: 5px;
+            background-color: #72B5F6;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: underline-fade-slide 0.3s ease-in-out forwards;
+        }
+
+        .collapse-trigger-2 {
+            position: relative;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .collapse-trigger-2.active::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            width: 300%;
+            height: 5px;
+            background-color: #8854BB;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: underline-fade-slide 0.3s ease-in-out forwards;
+        }
+
+        @keyframes underline-fade-slide {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+
+            100% {
+                width: 300%;
+                opacity: 1;
+            }
+        }
     </style>
+
     {{-- konten pertama --}}
     <div class="bg-light w-100 d-flex justify-content-around flex-column align-items-center">
         <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 20px; margin-top: 140px;">Voting</span>
@@ -89,29 +146,60 @@
         <span class="mb-5 mt-5 fs-4 fw-bold span-sub" style="color: #000;">Panduan Voting</span>
         <div class="card bawah shadow mb-5 p-5" style="width: 90%; border-radius: 20px; ">
             <div class="head d-flex justify-content-around" style="color: #72B5F6">
-                <p class="fw-bold">Memilih voting</p>
-                <p class="fw-bold">Membuat voting</p>
+                <p class="fw-bold collapse-trigger active" data-bs-toggle="collapse" href="#multiCollapseExample1"
+                    role="button" aria-expanded="true" aria-controls="multiCollapseExample1">Memilih voting</p>
+                <p class="fw-bold collapse-trigger" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button"
+                    aria-expanded="false" aria-controls="multiCollapseExample2">Membuat voting</p>
             </div>
-            <div class="maincard d-flex justify-content-around mt-5 mb-3">
-                <div class="card kiri bg-secondary" style="border-radius: 20px; width: 35%; height: 13rem;"></div>
-                <div class="card kanan bg-secondary" style="border-radius: 20px; width: 35%; height: 13rem;"></div>
-            </div>
-            <div class="step-container">
-                <div class="step-connector"></div>
-                <div class="row text-center">
-                    <div class="step-number">1</div>
-                    {{-- <div class="col-md-6">
-                        <p>Masukkan terlebih dahulu kode room yang diberikan dengan link</p>
-                    </div> --}}
-                    <div class="step-number">2</div>
-                    {{-- <div class="col-md-6">
-                        <p>Pilih pilihan voting anda lalu klik tombol simpan</p>
-                    </div> --}}
+            <div id="collapseGroup">
+                <div class="collapse multi-collapse show" id="multiCollapseExample1" data-bs-parent="#collapseGroup">
+                    <div class="maincard d-flex justify-content-around mt-5 mb-3">
+                        <div class="card kiri" style="border-radius: 20px; width: 35%; height: 13rem;">
+                            <img style="border-radius: 20px; width: 100%; height: 13rem;"
+                                src="{{ asset('img/milih1.PNG') }}" alt="">
+                        </div>
+                        <div class="card kanan" style="border-radius: 20px; width: 35%; height: 13rem;">
+                            <img style="border-radius: 20px; width: 100%; height: 13rem;"
+                                src="{{ asset('img/milih2.PNG') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="step-container">
+                        <div class="step-connector"></div>
+                        <div class="row text-center">
+                            <div class="step-number">1</div>
+                            <div class="step-number">2</div>
+                        </div>
+                    </div>
+                    <div class="text d-flex justify-content-around text-center flex-row">
+                        <p class="bawah" style="width: 35%;">Masukkan kode room jika diperlukan
+                        </p>
+                        <p class="bawah" style="width: 35%;">Pilih pilihan voting anda lalu klik tombol simpan</p>
+                    </div>
                 </div>
-            </div>
-            <div class="text d-flex justify-content-around text-center flex-row">
-                <p class="bawah" style="width: 35%;">Masukkan terlebih dahulu kode room yang diberikan dengan link</p>
-                <p class="bawah" style="width: 35%;">Pilih pilihan voting anda lalu klik tombol simpan</p>
+                <div class="collapse multi-collapse" id="multiCollapseExample2" data-bs-parent="#collapseGroup">
+                    <div class="maincard d-flex justify-content-around mt-5 mb-3">
+                        <div class="card shadow-sm" style="border-radius: 20px; width: 35%; height: 13rem;">
+                            <img style="border-radius: 20px; width: 100%; height: 13rem;" src="{{ asset('img/buat1.PNG') }}"
+                                alt="">
+                        </div>
+                        <div class="card shadow-sm" style="border-radius: 20px; width: 35%; height: 13rem;">
+                            <img style="border-radius: 20px; width: 100%; height: 13rem;" src="{{ asset('img/buat2.PNG') }}"
+                                alt="">
+                        </div>
+                    </div>
+                    <div class="step-container">
+                        <div class="step-connector"></div>
+                        <div class="row text-center">
+                            <div class="step-number">1</div>
+                            <div class="step-number">2</div>
+                        </div>
+                    </div>
+                    <div class="text d-flex justify-content-around text-center flex-row">
+                        <p style="width: 35%;">Login jika sudah punya akun</p>
+                        <p style="width: 35%;">Buat pertanyaan vote dan opsi pilihannya, sesuaikan dengan
+                            kebutuhan</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -148,32 +236,52 @@
         <div class="card bawah shadow mb-5 p-5" style="width: 90%; border-radius: 20px; ">
             <div class="head d-flex justify-content-around" style="color: #8854BB">
                 <p class="fw-bold">Membuat Penjadwalan</p>
-                <p class="fw-bold">Memilih Jadwal</p>
             </div>
             <div class="maincard d-flex justify-content-around mt-5 mb-3">
-                <div class="card kiri bg-secondary" style="border-radius: 20px; width: 35%; height: 13rem;"></div>
-                <div class="card kanan bg-secondary" style="border-radius: 20px; width: 35%; height: 13rem;"></div>
+                <div class="card kiri" style="border-radius: 20px; width: 20%; height: 13rem;">
+                    <img style="border-radius: 20px; width: 100%; height: 13rem;" src="{{ asset('img/jadwal1.PNG') }}"
+                        alt="">
+                </div>
+                <div class="card bawah" style="border-radius: 20px; width: 20%; height: 13rem;">
+                    <img style="border-radius: 20px; width: 100%; height: 13rem;" src="{{ asset('img/jadwal2.PNG') }}"
+                        alt="">
+                </div>
+                <div class="card kanan" style="border-radius: 20px; width: 20%; height: 13rem;">
+                    <img style="border-radius: 20px; width: 100%; height: 13rem;" src="{{ asset('img/jadwal3.PNG') }}"
+                        alt="">
+                </div>
             </div>
             <div class="step-container2">
                 <div class="step-connector2"></div>
                 <div class="row text-center">
                     <div class="step-number2">1</div>
-                    {{-- <div class="col-md-6">
-                        <p>Masukkan terlebih dahulu kode room yang diberikan dengan link</p>
-                    </div> --}}
                     <div class="step-number2">2</div>
-                    {{-- <div class="col-md-6">
-                        <p>Pilih pilihan voting anda lalu klik tombol simpan</p>
-                    </div> --}}
+                    <div class="step-number2">3</div>
                 </div>
             </div>
             <div class="text d-flex justify-content-around text-center flex-row">
-                <p class="bawah" style="width: 35%;">Pengguna membuat grup terlebih dahulu</p>
-                <p class="bawah" style="width: 35%;">Lalu pilih jadwal yang tersedia, lalu konfirmasikan</p>
+                <p class="bawah" style="width: 20%;">Pengguna membuat grup terlebih dahulu</p>
+                <p class="bawah" style="width: 20%;">Setelah itu buat jadwal ketersediaan</p>
+                <p class="bawah" style="width: 20%;">Lalu pilih jadwal yang tersedia, lalu konfirmasikan</p>
             </div>
         </div>
     </div>
     {{-- end konten keempat --}}
     {{-- footer --}}
     @include('layout.footer')
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const triggers = document.querySelectorAll('.collapse-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function() {
+                    // Hapus class active dari semua trigger
+                    triggers.forEach(t => t.classList.remove('active'));
+                    // Tambahkan class active ke trigger yang diklik
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
 @endsection
