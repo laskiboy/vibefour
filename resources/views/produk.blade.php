@@ -267,6 +267,59 @@
         </div>
     </div>
     {{-- end konten keempat --}}
+
+    {{-- konten kelima --}}
+    <div class="bg-light vh-100 d-flex justify-content-center flex-column align-items-center">
+        <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 70px">Bergabung Bersama VibeFour</span>
+
+        <div class="row justify-content-center mt-4">
+            <div class="kiri col-md-3 mx-3 mb-4">
+                <div class="card shadow-sm p-3" style="height: 24rem; border-radius: 20px">
+                    <div class="card-body">
+                        <h6>Basic</h6>
+                        <h4 class="fw-bold">Gratis</h4>
+                        <hr>
+                        <p>Memberikan akses trial</p>
+                        <p>Penggunaan fitur sebanyak 10 kali</p>
+                        <a href="#" class="btn"
+                            style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">Pilih
+                            Paket</a>
+                    </div>
+                </div>
+            </div>
+            <div class="bawah col-md-3 mx-3 mb-4">
+                <div class="card shadow-sm p-3" style="height: 24rem; border-radius: 20px">
+                    <div class="card-body">
+                        <h6>Pro Plan Monthly</h6>
+                        <h4 class="fw-bold">Rp. 50.000 / Bulan</h4>
+                        <hr>
+                        <p>Penggunaan akses full</p>
+                        <p>Tanpa batasan penggunaan fitur</p>
+                        <p>Langganan Bulanan</p>
+                        <a href="#" class="btn"
+                            style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">Pilih
+                            Paket</a>
+                    </div>
+                </div>
+            </div>
+            <div class="kanan col-md-3 mx-3 mb-4">
+                <div class="card shadow-sm p-3" style="height: 24rem; border-radius: 20px">
+                    <div class="card-body">
+                        <h6>Pro Plan Annual</h6>
+                        <h4 class="fw-bold">Rp. 570.000 / Tahun</h4>
+                        <hr>
+                        <p>Penggunaan akses full</p>
+                        <p>Tanpa batasan penggunaan fitur</p>
+                        <p>Langganan Tahunan</p>
+                        <a href="#" class="btn"
+                            style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">Pilih
+                            Paket</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- end konten kelima --}}
     {{-- footer --}}
     @include('layout.footer')
 
