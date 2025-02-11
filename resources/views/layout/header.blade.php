@@ -57,7 +57,7 @@
     </style>
 </head>
 
-<body class="bg">
+<body class="bg-dark">
     <nav class="navbar navbar-expand-lg navbar-fixed p-3 shadow-sm">
         <div class="container-fluid mx-5">
             <a class="navbar-brand fs-4 fw-bold" href="#">VibeFour</a>
