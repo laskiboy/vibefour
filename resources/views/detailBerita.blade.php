@@ -2,27 +2,27 @@
 @section('konten')
     <div class="d-flex justify-content-center mb-5">
         <div class="ms-5 w-50" style="margin-top: 100px; font-size: 14px">
-            <nav aria-label="breadcrumb" class="mb-5 atas">
+            <nav aria-label="breadcrumb" class="mb-5">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('beranda') }}">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="{{ url('berita') }}">Berita</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Perniahan terbaik tahun ini</li>
+                    <li class="breadcrumb-item active" aria-current="page">Pernikahan terbaik tahun ini</li>
                 </ol>
             </nav>
             <div class="d-flex flex-column">
-                <span class="fs-1 mb-4 kiri" style="font-weight: 500">Perniahan terbaik tahun ini</span>
-                <span class="fs-5 mb-5 kiri" style="color: #ABABAB">10 Februari 2025</span>
-                <img class="shadow kanan" src="{{ asset('img/nice.webp') }}"
+                <span class="fs-1 mb-4 " style="font-weight: 500">Pernikahan terbaik tahun ini</span>
+                <span class="fs-5 mb-5 " style="color: #ABABAB">10 Februari 2025</span>
+                <img class="shadow" src="{{ asset('img/nice.webp') }}"
                     style="border-radius: 20px; width: 100%; height: 25rem; object-fit: cover; margin-bottom: 50px"
                     alt="">
-                <span class="kiri">
+                <span class="">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, voluptas autem similique
                     inventore ipsam aliquid unde nulla sint molestiae laudantium officiis dicta itaque hic fuga delectus
                     alias! Numquam corrupti voluptate placeat quibusdam sequi, sed molestiae corporis consequuntur quod amet
                     possimus necessitatibus reiciendis incidunt, labore, ipsa facere ex odio distinctio.
                 </span>
                 <br>
-                <span class="kiri">
+                <span class="">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic qui quasi commodi eius. Recusandae ullam
                     tempore porro accusamus, voluptate ipsum excepturi natus. Porro eum voluptates id, rem nostrum ad odit
                     harum quos possimus nihil unde repudiandae amet perferendis deleniti excepturi vero aut delectus. Rem
@@ -30,13 +30,13 @@
                     asperiores?
                 </span>
                 <br>
-                <span class="kiri">
+                <span class="">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae facilis incidunt ratione. Impedit,
                     voluptates? Eos reiciendis sequi libero dolorem explicabo saepe odit fugiat placeat blanditiis!
                     Temporibus iusto doloribus sapiente illo.
                 </span>
                 <br>
-                <span class="kiri">
+                <span class="">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus magni rerum consectetur similique
                     delectus deleniti, quisquam nobis dolorem inventore. Quas assumenda nihil maiores eos animi, deleniti
                     laboriosam obcaecati tenetur earum iste id et harum voluptate qui tempore, dolorem nam? Laudantium unde,
@@ -47,7 +47,7 @@
                     unde, ab ex hic necessitatibus consequatur.
                 </span>
                 <br>
-                <span class="kiri">
+                <span class="">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, voluptas autem similique
                     inventore ipsam aliquid unde nulla sint molestiae laudantium officiis dicta itaque hic fuga delectus
                     alias! Numquam corrupti voluptate placeat quibusdam sequi, sed molestiae corporis consequuntur quod amet

@@ -7,13 +7,13 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <a href="{{ url('/detail-berita') }}">
-                        <img style="filter: brightness(70%); width: 100%; object-fit: cover;"
-                            src="{{ asset('img/nice.webp') }}" height="550" class="d-block w-100" alt="Slide 1">
+                        <img style="filter: brightness(90%); width: 100%; object-fit: cover;"
+                            src="{{ asset('img/nice.webp') }}" height="600" class="d-block w-100" alt="Slide 1">
                     </a>
                 </div>
                 <div class="carousel-item">
-                    <img style="filter: brightness(70%); width: 100%; object-fit: cover"
-                        src="{{ asset('img/motionime.webp') }}" height="550" class="d-block w-100" alt="Slide 3">
+                    <img style="filter: brightness(90%); width: 100%; object-fit: cover"
+                        src="{{ asset('img/motionime.webp') }}" height="600" class="d-block w-100" alt="Slide 3">
                 </div>
             </div>
 
@@ -37,15 +37,15 @@
                 <img style="height: 15rem; object-fit: cover; border-radius: 20px" src="{{ asset('img/nice.webp') }}"
                     alt="">
             </div>
-            <div class="ms-5 isi d-flex flex-column w-50">
+            <div class="ms-5 kanan isi d-flex flex-column w-50">
                 <a class="detail-berita text-dark mb-3" style="text-decoration: none" href="{{ url('/detail-berita') }}">
-                    <span class="fs-5 fw-bold atas">Perniahan terbaik tahun ini</span>
+                    <span class="fs-5 fw-bold">Pernikahan terbaik tahun ini</span>
                 </a>
-                <span class="w-50 mb-3 kanan">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat optio neque
+                <span class="w-50 mb-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat optio neque
                     asperiores
                     id beatae aut
                     rerum repudiandae consequuntur delectus ullam.</span>
-                <span class="bawah" style="color: #ABABAB">10 Februari 2025</span>
+                <span class="" style="color: #ABABAB">10 Februari 2025</span>
             </div>
         </div>
     </div>
@@ -56,15 +56,15 @@
                 <img style="height: 15rem; object-fit: cover; border-radius: 20px" src="{{ asset('img/motionime.webp') }}"
                     alt="">
             </div>
-            <div class="ms-5 isi d-flex flex-column w-50">
+            <div class="ms-5 kanan isi d-flex flex-column w-50">
                 <a class="detail-berita text-dark mb-3" style="text-decoration: none" href="{{ url('/detail-berita') }}">
-                    <span class="fs-5 fw-bold atas">Motion Ime Event Terbaik</span>
+                    <span class="fs-5 fw-bold ">Motion Ime Event Terbaik</span>
                 </a>
-                <span class="w-50 mb-3 kanan">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat optio neque
+                <span class="w-50 mb-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat optio neque
                     asperiores
                     id beatae aut
                     rerum repudiandae consequuntur delectus ullam.</span>
-                <span class="bawah" style="color: #ABABAB">10 Februari 2025</span>
+                <span class="" style="color: #ABABAB">10 Februari 2025</span>
             </div>
         </div>
     </div>

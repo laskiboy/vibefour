@@ -41,7 +41,7 @@
     {{-- end konten pertama --}}
 
     {{-- konten kedua --}}
-    <div class="d-flex flex-column align-items-center bg-dark vh-100 m-5">
+    <div class="d-flex flex-column align-items-center bg-dark m-5">
         <span class="fs-2 fw-bold span-title" style="color: #72B5F6;">Fitur Unggulan</span>
         <span class="mb-5 span-sub" style="color: #dbdbdb;">Kami menyediakan dua fitur unggulan dari produk kami</span>
         <div class="satu w-75 d-flex w-100 align-items-center mt-5 justify-content-around">

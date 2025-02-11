@@ -90,8 +90,8 @@
                     </li>
                     <li class="nav-item ms-3">
                         <button class="btn ms-3"
-                            style="background-color: #72B5F6; color: #FFF; border-radius: 20px; width: 100px;"><i
-                                class="fa-solid fa-user"></i> Masuk</button>
+                            style="background-color: #72B5F6; color: #FFF; border-radius: 20px; width: 120px;"><i
+                                class="fa-solid fa-user me-2"></i> Masuk</button>
                     </li>
                 </ul>
             </div>

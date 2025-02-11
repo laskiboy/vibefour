@@ -64,8 +64,8 @@
                     <a href="{{ url('/tentang') }}" class="footer-link">Tentang</a>
                     <a href="{{ url('/kontak') }}" class="footer-link">Kontak</a>
                     <a href="{{ url('/berita') }}" class="footer-link">Berita</a>
-                    <a href="{{ url('/tnc') }}" class="footer-link">Syarat dan Ketentuan</a>
-                    <a href="{{ url('/privacy') }}" class="footer-link">Kebijakan dan Privasi</a>
+                    <a href="{{ url('/tnc') }}" class="footer-link">Syarat & Ketentuan</a>
+                    <a href="{{ url('/privacy') }}" class="footer-link">Kebijakan & Privasi</a>
                     <a href="{{ url('/faq') }}" class="footer-link">F.A.Q</a>
                 </div>
             </div>

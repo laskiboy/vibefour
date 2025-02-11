@@ -18,6 +18,40 @@
         .tulisan {
             margin-top: -30px;
         }
+
+        .collapse-trigger {
+            position: relative;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .collapse-trigger.active::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0px;
+            width: 70%;
+            height: 5px;
+            background-color: #8854BB;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: underline-fade-slide 0.3s ease-in-out forwards;
+        }
+
+        @keyframes underline-fade-slide {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+
+            100% {
+                width: 70%;
+                opacity: 1;
+            }
+        }
     </style>
 
     {{-- konten pertama --}}
@@ -67,16 +101,16 @@
     <div class="bg-light vh-100 w-100 d-flex justify-content-around flex-row align-items-center">
         <div class="kiri-1 d-flex w-50 flex-column">
             <span class="fs-1 fw-bold mb-4" style="color: #000">Mengapa Memilih VibeFour?</span>
-            <div class="d-flex">
-                <button style="color: #000" data-bs-toggle="collapse" href="#multiCollapseExample1"
-                    class="fs-3 badge me-5 fw-bold mb-4" role="button" aria-expanded="true"
-                    aria-controls="multiCollapseExample1">1</button>
-                <button style="color: #000" data-bs-toggle="collapse" href="#multiCollapseExample2"
-                    class="fs-3 badge me-5 fw-bold mb-4" role="button" aria-expanded="false"
-                    aria-controls="multiCollapseExample2">2</button>
-                <button style="color: #000" data-bs-toggle="collapse" href="#multiCollapseExample3"
-                    class="fs-3 badge me-5 fw-bold mb-4" role="button" aria-expanded="false"
-                    aria-controls="multiCollapseExample3">3</button>
+            <div class="d-flex mb-3">
+                <p style="color: #8854BB" class="fw-bold me-5 fs-1 collapse-trigger active" data-bs-toggle="collapse"
+                    href="#multiCollapseExample1" class="fs-3 badge me-5 fw-bold mb-4" role="button" aria-expanded="true"
+                    aria-controls="multiCollapseExample1">1</p>
+                <p style="color: #8854BB" class="fw-bold me-5 fs-1 collapse-trigger" data-bs-toggle="collapse"
+                    href="#multiCollapseExample2" class="fs-3 badge me-5 fw-bold mb-4" role="button" aria-expanded="false"
+                    aria-controls="multiCollapseExample2">2</p>
+                <p style="color: #8854BB" class="fw-bold me-5 fs-1 collapse-trigger" data-bs-toggle="collapse"
+                    href="#multiCollapseExample3" class="fs-3 badge me-5 fw-bold mb-4" role="button" aria-expanded="false"
+                    aria-controls="multiCollapseExample3">3</p>
             </div>
 
             <div id="collapseGroup">
@@ -101,4 +135,16 @@
 
     {{-- footer --}}
     @include('layout.footer')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const triggers = document.querySelectorAll('.collapse-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function() {
+                    triggers.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
 @endsection

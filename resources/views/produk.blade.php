@@ -218,7 +218,7 @@
             </div>
             <div class="card bawah shadow p-5" style="width: 25rem; height: 14rem; border-radius: 20px;">
                 <i class="fa-solid fa-gears  fs-1 mb-4" style="color: #8854BB"></i>
-                <span class="fw-bold fs-5">Flexibelitas</span>
+                <span class="fw-bold fs-5">Fleksibelitas</span>
                 <span>Pembuat jadwal bisa menentukan jadwal mulai dari jam</span>
             </div>
             <div class="card kanan shadow p-5" style="width: 25rem; height: 14rem; border-radius: 20px;">
@@ -276,9 +276,7 @@
 
             triggers.forEach(trigger => {
                 trigger.addEventListener('click', function() {
-                    // Hapus class active dari semua trigger
                     triggers.forEach(t => t.classList.remove('active'));
-                    // Tambahkan class active ke trigger yang diklik
                     this.classList.add('active');
                 });
             });
