@@ -1,7 +1,7 @@
 @extends('layout.headerAsli')
 @section('konten')
-    <div class="container">
-        <p class="fs-2 fw-bold" style="color: #72B5F6; margin-top: 120px">Syarat & Ketentuan</p>
+    <div class="container w-75 p-5">
+        <p class="fs-2 fw-bold" style="color: #72B5F6; margin-top: 60px">Syarat & Ketentuan</p>
         <p class="mt-4" style="color: #ABABAB">Terakhir diperbarui 10 Februari 2025</p>
         <p class="mt-4">
             Selamat datang di VibeFour! Dengan menggunakan layanan kami, Anda menyetujui Syarat & Ketentuan
@@ -63,7 +63,7 @@
         </ol>
         <p class="mt-4 mb-5">
             Dengan menggunakan layanan VibeFour, Anda telah membaca, memahami, dan menyetujui Syarat & Ketentuan ini. Jika
-            Anda memiliki pertanyaan, silakan hubungi kami di <a href="{{url('kontak')}}">Kontak VibeFour</a>
+            Anda memiliki pertanyaan, silakan hubungi kami di <a href="{{ url('kontak') }}">Kontak VibeFour</a>
         </p>
     </div>
     {{-- footer --}}
