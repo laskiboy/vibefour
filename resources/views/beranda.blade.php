@@ -80,7 +80,7 @@
     {{-- end konten kedua --}}
 
     {{-- konten ketiga --}}
-    <div class="bg-light vh-100 d-flex justify-content-center flex-column align-items-center">
+    <div class="bg-white vh-100 d-flex justify-content-center flex-column align-items-center">
         <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 70px">Pencapaian Kami</span>
         <div class="cart w-100 d-flex justify-content-evenly">
             <div class="card-1 shadow d-flex justify-content-center align-items-center"
@@ -113,7 +113,7 @@
     {{-- end konten ketiga --}}
 
     {{-- konten keempat --}}
-    <div class="bg-light vh-100 d-flex justify-content-center flex-column align-items-center pb-5">
+    <div class="bg-white vh-100 d-flex justify-content-center flex-column align-items-center pb-5">
         <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 70px">Dokumentasi</span>
         <div class="container slide mt-5">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">

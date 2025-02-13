@@ -89,10 +89,10 @@
             src="{{ asset('img/to-do-list-3d-icon-download-in-png-blend-fbx-gltf-file-formats--clipboard-report-document-business-management-pack-icons-4056642.webp') }}"
             alt="">
         <div class="kiri-2 d-flex  flex-column" style="width: 500px">
-            <span class="fs-1 fw-bold mb-4" style="color: #000">Siapa Kami?</span>
-            <span class="fs-5">VibeFour adalah brand yang didedikasikan untuk menciptakan sistem voting dan penjadwalan
-                yang modern dan praktis. Dengan teknologi yang canggih dan user-friendly, kami membantu mempermudah
-                pengambilan keputusan dan pengelolaan jadwal secara lebih terorganisir.</span>
+            <span class="fs-1 fw-bold mb-4" style="color: #000">Misi Kami?</span>
+            <span class="fs-5">Di VibeFour, kami memiliki tujuan untuk mengubah acara biasa menjadi perayaan yang luar
+                biasa. Baik itu pernikahan, acara perusahaan, ulang tahun, atau momen spesial lainnya, misi kami adalah
+                menghadirkan acara yang meninggalkan kesan mendalam dan menciptakan kenangan indah.</span>
         </div>
     </div>
     {{-- end konten ketiga --}}
