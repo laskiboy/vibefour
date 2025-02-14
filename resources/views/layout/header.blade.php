@@ -57,7 +57,7 @@
     </style>
 </head>
 
-<body class="bg-dark">
+<body>
     <nav class="navbar navbar-expand-lg navbar-fixed p-3 shadow-sm">
         <div class="container-fluid mx-5">
             <a class="navbar-brand fs-4 fw-bold" href="#">VibeFour</a>
@@ -130,22 +130,22 @@
             reset: true,
             distance: '60px',
             duration: 1000,
-            delay: 400
+            delay: 200
         });
         ScrollReveal().reveal('.span-title, .span-sub, .oi, .slide', {
-            delay: 500,
+            delay: 100,
             origin: 'top'
         });
         ScrollReveal().reveal('.card-duwa', {
-            delay: 500,
+            delay: 100,
             origin: 'bottom'
         });
         ScrollReveal().reveal('.card, .fitur-2, .card-3, .gambar-1, .kiri-2', {
-            delay: 500,
+            delay: 100,
             origin: 'right'
         });
         ScrollReveal().reveal('.fitur, .card-2, .card-1, .gambar-2, .kiri-1', {
-            delay: 500,
+            delay: 100,
             origin: 'left'
         });
     </script>

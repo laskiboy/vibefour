@@ -107,22 +107,22 @@
             reset: true,
             distance: '60px',
             duration: 1000,
-            delay: 400
+            delay: 200
         });
         ScrollReveal().reveal('.span-title, .span-sub, .map, .atas', {
-            delay: 500,
+            delay: 100,
             origin: 'top'
         });
         ScrollReveal().reveal('.bawah', {
-            delay: 500,
+            delay: 100,
             origin: 'bottom'
         });
         ScrollReveal().reveal('.kanan', {
-            delay: 500,
+            delay: 100,
             origin: 'right'
         });
         ScrollReveal().reveal('.kiri', {
-            delay: 500,
+            delay: 100,
             origin: 'left'
         });
     </script>
