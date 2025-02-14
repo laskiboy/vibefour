@@ -97,7 +97,6 @@
                 </svg>
             </span>
             <div class="fitur kiri">
-                <span style="color: #72B5F6" class="fw-bold fs-5">Fitur Voting</span>
                 <div class="accordion custom-accordion" id="featureAccordion1">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne1">
@@ -261,10 +260,10 @@
     {{-- end konten kedua --}}
 
     {{-- konten ketiga --}}
-    <div class="bg-light d-flex justify-content-center flex-column align-items-center"
-        style="margin:200px 0; padding: 100px">
+    <div class="bg-light d-flex justify-content-center flex-column align-items-center" style="padding: 100px">
         <span class="fs-2 mb-3 fw-bold  span-title" style="color: #72B5F6;">Pencapaian Kami</span>
-        <span class="fs-5 w-75 span-title text-center" style="margin-bottom: 100px">Kami bangga telah membantu banyak pengguna dalam pengambilan
+        <span class="w-50 span-title text-center" style="margin-bottom: 100px">Kami bangga telah membantu banyak pengguna
+            dalam pengambilan
             keputusan dan manajemen jadwal
             yang lebih efektif.</span>
         <div class="d-flex justify-content-around">
@@ -296,47 +295,139 @@
     {{-- end konten ketiga --}}
 
     {{-- konten keempat --}}
-    <div class="bg-white vh-100 d-flex justify-content-center flex-column align-items-center pb-5">
-        <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 70px">Dokumentasi</span>
-        <div class="container slide mt-5">
-            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0"
-                        class="active"></button>
-                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
-                </div>
-
+    <div class="container d-flex justify-content-center flex-column align-item-center">
+        <span class="fs-2 fw-bold text-center span-title" style="color: #72B5F6; margin-top: 50px; margin-bottom: 30px">Fitur Unggulan</span>
+        <section class="py-5 bawah">
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img style="border-radius: 20px; object-fit: cover"
-                            src="{{ asset('img/dc3ac80641ce03d85fffcb9e0f96396a-ezgif.com-optiwebp.webp') }}"
-                            width="900" height="550" class="d-block w-100" alt="Slide 1">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="testimonial-content text-center">
+                                    <img src="{{ asset('img/jempol.png') }}" width="50" height="50"
+                                        alt="Budi Santoso" class="avatar mb-3 border border-2 rounded-circle">
+                                    <div class="ratings mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="lead">
+                                        "Layanan mereka luar biasa! Saya sangat puas dengan hasil yang diberikan dan akan
+                                        merekomendasikan kepada semua teman saya."
+                                    </p>
+                                    <p class="font-weight-bold text-primary">- Budi Santoso</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="carousel-item">
-                        <img style="border-radius: 20px; object-fit: cover"
-                            src="{{ asset('img/Mobile-Legends_Stage-Playoff-MPL-ID-S11.jpeg') }}" width="900"
-                            height="550" class="d-block w-100" alt="Slide 2">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="testimonial-content text-center">
+                                    <img src="{{ asset('img/jempol.png') }}" width="50" height="50"
+                                        alt="Dewi Kusuma" class="avatar mb-3 border border-2 rounded-circle">
+                                    <div class="ratings mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <p class="lead">
+                                        "Produk yang saya beli tahan lama dan sesuai dengan ekspektasi. Customer service
+                                        mereka juga sangat responsif dalam menjawab pertanyaan saya."
+                                    </p>
+                                    <p class="font-weight-bold text-primary">- Dewi Kusuma</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="carousel-item">
-                        <img style="border-radius: 20px; object-fit: cover" src="{{ asset('img/CAP01310.jpg') }}"
-                            width="900" height="550" class="d-block w-100" alt="Slide 3">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="testimonial-content text-center">
+                                    <img src="{{ asset('img/jempol.png') }}" width="50" height="50"
+                                        alt="PT Maju Bersama" class="avatar mb-3 border border-2 rounded-circle">
+                                    <div class="ratings mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="lead">
+                                        "Sebagai perusahaan yang telah bekerja sama selama 3 tahun, kami selalu mendapatkan
+                                        pelayanan profesional dan hasil yang konsisten."
+                                    </p>
+                                    <p class="font-weight-bold text-primary">- PT Maju Bersama</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
                     data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
+                <button class="carousel-control-next" type="button" class="btn-dark"
+                    data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-        </div>
+        </section>
     </div>
+    <style>
+        /* Ganti ikon next dan prev */
+        .carousel-control-next-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);transform: ;msFilter:;'%3E%3Cpath d='M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: 24px;
+            background-color: transparent;
+            padding: 1rem;
+        }
+
+        .carousel-control-prev-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);transform: ;msFilter:;'%3E%3Cpath d='M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: 24px;
+            background-color: transparent;
+            padding: 1rem;
+        }
+
+        .carousel-control-next,
+        .carousel-control-prev {
+            background-color: #72B5F6;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            top: calc(50% - 20px);
+            opacity: 0.8;
+        }
+
+        .carousel-control-next {
+            right: 20px;
+        }
+
+        .carousel-control-prev {
+            left: 20px;
+        }
+
+        .carousel-control-next:hover,
+        .carousel-control-prev:hover {
+            opacity: 1;
+            background-color: #48a4ff;
+        }
+    </style>
+    <script>
+        var testimonialCarousel = new bootstrap.Carousel(document.getElementById('testimonialCarousel'), {
+            interval: 5000
+        });
+    </script>
     {{-- end konten keempat --}}
 
     {{-- footer --}}
