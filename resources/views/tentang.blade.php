@@ -1,4 +1,4 @@
-@extends('layout.header')
+@extends('layout.headerAsli')
 @section('konten')
     <style>
         .bg-image {
@@ -55,40 +55,50 @@
     </style>
 
     {{-- konten pertama --}}
-    <div class="conten-satu">
-        <div class="content-wrapper vh-100 w-100">
-            <div class="bg-image"></div>
-
-            <div class="position-fixed top-50 oi start-50 translate-middle text-white text-center tulisan">
-                <span style="color: #72B5F6" class="fw-bold fs-1">VibeFour</span><br><span style="color: #FFF"
-                    class="fw-bold fs-4">Mengubah Setiap Mimpi dan Ide Menjadi Perayaan Tak Terlupakan yang Penuh
-                    Makna</span>
-            </div>
+    <div class="bg-white vh-100 w-100 d-flex justify-content-around flex-column align-items-center">
+        <div class="text w-75 d-flex justify-content-around flex-column align-items-center">
+            <span class="atas px-2 py-1 rounded-pill text-primary" style="background-color: rgba(114, 181, 246, 0.4);">Tentang
+                Kami
+                VibeFour</span>
+            <h1 class="atas mt-4 text-center" style="font-weight: 600; font-size: 4em">Memudahkan voting dan penjadwalan</h1>
+            <p class="bawah text-center mt-5" style="width: 45rem">VibeFour hadir sebagai solusi modern dalam pengelolaan
+                voting
+                digital dan penjadwalan
+                acara.
+                Dengan
+                teknologi canggih dan sistem yang aman, kami membantu individu, komunitas, dan organisasi dalam membuat
+                keputusan yang lebih efisien.</p style="width: 40rem">
+            <a href="{{ route('login') }}">
+                <button class="bawah btn shadow mt-4"
+                    style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px">
+                    Masuk</button>
+            </a>
         </div>
     </div>
     {{-- end konten pertama --}}
 
     {{-- konten kedua --}}
-    <div class="bg-dark vh-100 w-100 d-flex justify-content-around flex-row align-items-center">
-        <div class="kiri-1 d-flex w-50 flex-column">
-            <span class="fs-1 fw-bold mb-4" style="color: #fff">Tentang Kami</span>
-            <span class="fs-5 text-light w-75">Selamat datang di VibeFour, platform inovatif yang menghadirkan solusi cerdas
+    <div class="bg-white vh-100 w-100 d-flex justify-content-around flex-row align-items-center">
+        <div class="kiri d-flex w-50 flex-column">
+            <span class="fs-1 fw-bold mb-4" style="color: #000">Tentang Kami</span>
+            <span class="fs-5 w-75">Selamat datang di VibeFour, platform inovatif yang menghadirkan solusi
+                cerdas
                 dalam
                 pengaplikasian voting dan penjadwalan. Kami hadir untuk memberikan pengalaman yang lebih efisien,
                 transparan,
                 dan mudah digunakan dalam berbagai kebutuhan, mulai dari event organizer, komunitas, hingga
                 perusahaan.</span>
         </div>
-        <img class="gambar-1" src="{{ asset('img/building-3d-render-icon-illustration-png.webp') }}" alt="">
+        <img class="kanan" src="{{ asset('img/building-3d-render-icon-illustration-png.webp') }}" alt="">
     </div>
     {{-- end konten kedua --}}
 
     {{-- konten ketiga --}}
-    <div class="bg-light vh-100 d-flex justify-content-around flex-row align-items-center">
-        <img class="gambar-2"
+    <div class="bg-white vh-100 d-flex justify-content-around flex-row align-items-center">
+        <img class="kiri"
             src="{{ asset('img/to-do-list-3d-icon-download-in-png-blend-fbx-gltf-file-formats--clipboard-report-document-business-management-pack-icons-4056642.webp') }}"
             alt="">
-        <div class="kiri-2 d-flex  flex-column" style="width: 500px">
+        <div class="kanan d-flex  flex-column" style="width: 500px">
             <span class="fs-1 fw-bold mb-4" style="color: #000">Misi Kami?</span>
             <span class="fs-5">Di VibeFour, kami memiliki tujuan untuk mengubah acara biasa menjadi perayaan yang luar
                 biasa. Baik itu pernikahan, acara perusahaan, ulang tahun, atau momen spesial lainnya, misi kami adalah
@@ -98,8 +108,8 @@
     {{-- end konten ketiga --}}
 
     {{-- konten keempat --}}
-    <div class="bg-light vh-100 w-100 d-flex justify-content-around flex-row align-items-center">
-        <div class="kiri-1 d-flex w-50 flex-column">
+    <div class="bg-white vh-100 w-100 d-flex justify-content-around flex-row align-items-center">
+        <div class="kiri d-flex w-50 flex-column">
             <span class="fs-1 fw-bold mb-4" style="color: #000">Mengapa Memilih VibeFour?</span>
             <div class="d-flex mb-3">
                 <p style="color: #8854BB" class="fw-bold me-5 fs-1 collapse-trigger active" data-bs-toggle="collapse"
@@ -115,7 +125,8 @@
 
             <div id="collapseGroup">
                 <div class="collapse multi-collapse show" id="multiCollapseExample1" data-bs-parent="#collapseGroup">
-                    <span class="fs-5 w-75">Mudah Digunakan : Antarmuka yang intuitif untuk pengalaman pengguna yang lebih
+                    <span class="fs-5 w-75">Mudah Digunakan : Antarmuka yang intuitif untuk pengalaman pengguna yang
+                        lebih
                         baik.</span>
                 </div>
                 <div class="collapse multi-collapse" id="multiCollapseExample2" data-bs-parent="#collapseGroup">
@@ -128,8 +139,7 @@
                 </div>
             </div>
         </div>
-
-        <img class="gambar-1" src="{{ asset('img/image.png') }}" width="300" alt="">
+        <img class="kanan" src="{{ asset('img/image.png') }}" width="300" alt="">
     </div>
     {{-- end konten keempat --}}
 

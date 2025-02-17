@@ -48,7 +48,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-fixed p-3 shadow-sm">
         <div class="container-fluid mx-5">
-            <a class="navbar-brand fs-4 fw-bold" href="/">VibeFour</a>
+            <a class="navbar-brand fs-4 fw-bold" href="{{ route('beranda') }}">VibeFour</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -57,19 +57,19 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item ms-3">
                         <a class="nav-link {{ Request::is('/') ? 'active' : '' }}"
-                            href="{{ url('/') }}">Beranda</a>
+                            href="{{ route('beranda') }}">Beranda</a>
                     </li>
                     <li class="nav-item ms-3">
                         <a class="nav-link {{ Request::is('produk') ? 'active' : '' }}"
-                            href="{{ url('/produk') }}">Produk</a>
+                            href="{{ route('produk') }}">Produk</a>
                     </li>
                     <li class="nav-item ms-3">
                         <a class="nav-link {{ Request::is('tentang') ? 'active' : '' }}"
-                            href="{{ url('/tentang') }}">Tentang</a>
+                            href="{{ route('tentang') }}">Tentang</a>
                     </li>
                     <li class="nav-item ms-3">
                         <a class="nav-link {{ Request::is('kontak') ? 'active' : '' }}"
-                            href="{{ url('/kontak') }}">Kontak</a>
+                            href="{{ route('kontak') }}">Kontak</a>
                     </li>
                     <li class="nav-item dropdown ms-3">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
@@ -89,9 +89,11 @@
                         </ul>
                     </li>
                     <li class="nav-item ms-3">
-                        <button class="btn ms-3"
-                            style="background-color: #72B5F6; color: #FFF; border-radius: 20px; width: 120px;"><i
-                                class="fa-solid fa-user me-2"></i> Masuk</button>
+                        <a href="{{ route('login') }}">
+                            <button class="btn ms-3"
+                                style="background-color: #72B5F6; color: #FFF; border-radius: 20px; width: 120px;"><i
+                                    class="fa-solid fa-user me-2"></i> Masuk</button>
+                        </a>
                     </li>
                 </ul>
             </div>

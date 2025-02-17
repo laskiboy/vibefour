@@ -15,7 +15,6 @@
     .active {
         display: block;
     }
-
 </style>
 <div class="slideshow-container kanan">
     <img class="slides active" src="{{ asset('img/penjadwalan.png') }}" alt="">

@@ -115,6 +115,15 @@
                 opacity: 1;
             }
         }
+
+        .kartu {
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .kartu:hover {
+            transform: translateY(-20px) !important;
+        }
     </style>
 
     {{-- konten pertama --}}
@@ -122,17 +131,17 @@
         <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 20px; margin-top: 140px;">Voting</span>
         <span class="mb-5 fs-4 fw-bold span-sub" style="color: #000;">Keunggulan Produk Kami</span>
         <div class="d-flex flex-row justify-content-evenly w-100" style="margin-bottom: 7rem">
-            <div class="card kiri shadow p-5" style="width: 25rem; height: 14rem; border-radius: 20px;">
+            <div class="card kiri shadow p-5 kartu" style="width: 25rem; height: 14rem; border-radius: 20px;">
                 <i class="fa-solid fa-lock fs-1 mb-4" style="color: #72B5F6"></i>
                 <span class="fw-bold fs-5">Keamanan Voting</span>
                 <span>Pembuat vote bisa menambahkan kode room </span>
             </div>
-            <div class="card bawah shadow p-5" style="width: 25rem; height: 14rem; border-radius: 20px;">
+            <div class="card bawah shadow p-5 kartu" style="width: 25rem; height: 14rem; border-radius: 20px;">
                 <i class="fa-solid fa-clock fs-1 mb-4" style="color: #72B5F6"></i>
                 <span class="fw-bold fs-5">Kurun Waktu</span>
                 <span>Dengan adanya fitur ini pembuat voting bisa membatasi waktu voting</span>
             </div>
-            <div class="card kanan shadow p-5" style="width: 25rem; height: 14rem; border-radius: 20px;">
+            <div class="card kanan shadow p-5 kartu" style="width: 25rem; height: 14rem; border-radius: 20px;">
                 <i class="fa-solid fa-filter fs-1 mb-4" style="color: #72B5F6"></i>
                 <span class="fw-bold fs-5">Filterisasi Vote</span>
                 <span>Fitur ini memudahkan pembuat vote menyeleksi vote</span>
@@ -211,17 +220,17 @@
             style="color: #8854BB; margin-bottom: 20px; margin-top: 140px;">Penjadwalan</span>
         <span class="mb-5 fs-4 fw-bold span-sub" style="color: #000;">Keunggulan Produk Kami</span>
         <div class="d-flex flex-row justify-content-evenly w-100" style="margin-bottom: 7rem">
-            <div class="card kiri shadow p-5" style="width: 25rem; height: 14rem; border-radius: 20px;">
+            <div class="card kiri shadow p-5 kartu" style="width: 25rem; height: 14rem; border-radius: 20px;">
                 <i class="fa-solid fa-users fs-1 mb-4" style="color: #8854BB"></i>
                 <span class="fw-bold fs-5">Pembuatan Group</span>
                 <span>Fitur ini memudahkan komunikasi antara pembuat jadwal dan anggota</span>
             </div>
-            <div class="card bawah shadow p-5" style="width: 25rem; height: 14rem; border-radius: 20px;">
+            <div class="card bawah shadow p-5 kartu" style="width: 25rem; height: 14rem; border-radius: 20px;">
                 <i class="fa-solid fa-gears  fs-1 mb-4" style="color: #8854BB"></i>
                 <span class="fw-bold fs-5">Fleksibelitas</span>
                 <span>Pembuat jadwal bisa menentukan jadwal mulai dari jam</span>
             </div>
-            <div class="card kanan shadow p-5" style="width: 25rem; height: 14rem; border-radius: 20px;">
+            <div class="card kanan shadow p-5 kartu" style="width: 25rem; height: 14rem; border-radius: 20px;">
                 <i class="fa-solid fa-check-to-slot fs-1 mb-4" style="color: #8854BB"></i>
                 <span class="fw-bold fs-5">Konfirmasi Cepat</span>
                 <span>Pembuat jadwal bisa membuat pertemuan tanpa menunggu</span>

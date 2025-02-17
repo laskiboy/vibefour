@@ -61,12 +61,12 @@
 
                 <div class="col-md-2 mb-4 ms-0">
                     <h5 class="mb-4">Perusahaan</h5>
-                    <a href="{{ url('/tentang') }}" class="footer-link">Tentang</a>
-                    <a href="{{ url('/kontak') }}" class="footer-link">Kontak</a>
-                    <a href="{{ url('/berita') }}" class="footer-link">Berita</a>
-                    <a href="{{ url('/tnc') }}" class="footer-link">Syarat & Ketentuan</a>
-                    <a href="{{ url('/privacy') }}" class="footer-link">Kebijakan & Privasi</a>
-                    <a href="{{ url('/faq') }}" class="footer-link">F.A.Q</a>
+                    <a href="{{ route('tentang') }}" class="footer-link">Tentang</a>
+                    <a href="{{ route('kontak') }}" class="footer-link">Kontak</a>
+                    <a href="{{ route('berita') }}" class="footer-link">Berita</a>
+                    <a href="{{ route('tnc') }}" class="footer-link">Syarat & Ketentuan</a>
+                    <a href="{{ route('privasi') }}" class="footer-link">Kebijakan & Privasi</a>
+                    <a href="{{ route('faq') }}" class="footer-link">F.A.Q</a>
                 </div>
             </div>
         </div>

@@ -111,9 +111,11 @@
             <h1 class="kiri" style="color: #000; margin-bottom: 30px; font-weight: 600; font-size: 4em">To Everyone
             </h1>
             <span class="fs-5 kanan">Solusi Voting & Penjadwalan Tanpa Ribet!</span>
-            <button class="bawah btn shadow mb-3 mt-5"
-                style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px">
-                Masuk</button>
+            <a href="{{ route('login') }}">
+                <button class="bawah btn shadow mb-3 mt-5"
+                    style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px">
+                    Masuk</button>
+            </a>
         </div>
         @include('layout.slideshowHome')
         <span class="kanan" style="position: absolute; right: 0; margin-right: 100px">
@@ -276,7 +278,7 @@
     {{-- end konten ketiga --}}
 
     {{-- konten keempat --}}
-    <div class="container d-flex justify-content-center flex-column align-item-center">
+    <div class="container d-flex justify-content-center flex-column align-item-center" style="height: 30rem">
         <span class="fs-2 fw-bold text-center span-title"
             style="color: #72B5F6; margin-top: 50px; margin-bottom: 30px">Apa Kata Mereka?</span>
         <section class="py-5 bawah">
