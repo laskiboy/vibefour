@@ -4,13 +4,13 @@
         <div class="form-container position-relative" style="width: 75%; height: 70%; margin-top: 70px;">
             <div class="daftar card shadow-sm d-flex flex-row overflow-hidden w-100 h-100" style="border-radius: 20px;">
                 <div class="left w-50 h-100 d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Perbarui Kata Sandi</h2>
+                    <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Buat Kata Sandi</h2>
                     <span class="w-75 mb-2">Masukkan kata sandi baru anda dengan ketentuan :</span>
-                    <ul class="mb-4" style="margin-left: -30px">
+                    <ul class="mb-4" style="margin-left: -75px">
                         <li>Minimal terdiri dani 8 karakter</li>
-                        <li>Mengandung minimal 1 huruf kapital</li>
-                        <li>Mengandung minimal 1 huruf kecil</li>
-                        <li>Mengandung minimal 1 huruf digit angka</li>
+                        {{-- <li>Mengandung minimal 1 huruf kapital</li>
+                        <li>Mengandung minimal 1 huruf kecil</li> --}}
+                        <li>Mengandung minimal 1 digit angka</li>
                     </ul>
                     <div class="mb-4 w-75">
                         <input type="password" class="ps-3 form-control" placeholder="Masukkan Password">
@@ -21,7 +21,7 @@
                     <a class="btn mb-4 w-75"
                         style="text-decoration: none; color: #fff; background-color: #8854BB; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
                         href="{{ route('login') }}">
-                        Perbarui Kata Sandi
+                        Buat Kata Sandi
                     </a>
                 </div>
                 <div id="register-img-div"

@@ -124,34 +124,58 @@
         .kartu:hover {
             transform: translateY(-20px) !important;
         }
+
+        .modal-dialog {
+            height: 90%;
+        }
+
+        .modal-content {
+            height: 65%;
+        }
     </style>
 
     {{-- konten pertama --}}
-    <div class="bg-light w-100 d-flex justify-content-around flex-column align-items-center">
-        <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 20px; margin-top: 140px;">Voting</span>
-        <span class="mb-5 fs-4 fw-bold span-sub" style="color: #000;">Keunggulan Produk Kami</span>
-        <div class="d-flex flex-row justify-content-evenly w-100" style="margin-bottom: 7rem">
-            <div class="card kiri shadow p-5 kartu" style="width: 25rem; height: 14rem; border-radius: 20px;">
-                <i class="fa-solid fa-lock fs-1 mb-4" style="color: #72B5F6"></i>
-                <span class="fw-bold fs-5">Keamanan Voting</span>
-                <span>Pembuat vote bisa menambahkan kode room </span>
+    <div class="bg-white w-100 vh-100 d-flex justify-content-evenly flex-row align-items-center">
+        <div class="left w-50 ms-5">
+            <div class="w-75 mb-5 mt-5 atas">
+                <span style="color: #000; font-weight: 600; font-size: 4em;">Apa Itu Sistem Voting
+                    VibeFour?</span><br>
             </div>
-            <div class="card bawah shadow p-5 kartu" style="width: 25rem; height: 14rem; border-radius: 20px;">
-                <i class="fa-solid fa-clock fs-1 mb-4" style="color: #72B5F6"></i>
-                <span class="fw-bold fs-5">Kurun Waktu</span>
-                <span>Dengan adanya fitur ini pembuat voting bisa membatasi waktu voting</span>
+            <div class="kiri" style="width: 90%">
+                <span>VibeFour menghadirkan solusi voting digital yang cepat, aman, dan transparan, memungkinkan
+                    organisasi,
+                    komunitas, dan acara untuk mengelola pemungutan suara dengan efisien. Dengan sistem yang dirancang untuk
+                    berbagai kebutuhan, kami memastikan bahwa setiap suara dihitung secara adil dan akurat.</span>
             </div>
-            <div class="card kanan shadow p-5 kartu" style="width: 25rem; height: 14rem; border-radius: 20px;">
-                <i class="fa-solid fa-filter fs-1 mb-4" style="color: #72B5F6"></i>
-                <span class="fw-bold fs-5">Filterisasi Vote</span>
-                <span>Fitur ini memudahkan pembuat vote menyeleksi vote</span>
+            <div class="tombol">
+                <button href="{{ route('login') }}" class="bawah btn shadow mb-3 mt-5"
+                    style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 250px; height: 50px">
+                    Coba Fitur</button>
+                <button type="button" class="bawah btn btn-secondary shadow ms-4 mb-3 mt-5" data-bs-toggle="modal"
+                    data-bs-target="#modalVideo" style="border-radius: 20px; width: 200px; height: 50px"><i
+                        class="fa-regular fa-circle-play me-2 fs-5"></i> Lihat Tutorial</button>
+                <div class="modal fade" id="modalVideo" tabindex="-1" aria-labelledby="modalVideoLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-body d-flex justify-content-center align-items-center">
+                                <video controls style="width: 100%" src="{{ asset('img/video.mp4') }}"></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <img class="shadow-lg mt-5 kanan" src="{{ asset('img/votingan.png') }}"
+            style="border-radius: 20px; width: 500px; z-index: 1" alt="voting">
+        <span class="kanan mt-5" style="position: absolute; right: 0; margin-right: 20px;">
+            <img width="450" src="{{ asset('img/svg.gif') }}" alt="">
+        </span>
     </div>
     {{-- end konten pertama --}}
 
     {{-- konten kedua --}}
-    <div class="w-100 d-flex justify-content-around flex-column align-items-center" style="background-color: #E8F4FF">
+    <div class="w-100 vh-100 d-flex justify-content-around flex-column align-items-center"
+        style="background-color: #E8F4FF">
         <span class="mb-5 mt-5 fs-4 fw-bold span-sub" style="color: #000;">Panduan Voting</span>
         <div class="card bawah shadow mb-5 p-5" style="width: 90%; border-radius: 20px; ">
             <div class="head d-flex justify-content-around" style="color: #72B5F6">
@@ -215,7 +239,7 @@
     {{-- end konten kedua --}}
 
     {{-- konten ketiga --}}
-    <div class="bg-light w-100 d-flex justify-content-around flex-column align-items-center">
+    <div class="bg-white w-100 d-flex justify-content-around flex-column align-items-center">
         <span class="fs-2 fw-bold  span-title"
             style="color: #8854BB; margin-bottom: 20px; margin-top: 140px;">Penjadwalan</span>
         <span class="mb-5 fs-4 fw-bold span-sub" style="color: #000;">Keunggulan Produk Kami</span>
@@ -247,15 +271,15 @@
                 <p class="fw-bold">Membuat Penjadwalan</p>
             </div>
             <div class="maincard d-flex justify-content-around mt-5 mb-3">
-                <div class="card kiri" style="border-radius: 20px; width: 20%; height: 13rem;">
+                <div class="card shadow-sm kiri" style="border-radius: 20px; width: 20%; height: 13rem;">
                     <img style="border-radius: 20px; width: 100%; height: 13rem;" src="{{ asset('img/jadwal1.PNG') }}"
                         alt="">
                 </div>
-                <div class="card bawah" style="border-radius: 20px; width: 20%; height: 13rem;">
+                <div class="card shadow-sm bawah" style="border-radius: 20px; width: 20%; height: 13rem;">
                     <img style="border-radius: 20px; width: 100%; height: 13rem;" src="{{ asset('img/jadwal2.PNG') }}"
                         alt="">
                 </div>
-                <div class="card kanan" style="border-radius: 20px; width: 20%; height: 13rem;">
+                <div class="card shadow-sm kanan" style="border-radius: 20px; width: 20%; height: 13rem;">
                     <img style="border-radius: 20px; width: 100%; height: 13rem;" src="{{ asset('img/jadwal3.PNG') }}"
                         alt="">
                 </div>
@@ -278,7 +302,7 @@
     {{-- end konten keempat --}}
 
     {{-- konten kelima --}}
-    <div class="bg-light vh-100 d-flex justify-content-center flex-column align-items-center">
+    <div class="bg-white vh-100 d-flex justify-content-center flex-column align-items-center">
         <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 70px">Bergabung Bersama
             VibeFour</span>
 
