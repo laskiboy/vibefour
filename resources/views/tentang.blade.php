@@ -52,6 +52,19 @@
                 opacity: 1;
             }
         }
+
+        .keunggulan-card {
+            transition: 0.3s;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .keunggulan-card:hover {
+            background: #f8f9fa;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 
     {{-- konten pertama --}}
@@ -78,70 +91,80 @@
     {{-- end konten pertama --}}
 
     {{-- konten kedua --}}
-    <div class="bg-white vh-100 w-100 d-flex justify-content-around flex-row align-items-center">
-        <div class="kiri d-flex w-50 flex-column">
-            <span class="fs-1 fw-bold mb-4" style="color: #000">Tentang Kami</span>
-            <span class="fs-5 w-75">Selamat datang di VibeFour, platform inovatif yang menghadirkan solusi
-                cerdas
-                dalam
-                pengaplikasian voting dan penjadwalan. Kami hadir untuk memberikan pengalaman yang lebih efisien,
-                transparan,
-                dan mudah digunakan dalam berbagai kebutuhan, mulai dari event organizer, komunitas, hingga
-                perusahaan.</span>
-        </div>
-        <img class="kanan" src="{{ asset('img/building-3d-render-icon-illustration-png.webp') }}" alt="">
+    <div class="bg-white atas w-100 d-flex justify-content-around flex-column align-items-center" style="margin-bottom: 150px;">
+        <span class="fs-1 fw-bold mb-4" style="color: #000">Tentang Kami</span>
+        <span class="fs-5 w-75 text-center">VibeFour adalah platform digital yang menyediakan sistem voting dan penjadwalan
+            otomatis
+            untuk memudahkan organisasi dan komunitas dalam mengambil keputusan dan mengelola acara.</span>
     </div>
     {{-- end konten kedua --}}
 
     {{-- konten ketiga --}}
-    <div class="bg-white vh-100 d-flex justify-content-around flex-row align-items-center">
-        <img class="kiri"
-            src="{{ asset('img/to-do-list-3d-icon-download-in-png-blend-fbx-gltf-file-formats--clipboard-report-document-business-management-pack-icons-4056642.webp') }}"
-            alt="">
-        <div class="kanan d-flex  flex-column" style="width: 500px">
-            <span class="fs-1 fw-bold mb-4" style="color: #000">Misi Kami?</span>
-            <span class="fs-5">Di VibeFour, kami memiliki tujuan untuk mengubah acara biasa menjadi perayaan yang luar
-                biasa. Baik itu pernikahan, acara perusahaan, ulang tahun, atau momen spesial lainnya, misi kami adalah
-                menghadirkan acara yang meninggalkan kesan mendalam dan menciptakan kenangan indah.</span>
+    <div class="bg-white d-flex justify-content-around flex-row align-items-center" style="margin-bottom: 150px">
+        <div class="kiri d-flex flex-column text-center" style="width: 500px">
+            <span class="fs-3 fw-bold mb-4" style="color: #000">Voting Digital</span>
+            <span class="fs-5">Sistem voting yang efisien, aman, dan ramah lingkungan!</span>
+        </div>
+        <div class="kanan d-flex flex-column text-center" style="width: 500px">
+            <span class="fs-3 fw-bold mb-4" style="color: #000">Penjadwalan Cerdas</span>
+            <span class="fs-5">Sistem pengelolaan jadwal yang lebih rapi, cepat, dan efisien!</span>
         </div>
     </div>
     {{-- end konten ketiga --}}
 
     {{-- konten keempat --}}
-    <div class="bg-white vh-100 w-100 d-flex justify-content-around flex-row align-items-center">
-        <div class="kiri d-flex w-50 flex-column">
-            <span class="fs-1 fw-bold mb-4" style="color: #000">Mengapa Memilih VibeFour?</span>
-            <div class="d-flex mb-3">
-                <p style="color: #8854BB" class="fw-bold me-5 fs-1 collapse-trigger active" data-bs-toggle="collapse"
-                    href="#multiCollapseExample1" class="fs-3 badge me-5 fw-bold mb-4" role="button" aria-expanded="true"
-                    aria-controls="multiCollapseExample1">1</p>
-                <p style="color: #8854BB" class="fw-bold me-5 fs-1 collapse-trigger" data-bs-toggle="collapse"
-                    href="#multiCollapseExample2" class="fs-3 badge me-5 fw-bold mb-4" role="button" aria-expanded="false"
-                    aria-controls="multiCollapseExample2">2</p>
-                <p style="color: #8854BB" class="fw-bold me-5 fs-1 collapse-trigger" data-bs-toggle="collapse"
-                    href="#multiCollapseExample3" class="fs-3 badge me-5 fw-bold mb-4" role="button" aria-expanded="false"
-                    aria-controls="multiCollapseExample3">3</p>
+    <div class="bg-light w-100 mt-5 d-flex justify-content-around flex-column align-items-center" style="padding: 80px 0">
+        <h2 class="fw-bold mb-4 atas">Visi & Misi Kami</h2>
+        <div class="w-75 text-center">
+            <div class="atas bg-white p-4 shadow rounded bg-white text-dark">
+                <h4 class="fw-bold">Visi</h4>
+                <p>Menjadi platform digital terdepan dalam voting dan penjadwalan yang efisien dan transparan.
+                </p>
             </div>
+        </div>
+        <div class="d-flex w-75 justify-content-between mt-4 text-center">
+            <div style="width: 49%" class="kiri p-3 border rounded shadow-sm bg-white">
+                <h5 class="mt-2">Kolaboratif</h5>
+                <p>Meningkatkan efisiensi kerja dengan teknologi modern.</p>
+            </div>
+            <div style="width: 49%" class="kanan p-3 border rounded shadow-sm bg-white">
+                <h5 class="mt-2">Keamanan</h5>
+                <p>Menjamin data pengguna tetap aman dan terlindungi.</p>
+            </div>
+        </div>
+    </div>
+    {{-- end konten keempat --}}
 
-            <div id="collapseGroup">
-                <div class="collapse multi-collapse show" id="multiCollapseExample1" data-bs-parent="#collapseGroup">
-                    <span class="fs-5 w-75">Mudah Digunakan : Antarmuka yang intuitif untuk pengalaman pengguna yang
-                        lebih
-                        baik.</span>
+    {{-- konten kelima --}}
+    <section class="keunggulan-section text-center" style="padding: 80px 0">
+        <div class="container">
+            <h2 class="atas fw-bold mb-5">Keunggulan VibeFour</h2>
+            <div class="row">
+                <div class="kiri col-md-4">
+                    <div class="keunggulan-card">
+                        <i class="fas fa-clock fa-3x"></i>
+                        <h5 class="mt-3">Cepat & Mudah</h5>
+                        <p>Proses voting dan penjadwalan hanya dalam hitungan detik.</p>
+                    </div>
                 </div>
-                <div class="collapse multi-collapse" id="multiCollapseExample2" data-bs-parent="#collapseGroup">
-                    <span class="fs-5 w-75">Akurat & Transparan : Data yang valid dan terpercaya untuk proses yang
-                        adil.</span>
+                <div class="bawah col-md-4">
+                    <div class="keunggulan-card">
+                        <i class="fas fa-user-lock fa-3x"></i>
+                        <h5 class="mt-3">Aman & Transparan</h5>
+                        <p>Data terlindungi dengan enkripsi tingkat tinggi.</p>
+                    </div>
                 </div>
-                <div class="collapse multi-collapse" id="multiCollapseExample3" data-bs-parent="#collapseGroup">
-                    <span class="fs-5 w-75">Fleksibel & Adaptif : Cocok untuk berbagai kebutuhan, baik personal maupun
-                        profesional.</span>
+                <div class="kanan col-md-4">
+                    <div class="keunggulan-card">
+                        <i class="fas fa-thumbs-up fa-3x"></i>
+                        <h5 class="mt-3">Terpercaya</h5>
+                        <p>Dipercaya oleh berbagai organisasi dan komunitas.</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <img class="kanan" src="{{ asset('img/image.png') }}" width="300" alt="">
-    </div>
-    {{-- end konten keempat --}}
+    </section>
+    {{-- end konten kelima --}}
 
     {{-- footer --}}
     @include('layout.footer')

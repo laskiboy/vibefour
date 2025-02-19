@@ -22,9 +22,12 @@ Route::get('/tentang', function () {
 Route::get('/kontak', function () {
     return view('kontak');
 })->name('kontak');
-Route::get('/produk', function () {
-    return view('produk');
-})->name('produk');
+Route::get('/produk-voting', function () {
+    return view('produkVote');
+})->name('produk-voting');
+Route::get('/produk-penjadwalan', function () {
+    return view('produkPenjadwalan');
+})->name('produk-penjadwalan');
 Route::get('/berita', function () {
     return view('berita');
 })->name('berita');

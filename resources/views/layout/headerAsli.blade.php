@@ -59,9 +59,17 @@
                         <a class="nav-link {{ Request::is('/') ? 'active' : '' }}"
                             href="{{ route('beranda') }}">Beranda</a>
                     </li>
-                    <li class="nav-item ms-3">
-                        <a class="nav-link {{ Request::is('produk') ? 'active' : '' }}"
-                            href="{{ route('produk') }}">Produk</a>
+                    <li class="nav-item dropdown ms-3">
+                        <a class="nav-link dropdown-toggle" href="#" id="produkDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Produk
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="produkDropdown">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('produk-voting') }}">Voting</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{ route('produk-penjadwalan') }}">Penjadwalan</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item ms-3">
                         <a class="nav-link {{ Request::is('tentang') ? 'active' : '' }}"
