@@ -9,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -42,6 +43,68 @@
             color: #72B5F6 !important;
             font-weight: 500;
         }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                text-align: left !important;
+                margin-top: 20px !important;
+            }
+
+            .navbar {
+                justify-content: start !important;
+                padding: 20px !important;
+            }
+
+            .nav-item {
+                margin-bottom: 10px !important;
+            }
+
+            .nav-link,
+            .dropdown-item {
+                font-size: 20px !important;
+            }
+
+            .container-fluid {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .btn-login {
+                width: 100% !important;
+                padding: 8px 15px !important;
+                font-size: 20px !important;
+            }
+
+            .navbar-brand {
+                font-size: 27px !important;
+                padding-left: 15px !important;
+                font-weight: 600 !important;
+            }
+
+            .fa-bars{
+                font-size: 27px !important;
+                padding-left: 15px !important;
+            }
+
+            .navbar-toggler {
+                border: none !important;
+                outline: none !important;
+            }
+
+            .navbar-toggler:focus {
+                box-shadow: none !important;
+            }
+
+            #languageDropdown {
+                margin-bottom: 20px;
+            }
+
+            #languageDropdown img,
+            {
+            width: 30px !important;
+            height: 30px !important;
+        }
+        }
     </style>
 </head>
 
@@ -51,7 +114,7 @@
             <a class="navbar-brand fs-4 fw-bold" href="{{ route('beranda') }}">VibeFour</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="fa-solid fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -98,7 +161,7 @@
                     </li>
                     <li class="nav-item ms-3">
                         <a href="{{ route('login') }}">
-                            <button class="btn ms-3"
+                            <button class="btn btn-login"
                                 style="background-color: #72B5F6; color: #FFF; border-radius: 20px; width: 120px;"><i
                                     class="fa-solid fa-user me-2"></i> Masuk</button>
                         </a>

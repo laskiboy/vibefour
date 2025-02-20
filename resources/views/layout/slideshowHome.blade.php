@@ -15,6 +15,12 @@
     .active {
         display: block;
     }
+    @media (max-width: 768px) {
+        .slideshow-container{
+            margin: 30px !important;
+            margin-top: 40px;
+        }
+    }
 </style>
 <div class="slideshow-container kanan">
     <img class="slides active" src="{{ asset('img/penjadwalan.png') }}" alt="">

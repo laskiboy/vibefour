@@ -1,7 +1,8 @@
 @extends('layout.headerAsli')
 @section('konten')
     <div class="bg-light d-flex justify-content-center align-items-center flex-column pb-5">
-        <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 70px; margin-top: 140px;">Kontak
+        <span class="fs-2 fw-bold  span-title"
+            style="color: #72B5F6; margin-bottom: 70px; margin-top: 140px; font-family: 'Montserrat';">Kontak
             Kami</span>
         <iframe class="mb-5 map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.3934360938374!2d107.5553798!3d-6.9628289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68ef236eb19e97%3A0x93da0f0cfa5d199c!2sGoldstep%20Indonesia!5e0!3m2!1sid!2sid!4v1738832113717!5m2!1sid!2sid"
@@ -10,7 +11,7 @@
         </iframe>
         <div class="d-flex flex-row w-100 justify-content-evenly">
             <div class="kiri" style="width: 350px">
-                <span class="fs-5 fw-bold">Hubungi Kami</span>
+                <span class="fs-5 fw-bold" style="font-family: 'Montserrat';">Hubungi Kami</span>
                 <p class="">Jika Anda memiliki pertanyaan, ingin bekerja sama,
                     atau
                     membutuhkan informasi lebih lanjut mengenai layanan kami, jangan ragu untuk menghubungi kami</p>

@@ -52,8 +52,8 @@
     {{-- konten pertama --}}
     <div class="bg-white w-100 vh-100 d-flex justify-content-evenly flex-row align-items-center">
         <div class="left w-50 ms-5">
-            <div class="w-75 mb-5 mt-5 atas">
-                <span style="color: #000; font-weight: 600; font-size: 4em;">Apa Itu Sistem Voting
+            <div class="mb-5 mt-5 atas">
+                <span style="color: #000; font-weight: 600; font-size: 4em; font-family: 'Montserrat';">Apa Itu Sistem Voting
                     VibeFour?</span><br>
             </div>
             <div class="kiri" style="width: 90%">
@@ -105,28 +105,29 @@
         </div>
         <div style="width: 50%" class="d-flex justify-content-center flex-column mb-5">
             <div class="kiri d-flex flex-column">
-                <span class="fs-2 fw-bold" style="color: #72B5F6;">Fitur unggulan voting</span>
+                <span class="fs-2 fw-bold" style="color: #72B5F6; font-family: 'Montserrat';">Fitur unggulan voting</span>
                 <span class="my-4">Dengan VibeFour, voting menjadi lebih efisien, aman, dan ramah
                     lingkungan!</span>
                 <div class="fitur d-flex justify-content-start flex-row mt-4">
                     <div class="fitur-1" style="width: 40%;">
                         <i class="fa-solid fa-lock fs-2 mb-4" style="color: #8854BB;"></i><br>
-                        <strong style="color: #72B5F6">Keamanan voting terjamin</strong>
-                        <p>Vote bisa menjadi general ataupun privat menggunakan kode room yang dibuat secara
+                        <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Keamanan voting terjamin</strong>
+                        <p class="mt-2">Vote bisa menjadi general ataupun privat menggunakan kode room yang dibuat secara
                             otomatis</p>
                     </div>
                     <div class="fitur-1 ms-4" style="width: 40%;">
                         <i class="fa-solid fa-face-smile fs-2 mb-4" style="color: #8854BB;"></i><br>
-                        <strong style="color: #72B5F6">Pengaturan anonimus</strong>
-                        <p>Pembuat voting bisa melakukan kostumisasi siapa saja yang bisa memilih voting, atau
+                        <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Pengaturan anonimus</strong>
+                        <p class="mt-2">Pembuat voting bisa melakukan kostumisasi siapa saja yang bisa memilih voting,
+                            atau
                             pembuat voting juga bisa menyamarkan pemilih</p>
                     </div>
                 </div>
                 <div class="fitur d-flex justify-content-between flex-row mt-3">
                     <div class="fitur-1" style="width: 40%;">
                         <i class="fa-solid fa-eye-low-vision fs-2 mb-4" style="color: #8854BB;"></i><br>
-                        <strong style="color: #72B5F6">Kostumisasi hasil vote</strong>
-                        <p>Hasil voting bisa dikostumisasi, public untuk hasil vote yang bisa dilihat
+                        <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Kostumisasi hasil vote</strong>
+                        <p class="mt-2">Hasil voting bisa dikostumisasi, public untuk hasil vote yang bisa dilihat
                             pemilih, dan private untuk hasil yang hanya bisa dilihat pembuat voting</p>
                     </div>
                 </div>
@@ -137,7 +138,8 @@
 
     {{-- konten kelima --}}
     <div class="bg-white vh-100 d-flex justify-content-center flex-column align-items-center">
-        <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 70px">Bergabung Bersama
+        <span class="fs-2 fw-bold  span-title"
+            style="color: #72B5F6; margin-bottom: 70px; font-family: 'Montserrat';">Bergabung Bersama
             VibeFour</span>
 
         <div class="d-flex justify-content-evenly mt-4 w-75">

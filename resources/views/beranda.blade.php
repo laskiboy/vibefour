@@ -102,23 +102,65 @@
             opacity: 1;
             background-color: #48a4ff;
         }
+
+        @media (max-width: 768px) {
+            .satu {
+                width: 100% !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin-top: 120px !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            .h1 {
+                font-size: 45px !important;
+                text-align: center !important;
+            }
+
+            .solusi {
+                margin: 0 50px !important;
+                text-align: center !important;
+            }
+
+            .giv-blob {
+                display: none !important;
+            }
+
+            .a-masuk {
+                text-decoration: none !important;
+                display: flex !important;
+                justify-content: center !important;
+            }
+
+            .a-masuk button {
+                width: 90% !important;
+                font-size: 20px !important;
+            }
+        }
     </style>
 
     {{-- konten pertama --}}
-    <div class="bg-white vh-100 d-flex justify-content-evenly flex-row align-items-center">
+    <div class="satu bg-white vh-100 d-flex justify-content-evenly flex-row align-items-center">
         <div class="span d-flex flex-column">
-            <h1 class="atas" style="color: #000; font-weight: 600; font-size: 4em">VibeFour</h1>
-            <h1 class="kiri" style="color: #000; margin-bottom: 30px; font-weight: 600; font-size: 4em">To Everyone
+            <h1 class="atas h1" style="font-family: 'Montserrat'; color: #000; font-weight: bold; font-size: 4em">VibeFour
             </h1>
-            <span class="fs-5 kanan">Solusi Voting & Penjadwalan Tanpa Ribet!</span>
-            <a href="{{ route('login') }}">
+            <h1 class="kiri h1"
+                style="font-family: 'Montserrat'; color: #000; margin-bottom: 30px; font-weight: bold; font-size: 4em">To
+                Everyone
+            </h1>
+            <div class="solusi">
+                <span class="fs-5 kanan">Solusi Voting dan Penjadwalan Tanpa Ribet!</span>
+            </div>
+            <a href="{{ route('login') }}" class="a-masuk">
                 <button class="bawah btn shadow mb-3 mt-5"
                     style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px">
                     Masuk</button>
             </a>
         </div>
         @include('layout.slideshowHome')
-        <span class="kanan" style="position: absolute; right: 0; margin-right: 100px">
+        <span class="kanan giv-blob" style="position: absolute; right: 0; margin-right: 100px">
             <img width="500" src="{{ asset('img/svg.gif') }}" alt="">
         </span>
     </div>
@@ -127,7 +169,7 @@
     {{-- konten kedua --}}
 
     <div class="d-flex flex-column align-items-center m-5">
-        <span class="fs-2 fw-bold span-title" style="color: #72B5F6;">Fitur Unggulan</span>
+        <span class="fs-2 fw-bold span-title" style="color: #72B5F6; font-family: 'Montserrat';">Fitur Unggulan</span>
         <span class="mb-5 span-sub">Kami menyediakan dua fitur unggulan dari produk kami</span>
 
         <div class="satu w-75 d-flex w-100 align-items-center mt-5 justify-content-around">
@@ -142,8 +184,9 @@
                 <div class="accordion custom-accordion" id="featureAccordion1">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne1">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1">
+                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="false"
+                                aria-controls="collapseOne1">
                                 Keamanan vote terjamin
                             </button>
                         </h2>
@@ -160,8 +203,9 @@
 
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo1">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">
+                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseTwo1" aria-expanded="false"
+                                aria-controls="collapseTwo1">
                                 Pengaturan anonimus
                             </button>
                         </h2>
@@ -178,8 +222,9 @@
 
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree1">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree1" aria-expanded="false" aria-controls="collapseThree1">
+                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseThree1" aria-expanded="false"
+                                aria-controls="collapseThree1">
                                 Kostumisasi hasil vote
                             </button>
                         </h2>
@@ -196,8 +241,9 @@
 
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFour1">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseFour1" aria-expanded="false" aria-controls="collapseFour1">
+                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseFour1" aria-expanded="false"
+                                aria-controls="collapseFour1">
                                 Undang temanmu yang belum punya akun
                             </button>
                         </h2>
@@ -214,8 +260,9 @@
 
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFive1">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseFive1" aria-expanded="false" aria-controls="collapseFive1">
+                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseFive1" aria-expanded="false"
+                                aria-controls="collapseFive1">
                                 Menambahkan ketersediaan
                             </button>
                         </h2>
@@ -244,7 +291,8 @@
 
     {{-- konten ketiga --}}
     <div class="bg-light d-flex justify-content-center flex-column align-items-center" style="padding: 100px">
-        <span class="fs-2 mb-3 fw-bold  span-title" style="color: #72B5F6;">Pencapaian Kami</span>
+        <span class="fs-2 mb-3 fw-bold  span-title" style="color: #72B5F6; font-family: 'Montserrat';">Pencapaian
+            Kami</span>
         <span class="w-50 span-title text-center" style="margin-bottom: 100px">Kami bangga telah membantu banyak pengguna
             dalam pengambilan
             keputusan dan manajemen jadwal
@@ -252,7 +300,7 @@
         <div class="d-flex justify-content-around">
             <div class="w-25 kiri d-flex flex-column text-center">
                 <i style="color: #8854BB" class="fa-solid fa-person fs-1 mb-4"></i>
-                <strong class="fs-5 mb-3">Ribuan Pengguna Aktif</strong>
+                <strong class="fs-5 mb-3" style="font-family: 'Montserrat';">Ribuan Pengguna Aktif</strong>
                 <span>VibeFour telah digunakan oleh lebih dari 5.000 pengguna untuk membantu mereka dalam pengambilan
                     keputusan
                     melalui voting digital dan pengelolaan jadwal yang efisien. Kami terus berkembang untuk memberikan
@@ -261,14 +309,15 @@
             </div>
             <div class="w-25 bawah d-flex flex-column text-center">
                 <i style="color: #8854BB" class="fa-solid fa-check-to-slot fs-1 mb-4"></i>
-                <strong class="fs-5 mb-3">Dipercaya oleh Berbagai Komunitas & Organisasi</strong>
+                <strong class="fs-5 mb-3" style="font-family: 'Montserrat';">Dipercaya oleh Berbagai Komunitas &
+                    Organisasi</strong>
                 <span>Dari acara kecil hingga event besar, VibeFour telah dipercaya oleh komunitas, perusahaan, dan
                     institusi pendidikan dalam mengatur pemungutan suara serta penjadwalan acara secara transparan dan
                     mudah.</span>
             </div>
             <div class="w-25 kanan d-flex flex-column text-center">
                 <i style="color: #8854BB" class="fa-solid fa-shield fs-1 mb-4"></i>
-                <strong class="fs-5 mb-3">Teknologi yang Aman & Andal</strong>
+                <strong class="fs-5 mb-3" style="font-family: 'Montserrat';">Teknologi yang Aman & Andal</strong>
                 <span>Dengan sistem yang terus diperbarui, VibeFour memastikan keamanan data dan keakuratan hasil voting.
                     Kami menggunakan enkripsi data dan sistem autentikasi yang kuat untuk melindungi informasi
                     pengguna.</span>
@@ -280,7 +329,8 @@
     {{-- konten keempat --}}
     <div class="container d-flex justify-content-center flex-column align-item-center" style="height: 30rem">
         <span class="fs-2 fw-bold text-center span-title"
-            style="color: #72B5F6; margin-top: 50px; margin-bottom: 30px">Apa Kata Mereka?</span>
+            style="color: #72B5F6; margin-top: 50px; margin-bottom: 30px; font-family: 'Montserrat';">Apa Kata
+            Mereka?</span>
         <section class="py-5 bawah">
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">

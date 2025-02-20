@@ -52,8 +52,9 @@
     {{-- konten pertama --}}
     <div class="bg-white w-100 mb-5 vh-100 d-flex justify-content-evenly flex-row align-items-center">
         <div class="left w-50 ms-5">
-            <div class="w-75 mb-5 mt-5 atas">
-                <span style="color: #000; font-weight: 600; font-size: 4em;">Apa Itu Sistem Penjadwalan
+            <div class="mb-5 mt-5 atas">
+                <span style="color: #000; font-family: 'Montserrat'; font-weight: 600; font-size: 4em;">Apa Itu Sistem
+                    Penjadwalan
                     VibeFour?</span><br>
             </div>
             <div class="kiri" style="width: 90%">
@@ -102,19 +103,23 @@
         </div>
         <div style="width: 50%" class="d-flex justify-content-center flex-column mb-5">
             <div class="kiri d-flex flex-column">
-                <span class="fs-2 fw-bold" style="color: #72B5F6;">Fitur unggulan penjadwalan</span>
+                <span class="fs-2 fw-bold" style="color: #72B5F6; font-family: 'Montserrat';">Fitur unggulan
+                    penjadwalan</span>
                 <span class="my-4">Dengan VibeFour, pengelolaan jadwal jadi lebih rapi, cepat, dan efisien!</span>
                 <div class="fitur d-flex justify-content-start flex-row mt-4">
                     <div class="fitur-1" style="width: 40%;">
                         <i class="fa-solid fa-lock fs-2 mb-4" style="color: #8854BB;"></i><br>
-                        <strong style="color: #72B5F6">Undang temanmu yang belum punya akun</strong>
-                        <p>Pada fitur penjadwalan, kamu bisa langsung mengirim undangan walapun temanmu belum punya
+                        <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Undang temanmu</strong>
+                        <p class="mt-2">Pada fitur penjadwalan, kamu bisa langsung mengirim undangan walapun temanmu belum
+                            punya
                             akun</p>
                     </div>
                     <div class="fitur-1 ms-4" style="width: 40%;">
                         <i class="fa-solid fa-face-smile fs-2 mb-4" style="color: #8854BB;"></i><br>
-                        <strong style="color: #72B5F6">Menambahkan ketersediaan</strong>
-                        <p>Anda bisa menambah ketersediaan untuk mempermudah pembuat jadwal menentukan jadwal tanpa
+                        <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Menambahkan
+                            ketersediaan</strong>
+                        <p class="mt-2">Anda bisa menambah ketersediaan untuk mempermudah pembuat jadwal menentukan jadwal
+                            tanpa
                             menunggu konfirmasi</p>
                     </div>
                 </div>
@@ -126,7 +131,8 @@
 
     {{-- konten kelima --}}
     <div class="bg-white vh-100 d-flex justify-content-center flex-column align-items-center">
-        <span class="fs-2 fw-bold  span-title" style="color: #72B5F6; margin-bottom: 70px">Bergabung Bersama
+        <span class="fs-2 fw-bold  span-title"
+            style="color: #72B5F6; margin-bottom: 70px; font-family: 'Montserrat';">Bergabung Bersama
             VibeFour</span>
 
         <div class="d-flex justify-content-evenly mt-4 w-75">

@@ -73,7 +73,8 @@
             <span class="atas px-2 py-1 rounded-pill text-primary" style="background-color: rgba(114, 181, 246, 0.4);">Tentang
                 Kami
                 VibeFour</span>
-            <h1 class="atas mt-4 text-center" style="font-weight: 600; font-size: 4em">Memudahkan voting dan penjadwalan</h1>
+            <h1 class="atas mt-4 text-center" style="font-weight: 600; font-size: 4em; font-family: 'Montserrat';">Memudahkan
+                voting dan penjadwalan</h1>
             <p class="bawah text-center mt-5" style="width: 45rem">VibeFour hadir sebagai solusi modern dalam pengelolaan
                 voting
                 digital dan penjadwalan
@@ -91,8 +92,9 @@
     {{-- end konten pertama --}}
 
     {{-- konten kedua --}}
-    <div class="bg-white atas w-100 d-flex justify-content-around flex-column align-items-center" style="margin-bottom: 150px;">
-        <span class="fs-1 fw-bold mb-4" style="color: #000">Tentang Kami</span>
+    <div class="bg-white atas w-100 d-flex justify-content-around flex-column align-items-center"
+        style="margin-bottom: 150px;">
+        <span class="fs-1 fw-bold mb-4" style="color: #000; font-family: 'Montserrat';">Tentang Kami</span>
         <span class="fs-5 w-75 text-center">VibeFour adalah platform digital yang menyediakan sistem voting dan penjadwalan
             otomatis
             untuk memudahkan organisasi dan komunitas dalam mengambil keputusan dan mengelola acara.</span>
@@ -102,11 +104,11 @@
     {{-- konten ketiga --}}
     <div class="bg-white d-flex justify-content-around flex-row align-items-center" style="margin-bottom: 150px">
         <div class="kiri d-flex flex-column text-center" style="width: 500px">
-            <span class="fs-3 fw-bold mb-4" style="color: #000">Voting Digital</span>
+            <span class="fs-3 fw-bold mb-4" style="color: #000; font-family: 'Montserrat';">Voting Digital</span>
             <span class="fs-5">Sistem voting yang efisien, aman, dan ramah lingkungan!</span>
         </div>
         <div class="kanan d-flex flex-column text-center" style="width: 500px">
-            <span class="fs-3 fw-bold mb-4" style="color: #000">Penjadwalan Cerdas</span>
+            <span class="fs-3 fw-bold mb-4" style="color: #000; font-family: 'Montserrat';">Penjadwalan Cerdas</span>
             <span class="fs-5">Sistem pengelolaan jadwal yang lebih rapi, cepat, dan efisien!</span>
         </div>
     </div>
@@ -114,21 +116,21 @@
 
     {{-- konten keempat --}}
     <div class="bg-light w-100 mt-5 d-flex justify-content-around flex-column align-items-center" style="padding: 80px 0">
-        <h2 class="fw-bold mb-4 atas">Visi & Misi Kami</h2>
+        <h2 class="fw-bold mb-4 atas" style="font-family: 'Montserrat';">Visi & Misi Kami</h2>
         <div class="w-75 text-center">
             <div class="atas bg-white p-4 shadow rounded bg-white text-dark">
-                <h4 class="fw-bold">Visi</h4>
+                <h4 class="fw-bold" style="font-family: 'Montserrat';">Visi</h4>
                 <p>Menjadi platform digital terdepan dalam voting dan penjadwalan yang efisien dan transparan.
                 </p>
             </div>
         </div>
         <div class="d-flex w-75 justify-content-between mt-4 text-center">
             <div style="width: 49%" class="kiri p-3 border rounded shadow-sm bg-white">
-                <h5 class="mt-2">Kolaboratif</h5>
+                <h5 class="mt-2" style="font-family: 'Montserrat';">Kolaboratif</h5>
                 <p>Meningkatkan efisiensi kerja dengan teknologi modern.</p>
             </div>
             <div style="width: 49%" class="kanan p-3 border rounded shadow-sm bg-white">
-                <h5 class="mt-2">Keamanan</h5>
+                <h5 class="mt-2" style="font-family: 'Montserrat';">Keamanan</h5>
                 <p>Menjamin data pengguna tetap aman dan terlindungi.</p>
             </div>
         </div>
@@ -138,26 +140,26 @@
     {{-- konten kelima --}}
     <section class="keunggulan-section text-center" style="padding: 80px 0">
         <div class="container">
-            <h2 class="atas fw-bold mb-5">Keunggulan VibeFour</h2>
+            <h2 class="atas fw-bold mb-5" style="font-family: 'Montserrat';">Keunggulan VibeFour</h2>
             <div class="row">
                 <div class="kiri col-md-4">
                     <div class="keunggulan-card">
                         <i class="fas fa-clock fa-3x"></i>
-                        <h5 class="mt-3">Cepat & Mudah</h5>
+                        <h5 class="mt-3" style="font-family: 'Montserrat';">Cepat & Mudah</h5>
                         <p>Proses voting dan penjadwalan hanya dalam hitungan detik.</p>
                     </div>
                 </div>
                 <div class="bawah col-md-4">
                     <div class="keunggulan-card">
                         <i class="fas fa-user-lock fa-3x"></i>
-                        <h5 class="mt-3">Aman & Transparan</h5>
+                        <h5 class="mt-3" style="font-family: 'Montserrat';">Aman & Transparan</h5>
                         <p>Data terlindungi dengan enkripsi tingkat tinggi.</p>
                     </div>
                 </div>
                 <div class="kanan col-md-4">
                     <div class="keunggulan-card">
                         <i class="fas fa-thumbs-up fa-3x"></i>
-                        <h5 class="mt-3">Terpercaya</h5>
+                        <h5 class="mt-3" style="font-family: 'Montserrat';">Terpercaya</h5>
                         <p>Dipercaya oleh berbagai organisasi dan komunitas.</p>
                     </div>
                 </div>
@@ -168,16 +170,4 @@
 
     {{-- footer --}}
     @include('layout.footer')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const triggers = document.querySelectorAll('.collapse-trigger');
-
-            triggers.forEach(trigger => {
-                trigger.addEventListener('click', function() {
-                    triggers.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-        });
-    </script>
 @endsection
