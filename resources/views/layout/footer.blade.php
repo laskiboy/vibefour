@@ -25,6 +25,12 @@
     .contact-icon {
         margin-right: 10px;
     }
+
+    @media (max-width: 768px) {
+        footer{
+            padding: 20px;
+        }
+    }
 </style>
 
 <body>

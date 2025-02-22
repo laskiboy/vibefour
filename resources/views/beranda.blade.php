@@ -138,6 +138,52 @@
                 width: 90% !important;
                 font-size: 20px !important;
             }
+
+            #featureAccordion1 {
+                display: none;
+            }
+
+            #featureAccordion2 {
+                display: block !important;
+            }
+
+            #carousel1,
+            .span-blob {
+                display: none !important;
+            }
+
+            .custom-accordion {
+                width: 100% !important;
+            }
+
+            .span-kami {
+                margin-bottom: 0 !important;
+                text-align: center !important;
+            }
+
+            .span-bangga {
+                width: 85% !important;
+            }
+
+            .pencapaian {
+                flex-direction: column;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+
+            .poin {
+                width: 85% !important;
+                margin-bottom: 50px;
+            }
+
+            .butin {
+                margin-top: 100px;
+            }
+
+            .accordion-collapse {
+                width: 100% !important;
+            }
         }
     </style>
 
@@ -167,13 +213,12 @@
     {{-- end konten pertama --}}
 
     {{-- konten kedua --}}
-
     <div class="d-flex flex-column align-items-center m-5">
         <span class="fs-2 fw-bold span-title" style="color: #72B5F6; font-family: 'Montserrat';">Fitur Unggulan</span>
-        <span class="mb-5 span-sub">Kami menyediakan dua fitur unggulan dari produk kami</span>
+        <span class="mb-5 span-kami span-sub">Kami menyediakan dua fitur unggulan dari produk kami</span>
 
-        <div class="satu w-75 d-flex w-100 align-items-center mt-5 justify-content-around">
-            <span class="kiri" style="position: absolute; left: 0; margin-left: -350px; z-index: -1">
+        <div class="w-75 d-flex w-100 align-items-center mt-5 justify-content-around">
+            <span class="kiri span-blob" style="position: absolute; left: 0; margin-left: -350px; z-index: -1">
                 <svg width="500px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path fill="#E8F4FF"
                         d="M43.1,-75.1C56.1,-67.2,67,-56.1,74.2,-43C81.4,-30,84.9,-15,84.9,0C85,15.1,81.7,30.1,74.4,43.1C67.2,56.1,56.1,67,43,75.2C30,83.5,15,89.1,-0.2,89.4C-15.4,89.7,-30.7,84.8,-44.3,76.8C-57.8,68.8,-69.5,57.9,-76.5,44.6C-83.5,31.3,-85.8,15.6,-86.5,-0.4C-87.2,-16.5,-86.4,-32.9,-79.8,-47C-73.3,-61.1,-61,-72.8,-46.8,-79.9C-32.5,-87.1,-16.3,-89.7,-0.6,-88.6C15.1,-87.6,30.2,-83,43.1,-75.1Z"
@@ -277,6 +322,123 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="accordion d-none custom-accordion" id="featureAccordion2">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne2">
+                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseOne2" aria-expanded="false"
+                                aria-controls="collapseOne2">
+                                Keamanan vote terjamin
+                            </button>
+                        </h2>
+                        <div id="collapseOne2" class="accordion-collapse collapse" aria-labelledby="headingOne2"
+                            data-bs-parent="#featureAccordion2">
+                            <div class="accordion-body">
+                                <p class="mb-0">
+                                    Vote bisa menjadi general ataupun privat menggunakan kode room yang dibuat secara
+                                    otomatis <br>
+                                <div class="d-flex justify-content-center align-items-center mt-4">
+                                    <img class="shadow" width="300" src="{{ asset('img/Screenshot (77).png') }}"
+                                        style="border-radius: 2px" alt="Voting Feature 1" />
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo2">
+                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false"
+                                aria-controls="collapseTwo2">
+                                Pengaturan anonimus
+                            </button>
+                        </h2>
+                        <div id="collapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo2"
+                            data-bs-parent="#featureAccordion2">
+                            <div class="accordion-body">
+                                <p class="mb-0">
+                                    Pembuat voting bisa melakukan kostumisasi siapa saja yang bisa memilih voting, atau
+                                    pembuat voting juga bisa menyamarkan pemilih <br>
+                                <div class="d-flex justify-content-center align-items-center mt-4">
+                                    <img class="shadow" width="300" src="{{ asset('img/Screenshot (77).png') }}"
+                                        style="border-radius: 2px" alt="Voting Feature 1" />
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree2">
+                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseThree2" aria-expanded="false"
+                                aria-controls="collapseThree2">
+                                Kostumisasi hasil vote
+                            </button>
+                        </h2>
+                        <div id="collapseThree2" class="accordion-collapse collapse" aria-labelledby="headingThree2"
+                            data-bs-parent="#featureAccordion2">
+                            <div class="accordion-body">
+                                <p class="mb-0">
+                                    Hasil voting bisa dikostumisasi, public untuk hasil vote yang bisa dilihat
+                                    pemilih, dan private untuk hasil yang hanya bisa dilihat pembuat voting <br>
+                                <div class="d-flex justify-content-center align-items-center mt-4">
+                                    <img class="shadow" width="300" src="{{ asset('img/Screenshot (77).png') }}"
+                                        style="border-radius: 2px" alt="Voting Feature 1" />
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour2">
+                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseFour2" aria-expanded="false"
+                                aria-controls="collapseFour2">
+                                Undang temanmu yang belum punya akun
+                            </button>
+                        </h2>
+                        <div id="collapseFour2" class="accordion-collapse collapse" aria-labelledby="headingFour2"
+                            data-bs-parent="#featureAccordion2">
+                            <div class="accordion-body">
+                                <p class="mb-0">
+                                    Pada fitur penjadwalan, kamu bisa langsung mengirim undangan walapun temanmu belum punya
+                                    akun <br>
+                                <div class="d-flex justify-content-center align-items-center mt-4">
+                                    <img class="shadow" width="300" src="{{ asset('img/Screenshot (77).png') }}"
+                                        style="border-radius: 2px" alt="Voting Feature 1" />
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive2">
+                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseFive2" aria-expanded="false"
+                                aria-controls="collapseFive2">
+                                Menambahkan ketersediaan
+                            </button>
+                        </h2>
+                        <div id="collapseFive2" class="accordion-collapse collapse" aria-labelledby="headingFive2"
+                            data-bs-parent="#featureAccordion2">
+                            <div class="accordion-body">
+                                <p class="mb-0">
+                                    Anda bisa menambah ketersediaan untuk mempermudah pembuat jadwal menentukan jadwal tanpa
+                                    menunggu konfirmasi <br>
+                                <div class="d-flex justify-content-center align-items-center mt-4">
+                                    <img class="shadow" width="300" src="{{ asset('img/Screenshot (77).png') }}"
+                                        style="border-radius: 2px" alt="Voting Feature 1" />
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="image-carousel kanan shadow-lg" id="carousel1">
                 <img src="{{ asset('img/Screenshot (77).png') }}" alt="Voting Feature 1" class="carousel-image" />
@@ -290,15 +452,16 @@
     {{-- end konten kedua --}}
 
     {{-- konten ketiga --}}
-    <div class="bg-light d-flex justify-content-center flex-column align-items-center" style="padding: 100px">
+    <div class="bg-light d-flex justify-content-center flex-column align-items-center" style="padding-top: 100px;">
         <span class="fs-2 mb-3 fw-bold  span-title" style="color: #72B5F6; font-family: 'Montserrat';">Pencapaian
             Kami</span>
-        <span class="w-50 span-title text-center" style="margin-bottom: 100px">Kami bangga telah membantu banyak pengguna
+        <span class="span-title span-bangga w-50 text-center" style="margin-bottom: 100px">Kami bangga telah membantu
+            banyak pengguna
             dalam pengambilan
             keputusan dan manajemen jadwal
             yang lebih efektif.</span>
-        <div class="d-flex justify-content-around">
-            <div class="w-25 kiri d-flex flex-column text-center">
+        <div class="d-flex justify-content-around pencapaian">
+            <div class="w-25 poin kiri d-flex flex-column text-center">
                 <i style="color: #8854BB" class="fa-solid fa-person fs-1 mb-4"></i>
                 <strong class="fs-5 mb-3" style="font-family: 'Montserrat';">Ribuan Pengguna Aktif</strong>
                 <span>VibeFour telah digunakan oleh lebih dari 5.000 pengguna untuk membantu mereka dalam pengambilan
@@ -307,7 +470,7 @@
                     layanan
                     yang lebih baik.</span>
             </div>
-            <div class="w-25 bawah d-flex flex-column text-center">
+            <div class="w-25 poin bawah d-flex flex-column text-center">
                 <i style="color: #8854BB" class="fa-solid fa-check-to-slot fs-1 mb-4"></i>
                 <strong class="fs-5 mb-3" style="font-family: 'Montserrat';">Dipercaya oleh Berbagai Komunitas &
                     Organisasi</strong>
@@ -315,7 +478,7 @@
                     institusi pendidikan dalam mengatur pemungutan suara serta penjadwalan acara secara transparan dan
                     mudah.</span>
             </div>
-            <div class="w-25 kanan d-flex flex-column text-center">
+            <div class="w-25 poin kanan d-flex flex-column text-center">
                 <i style="color: #8854BB" class="fa-solid fa-shield fs-1 mb-4"></i>
                 <strong class="fs-5 mb-3" style="font-family: 'Montserrat';">Teknologi yang Aman & Andal</strong>
                 <span>Dengan sistem yang terus diperbarui, VibeFour memastikan keamanan data dan keakuratan hasil voting.
@@ -402,12 +565,12 @@
                     </div>
                 </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                <button class="carousel-control-prev butin" type="button" data-bs-target="#testimonialCarousel"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" class="btn-dark"
+                <button class="carousel-control-next butin" type="button" class="btn-dark"
                     data-bs-target="#testimonialCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
@@ -422,64 +585,112 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const delay = 10000;
+            // Tunggu sampai Bootstrap sepenuhnya dimuat
+            function waitForBootstrap(callback) {
+                if (typeof bootstrap !== 'undefined') {
+                    callback();
+                } else {
+                    setTimeout(() => waitForBootstrap(callback), 100);
+                }
+            }
+
+            const delay = 10000; // 10 detik
 
             function updateCarousel(carouselId, index) {
                 const images = document.querySelectorAll(`#${carouselId} .carousel-image`);
-                images.forEach(img => img.classList.remove('active'));
-                images[index % images.length].classList.add('active');
+                if (images.length > 0) {
+                    images.forEach(img => img.classList.remove('active'));
+                    images[index % images.length].classList.add('active');
+                }
             }
 
             function openAccordion(accordionId, carouselId, index) {
-                const accordionItems = document.querySelectorAll(`#${accordionId} .accordion-item`);
+                const accordion = document.getElementById(accordionId);
+                if (!accordion) return;
 
-                if (index < accordionItems.length) {
-                    if (index > 0) {
-                        const prevButton = accordionItems[index - 1].querySelector('.accordion-button');
-                        const prevCollapse = bootstrap.Collapse.getInstance(accordionItems[index - 1].querySelector(
-                            '.accordion-collapse'));
-                        if (prevCollapse) prevCollapse.hide();
+                const accordionItems = accordion.querySelectorAll('.accordion-item');
+                if (index >= accordionItems.length) {
+                    // Reset ke awal jika sudah sampai akhir
+                    setTimeout(() => {
+                        closeAllItems(accordionItems);
+                        openAccordion(accordionId, carouselId, 0);
+                    }, delay);
+                    return;
+                }
+
+                // Tutup item sebelumnya
+                if (index > 0) {
+                    const prevItem = accordionItems[index - 1];
+                    const prevCollapse = prevItem.querySelector('.accordion-collapse');
+                    if (prevCollapse) {
+                        const bsCollapse = bootstrap.Collapse.getInstance(prevCollapse);
+                        if (bsCollapse) bsCollapse.hide();
+                    }
+                    const prevButton = prevItem.querySelector('.accordion-button');
+                    if (prevButton) {
                         prevButton.classList.add('collapsed');
                         prevButton.setAttribute('aria-expanded', 'false');
                     }
+                }
 
-                    const button = accordionItems[index].querySelector('.accordion-button');
+                // Buka item saat ini
+                const currentItem = accordionItems[index];
+                const button = currentItem.querySelector('.accordion-button');
+                const collapseEl = currentItem.querySelector('.accordion-collapse');
+
+                if (button && collapseEl) {
                     button.classList.remove('collapsed');
                     button.setAttribute('aria-expanded', 'true');
-                    const collapseEl = accordionItems[index].querySelector('.accordion-collapse');
-                    const collapse = bootstrap.Collapse.getInstance(collapseEl) || new bootstrap.Collapse(
-                        collapseEl, {
+
+                    // Gunakan Bootstrap Collapse
+                    const collapse = bootstrap.Collapse.getInstance(collapseEl) ||
+                        new bootstrap.Collapse(collapseEl, {
                             toggle: false
                         });
                     collapse.show();
 
+                    // Update carousel jika ada
                     updateCarousel(carouselId, index);
 
+                    // Lanjut ke item berikutnya setelah delay
                     setTimeout(() => openAccordion(accordionId, carouselId, index + 1), delay);
-                } else {
-                    setTimeout(() => {
-                        const lastButton = accordionItems[accordionItems.length - 1].querySelector(
-                            '.accordion-button');
-                        const lastCollapse = bootstrap.Collapse.getInstance(accordionItems[accordionItems
-                            .length - 1].querySelector('.accordion-collapse'));
-                        if (lastCollapse) lastCollapse.hide();
-                        lastButton.classList.add('collapsed');
-                        lastButton.setAttribute('aria-expanded', 'false');
-
-                        openAccordion(accordionId, carouselId, 0);
-                    }, delay);
                 }
             }
 
-            setTimeout(() => {
-                updateCarousel('carousel1', 0);
+            function closeAllItems(items) {
+                items.forEach(item => {
+                    const button = item.querySelector('.accordion-button');
+                    const collapseEl = item.querySelector('.accordion-collapse');
+                    if (button && collapseEl) {
+                        button.classList.add('collapsed');
+                        button.setAttribute('aria-expanded', 'false');
+                        const collapse = bootstrap.Collapse.getInstance(collapseEl);
+                        if (collapse) collapse.hide();
+                    }
+                });
+            }
 
-                openAccordion('featureAccordion1', 'carousel1', 0);
-            }, 0);
+            // Mulai setelah Bootstrap dimuat
+            waitForBootstrap(() => {
+                // Inisialisasi untuk accordion pertama
+                setTimeout(() => {
+                    updateCarousel('carousel1', 0);
+                    openAccordion('featureAccordion1', 'carousel1', 0);
+                }, 500);
+
+                // Inisialisasi untuk accordion kedua
+                setTimeout(() => {
+                    updateCarousel('carousel2', 0);
+                    openAccordion('featureAccordion2', 'carousel2', 0);
+                }, 500);
+            });
         });
 
-        var testimonialCarousel = new bootstrap.Carousel(document.getElementById('testimonialCarousel'), {
-            interval: 5000
-        });
+        // Inisialisasi carousel testimonial jika ada
+        if (document.getElementById('testimonialCarousel')) {
+            var testimonialCarousel = new bootstrap.Carousel(document.getElementById('testimonialCarousel'), {
+                interval: 5000
+            });
+        }
     </script>
 @endsection
