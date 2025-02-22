@@ -47,17 +47,124 @@
             transform: scale(1.05);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
+        .video {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .satu {
+                flex-direction: column !important;
+                margin-top: 50px;
+                justify-content: center !important;
+                height: 100% !important;
+            }
+
+            .h1 {
+                font-size: 45px !important;
+            }
+
+            .blob {
+                display: none;
+            }
+
+            .marlef {
+                margin-left: 0 !important;
+                /* margin-top: 200px !important; */
+                width: 83% !important;
+                text-align: center !important;
+                align-items: center !important;
+            }
+
+            .vib {
+                width: 100% !important;
+            }
+
+            .lihat {
+                display: none !important;
+            }
+
+            .dua {
+                margin-top: 200px !important;
+            }
+
+            .video {
+                display: block;
+                opacity: 1;
+                transition: opacity 0.5s ease-in-out;
+                margin-top: 40px;
+                border-radius: 20px;
+            }
+
+            .ketiga {
+                height: 100% !important;
+            }
+
+            .dua {
+                justify-content: center !important;
+                align-items: center !important;
+                flex-direction: column !important;
+            }
+
+            #testimonialCarousel {
+                width: 300px;
+            }
+
+            #testimonialCarousel .carousel-inner img {
+                width: 100%;
+                height: 300px;
+            }
+
+            .fitir {
+                width: 80% !important;
+                display: flex;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+                margin-top: 30px;
+            }
+
+            .fitur {
+                flex-direction: column !important;
+                display: flex;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+
+            .fitur-1 {
+                width: 80% !important;
+                margin-bottom: 60px !important;
+            }
+
+            .husus {
+                margin-left: 0 !important;
+            }
+
+            .tiga {
+                flex-direction: column !important;
+            }
+
+            .isi {
+                margin-bottom: 30px;
+            }
+
+            .span-bergabung {
+                text-align: center;
+                margin-bottom: 40px !important;
+            }
+        }
     </style>
 
     {{-- konten pertama --}}
-    <div class="bg-white w-100 mb-5 vh-100 d-flex justify-content-evenly flex-row align-items-center">
-        <div class="left w-50 ms-5">
+    <div class="satu bg-white w-100 vh-100 d-flex justify-content-evenly flex-row align-items-center">
+        <div class="left marlef w-50 ms-5">
             <div class="mb-5 mt-5 atas">
-                <span style="color: #000; font-family: 'Montserrat'; font-weight: 600; font-size: 4em;">Apa Itu Sistem
+                <span class="h1" style="color: #000; font-family: 'Montserrat'; font-weight: 600; font-size: 4em;">Apa Itu
+                    Sistem
                     Penjadwalan
                     VibeFour?</span><br>
             </div>
-            <div class="kiri" style="width: 90%">
+            <div class="kiri vib" style="width: 90%">
                 <span>VibeFour menghadirkan solusi penjadwalan digital yang efisien dan otomatis, dirancang untuk membantu
                     organisasi, komunitas, dan event dalam mengatur jadwal dengan lebih mudah, akurat, dan fleksibel. Dengan
                     fitur canggih, platform ini memungkinkan pengguna untuk membuat, mengelola, dan berbagi jadwal dengan
@@ -67,9 +174,12 @@
                 <button href="{{ route('login') }}" class="bawah btn shadow mb-3 mt-5"
                     style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 250px; height: 50px">
                     Coba Fitur</button>
-                <button type="button" class="bawah btn btn-secondary shadow ms-4 mb-3 mt-5" data-bs-toggle="modal"
+                <button type="button" class="bawah lihat btn btn-secondary shadow ms-4 mb-3 mt-5" data-bs-toggle="modal"
                     data-bs-target="#modalVideo" style="border-radius: 20px; width: 200px; height: 50px"><i
                         class="fa-regular fa-circle-play me-2 fs-5"></i> Lihat Tutorial</button>
+                <video controls class="video shadow-lg" style="width: 100%;" preload="auto">
+                    <source src="{{ asset('img/video.mp4') }}" type="video/mp4">
+                </video>
                 <div class="modal fade" id="modalVideo" tabindex="-1" aria-labelledby="modalVideoLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
@@ -81,16 +191,16 @@
                 </div>
             </div>
         </div>
-        <img class="shadow-lg mt-5 kanan" src="{{ asset('img/penjadwalan.png') }}"
+        <img class="shadow-lg blob mt-5 kanan" src="{{ asset('img/penjadwalan.png') }}"
             style="border-radius: 20px; width: 500px; z-index: 1" alt="voting">
-        <span class="kanan mt-5" style="position: absolute; right: 0; margin-right: 20px; overflow: hidden;">
+        <span class="kanan blob mt-5" style="position: absolute; right: 0; margin-right: 20px; overflow: hidden;">
             <img width="450" src="{{ asset('img/svg.gif') }}" alt="">
         </span>
     </div>
     {{-- end konten pertama --}}
 
     {{-- konten kedua --}}
-    <div class="kiri d-flex w-100 justify-content-around flex-row align-item-center">
+    <div class="kiri dua d-flex w-100 justify-content-around flex-row align-item-center">
         <div id="testimonialCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -101,7 +211,7 @@
                 </div>
             </div>
         </div>
-        <div style="width: 50%" class="d-flex justify-content-center flex-column mb-5">
+        <div style="width: 50%" class="d-flex fitir justify-content-center flex-column mb-5">
             <div class="kiri d-flex flex-column">
                 <span class="fs-2 fw-bold" style="color: #72B5F6; font-family: 'Montserrat';">Fitur unggulan
                     penjadwalan</span>
@@ -114,7 +224,7 @@
                             punya
                             akun</p>
                     </div>
-                    <div class="fitur-1 ms-4" style="width: 40%;">
+                    <div class="fitur-1 husus ms-4" style="width: 40%;">
                         <i class="fa-solid fa-face-smile fs-2 mb-4" style="color: #8854BB;"></i><br>
                         <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Menambahkan
                             ketersediaan</strong>
@@ -130,13 +240,13 @@
     {{-- end konten kedua --}}
 
     {{-- konten kelima --}}
-    <div class="bg-white vh-100 d-flex justify-content-center flex-column align-items-center">
-        <span class="fs-2 fw-bold  span-title"
+    <div class="bg-white ketiga vh-100 d-flex justify-content-center flex-column align-items-center">
+        <span class="fs-2 fw-bold span-bergabung span-title"
             style="color: #72B5F6; margin-bottom: 70px; font-family: 'Montserrat';">Bergabung Bersama
             VibeFour</span>
 
-        <div class="d-flex justify-content-evenly mt-4 w-75">
-            <div class="card kiri shadow-sm p-3" style="height: 24rem; width: 280px; border-radius: 20px">
+        <div class="d-flex tiga justify-content-evenly mt-4 w-75">
+            <div class="card isi kiri shadow-sm p-3" style="height: 24rem; width: 280px; border-radius: 20px">
                 <div class="card-body">
                     <h6>Basic</h6>
                     <h4 class="fw-bold">Gratis</h4>
@@ -148,7 +258,7 @@
                         Paket</a>
                 </div>
             </div>
-            <div class="card bawah shadow-sm p-3" style="height: 24rem; width: 280px; border-radius: 20px">
+            <div class="card isi bawah shadow-sm p-3" style="height: 24rem; width: 280px; border-radius: 20px">
                 <div class="card-body">
                     <h6>Pro Plan Monthly</h6>
                     <span class="fw-bold fs-4">Rp. 50.000 </span><span>/ Bulan</span>
@@ -161,7 +271,7 @@
                         Paket</a>
                 </div>
             </div>
-            <div class="card kanan shadow-sm p-3" style="height: 24rem; width: 280px; border-radius: 20px">
+            <div class="card isi kanan shadow-sm p-3" style="height: 24rem; width: 280px; border-radius: 20px">
                 <div class="card-body">
                     <h6>Pro Plan Annual</h6>
                     <span class="fw-bold fs-4">Rp. 570.000 </span><span>/ Tahun</span>

@@ -65,17 +65,50 @@
             background: #f8f9fa;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        @media (max-width: 768px) {
+            .satu {
+                margin-top: 90px;
+            }
+
+            .h1 {
+                font-size: 45px !important;
+            }
+
+            .hadir {
+                width: 100% !important;
+            }
+
+            .masyuk{
+                width: 300px !important;
+            }
+
+            .visi{
+                flex-direction: column !important;
+            }
+
+            .cisi{
+                width: 80% !important;
+                margin-bottom: 40px;
+            }
+
+            .keunggulan{
+                margin-bottom: 50px;
+            }
+        }
     </style>
 
     {{-- konten pertama --}}
-    <div class="bg-white vh-100 w-100 d-flex justify-content-around flex-column align-items-center">
+    <div class="bg-white satu vh-100 w-100 d-flex justify-content-around flex-column align-items-center">
         <div class="text w-75 d-flex justify-content-around flex-column align-items-center">
             <span class="atas px-2 py-1 rounded-pill text-primary" style="background-color: rgba(114, 181, 246, 0.4);">Tentang
                 Kami
                 VibeFour</span>
-            <h1 class="atas mt-4 text-center" style="font-weight: 600; font-size: 4em; font-family: 'Montserrat';">Memudahkan
+            <h1 class="atas h1 mt-4 text-center" style="font-weight: 600; font-size: 4em; font-family: 'Montserrat';">
+                Memudahkan
                 voting dan penjadwalan</h1>
-            <p class="bawah text-center mt-5" style="width: 45rem">VibeFour hadir sebagai solusi modern dalam pengelolaan
+            <p class="bawah hadir text-center mt-5" style="width: 45rem">VibeFour hadir sebagai solusi modern dalam
+                pengelolaan
                 voting
                 digital dan penjadwalan
                 acara.
@@ -83,7 +116,7 @@
                 teknologi canggih dan sistem yang aman, kami membantu individu, komunitas, dan organisasi dalam membuat
                 keputusan yang lebih efisien.</p style="width: 40rem">
             <a href="{{ route('login') }}">
-                <button class="bawah btn shadow mt-4"
+                <button class="bawah btn masyuk shadow mt-4"
                     style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px">
                     Masuk</button>
             </a>
@@ -102,12 +135,12 @@
     {{-- end konten kedua --}}
 
     {{-- konten ketiga --}}
-    <div class="bg-white d-flex justify-content-around flex-row align-items-center" style="margin-bottom: 150px">
-        <div class="kiri d-flex flex-column text-center" style="width: 500px">
+    <div class="bg-white visi d-flex justify-content-around flex-row align-items-center" style="margin-bottom: 150px">
+        <div class="kiri cisi d-flex flex-column text-center" style="width: 500px">
             <span class="fs-3 fw-bold mb-4" style="color: #000; font-family: 'Montserrat';">Voting Digital</span>
             <span class="fs-5">Sistem voting yang efisien, aman, dan ramah lingkungan!</span>
         </div>
-        <div class="kanan d-flex flex-column text-center" style="width: 500px">
+        <div class="kanan cisi d-flex flex-column text-center" style="width: 500px">
             <span class="fs-3 fw-bold mb-4" style="color: #000; font-family: 'Montserrat';">Penjadwalan Cerdas</span>
             <span class="fs-5">Sistem pengelolaan jadwal yang lebih rapi, cepat, dan efisien!</span>
         </div>
@@ -142,21 +175,21 @@
         <div class="container">
             <h2 class="atas fw-bold mb-5" style="font-family: 'Montserrat';">Keunggulan VibeFour</h2>
             <div class="row">
-                <div class="kiri col-md-4">
+                <div class="kiri keunggulan col-md-4">
                     <div class="keunggulan-card">
                         <i class="fas fa-clock fa-3x"></i>
                         <h5 class="mt-3" style="font-family: 'Montserrat';">Cepat & Mudah</h5>
                         <p>Proses voting dan penjadwalan hanya dalam hitungan detik.</p>
                     </div>
                 </div>
-                <div class="bawah col-md-4">
+                <div class="bawah keunggulan col-md-4">
                     <div class="keunggulan-card">
                         <i class="fas fa-user-lock fa-3x"></i>
                         <h5 class="mt-3" style="font-family: 'Montserrat';">Aman & Transparan</h5>
                         <p>Data terlindungi dengan enkripsi tingkat tinggi.</p>
                     </div>
                 </div>
-                <div class="kanan col-md-4">
+                <div class="kanan keunggulan col-md-4">
                     <div class="keunggulan-card">
                         <i class="fas fa-thumbs-up fa-3x"></i>
                         <h5 class="mt-3" style="font-family: 'Montserrat';">Terpercaya</h5>

@@ -1,7 +1,18 @@
 @extends('layout.headerAsli')
+<style>
+    @media (max-width: 768px) {
+        .map {
+            width: 90% !important;
+        }
+
+        .dua {
+            flex-direction: column !important;
+        }
+    }
+</style>
 @section('konten')
     <div class="bg-light d-flex justify-content-center align-items-center flex-column pb-5">
-        <span class="fs-2 fw-bold  span-title"
+        <span class="fs-2 fw-bold span-title"
             style="color: #72B5F6; margin-bottom: 70px; margin-top: 140px; font-family: 'Montserrat';">Kontak
             Kami</span>
         <iframe class="mb-5 map"
@@ -9,7 +20,7 @@
             width="1200" height="500" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
-        <div class="d-flex flex-row w-100 justify-content-evenly">
+        <div class="d-flex dua flex-row w-100 justify-content-evenly">
             <div class="kiri" style="width: 350px">
                 <span class="fs-5 fw-bold" style="font-family: 'Montserrat';">Hubungi Kami</span>
                 <p class="">Jika Anda memiliki pertanyaan, ingin bekerja sama,
