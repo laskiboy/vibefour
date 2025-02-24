@@ -1,6 +1,11 @@
 @extends('layout.headerAsli')
 @section('konten')
     <style>
+        body {
+            overflow-x: hidden;
+
+        }
+
         .bg-image {
             background: url('img/wedding-decoration-Listing-and-Top-image123.jpg') center/cover no-repeat;
             width: 100%;
@@ -79,20 +84,20 @@
                 width: 100% !important;
             }
 
-            .masyuk{
+            .masyuk {
                 width: 300px !important;
             }
 
-            .visi{
+            .visi {
                 flex-direction: column !important;
             }
 
-            .cisi{
+            .cisi {
                 width: 80% !important;
                 margin-bottom: 40px;
             }
 
-            .keunggulan{
+            .keunggulan {
                 margin-bottom: 50px;
             }
         }

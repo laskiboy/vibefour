@@ -1,7 +1,16 @@
 @extends('layout.headerAsli')
+<style>
+    @media (max-width: 768px) {
+        .mai .main {
+            width: 90% !important;
+            padding: 10px !important;
+            margin: 0 !important;
+        }
+    }
+</style>
 @section('konten')
-    <div class="d-flex justify-content-center mb-5">
-        <div class="ms-5 w-50" style="margin-top: 100px; font-size: 14px">
+    <div class="d-flex mai justify-content-center mb-5">
+        <div class="ms-5 main w-50" style="margin-top: 100px; font-size: 14px">
             <nav aria-label="breadcrumb" class="mb-5">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Beranda</a></li>

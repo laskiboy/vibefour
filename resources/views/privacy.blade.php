@@ -1,6 +1,15 @@
 @extends('layout.headerAsli')
+<style>
+    @media (max-width: 768px) {
+        body .main {
+            width: 90% !important;
+            padding: 10px !important;
+            margin-top: 50px;
+        }
+    }
+</style>
 @section('konten')
-    <div class="container w-75 p-5">
+    <div class="container main w-75 p-5">
         <p class="fs-2 fw-bold" style="color: #72B5F6; margin-top: 60px">Kebijakan Dan Privasi</p>
         <p class="mt-4" style="color: #ABABAB">Terakhir diperbarui 10 Februari 2025</p>
         <p class="mt-4">
@@ -130,7 +139,9 @@
             melalui email atau pemberitahuan di platform kami. Kami menyarankan agar pengguna secara berkala meninjau
             kebijakan
             ini untuk tetap mendapatkan informasi terbaru.</p>
-        <p class="mt-4">Jika Anda memiliki pertanyaan atau permintaan terkait Kebijakan Privasi ini, silakan hubungi kami <a href="{{url('/kontak')}}">Kontak VibeFour</a></p>
+        <p class="mt-4">Jika Anda memiliki pertanyaan atau permintaan terkait Kebijakan Privasi ini, silakan hubungi kami
+            <a href="{{ url('/kontak') }}">Kontak VibeFour</a>
+        </p>
     </div>
     {{-- footer --}}
     @include('layout.footer')

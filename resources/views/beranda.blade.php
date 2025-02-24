@@ -192,7 +192,7 @@
         <div class="span d-flex flex-column">
             <h1 class="atas h1" style="font-family: 'Montserrat'; color: #000; font-weight: bold; font-size: 4em">VibeFour
             </h1>
-            <h1 class="kiri h1"
+            <h1 class="kiri to-everyone h1"
                 style="font-family: 'Montserrat'; color: #000; margin-bottom: 30px; font-weight: bold; font-size: 4em">To
                 Everyone
             </h1>

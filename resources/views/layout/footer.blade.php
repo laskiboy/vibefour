@@ -27,7 +27,7 @@
     }
 
     @media (max-width: 768px) {
-        footer{
+        footer {
             padding: 20px;
         }
     }
@@ -61,8 +61,8 @@
 
                 <div class="col-md-3 mb-4">
                     <h5 class="mb-4">Produk</h5>
-                    <a href="#" class="footer-link">Voting</a>
-                    <a href="#" class="footer-link">Penjadwalan</a>
+                    <a href="{{ route('produk-voting') }}" class="footer-link">Voting</a>
+                    <a href="{{ route('produk-penjadwalan') }}" class="footer-link">Penjadwalan</a>
                 </div>
 
                 <div class="col-md-2 mb-4 ms-0">

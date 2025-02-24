@@ -1,4 +1,28 @@
 @extends('layout.headerAsli')
+<style>
+    @media (max-width: 768px) {
+        #masuk-card #login-img-div {
+            display: none !important;
+        }
+
+        #daftar-card #register-img-div {
+            display: none !important;
+        }
+
+        .container {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        #masuk-card .right {
+            width: 100% !important;
+        }
+
+        #daftar-card .left {
+            width: 100% !important;
+        }
+    }
+</style>
 @section('konten')
     <div class="container w-100 vh-100 d-flex justify-content-center align-items-center">
         <div class="form-container position-relative" style="width: 75%; height: 70%; margin-top: 70px;">
@@ -56,10 +80,10 @@
                     <a class="btn mb-4 w-75"
                         style="text-decoration: none; color: #fff; background-color: #8854BB; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
                         href="{{ route('otp-register') }}">Daftar</a>
-                        <div class="masuk text-end w-75 mb-4">
-                            <span>Sudah punya akun? </span><a href="#" id="show-masuk"
-                                style="text-decoration: none; color: #72B5F6">Masuk</a>
-                        </div>
+                    <div class="masuk text-end w-75 mb-4">
+                        <span>Sudah punya akun? </span><a href="#" id="show-masuk"
+                            style="text-decoration: none; color: #72B5F6">Masuk</a>
+                    </div>
                 </div>
                 <div id="register-img-div"
                     class="right w-50 h-100 d-flex flex-column justify-content-center align-items-center position-relative"

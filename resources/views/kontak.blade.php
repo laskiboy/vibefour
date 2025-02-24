@@ -5,13 +5,21 @@
             width: 90% !important;
         }
 
-        .dua {
+        .satu .dua {
             flex-direction: column !important;
+            width: 90% !important;
+        }
+        .dua .tulis{
+            margin-bottom: 30px;
+        }
+
+        .foem{
+            width: 100% !important;
         }
     }
 </style>
 @section('konten')
-    <div class="bg-light d-flex justify-content-center align-items-center flex-column pb-5">
+    <div class="bg-light satu d-flex justify-content-center align-items-center flex-column pb-5">
         <span class="fs-2 fw-bold span-title"
             style="color: #72B5F6; margin-bottom: 70px; margin-top: 140px; font-family: 'Montserrat';">Kontak
             Kami</span>
@@ -21,7 +29,7 @@
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
         <div class="d-flex dua flex-row w-100 justify-content-evenly">
-            <div class="kiri" style="width: 350px">
+            <div class="kiri tulis" style="width: 350px">
                 <span class="fs-5 fw-bold" style="font-family: 'Montserrat';">Hubungi Kami</span>
                 <p class="">Jika Anda memiliki pertanyaan, ingin bekerja sama,
                     atau
@@ -40,7 +48,7 @@
                     <span class="ms-2">Email : blablabla@gmail.com</span>
                 </div>
             </div>
-            <div class="kanan" style="width: 700px;">
+            <div class="kanan foem" style="width: 700px;">
                 <form class="row g-3">
                     <div class="col-md-6">
                         <input type="text" placeholder="Nama" class="form-control" id="inputEmail4">

@@ -1,9 +1,37 @@
 @extends('layout.headerAsli')
-@section('konten')
-    <style>
+<style>
+    .otp-input {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        font-size: 24px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        margin: 0 5px;
+    }
+
+    .otp-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+        .daftar #register-img-div {
+            display: none !important;
+        }
+
+        .container {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .daftar .left {
+            width: 100% !important;
+        }
+
         .otp-input {
-            width: 50px;
-            height: 50px;
+            width: 35px !important;
+            height: 35px;
             text-align: center;
             font-size: 24px;
             border: 2px solid #ced4da;
@@ -15,7 +43,9 @@
             display: flex;
             justify-content: center;
         }
-    </style>
+    }
+</style>
+@section('konten')
     <div class="container w-100 vh-100 d-flex justify-content-center align-items-center">
         <div class="form-container position-relative" style="width: 75%; height: 70%; margin-top: 70px;">
             <div class="daftar card shadow-sm d-flex flex-row overflow-hidden w-100 h-100" style="border-radius: 20px;">

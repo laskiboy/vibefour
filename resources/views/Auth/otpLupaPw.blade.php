@@ -15,6 +15,44 @@
             display: flex;
             justify-content: center;
         }
+
+        @media (max-width: 768px) {
+            #masuk-card #login-img-div {
+                display: none !important;
+            }
+
+            #daftar-card #register-img-div {
+                display: none !important;
+            }
+
+            .container {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            #masuk-card .right {
+                width: 100% !important;
+            }
+
+            #daftar-card .left {
+                width: 100% !important;
+            }
+
+            .otp-input {
+                width: 35px;
+                height: 35px;
+                text-align: center;
+                font-size: 24px;
+                border: 2px solid #ced4da;
+                border-radius: 5px;
+                margin: 0 5px;
+            }
+
+            .otp-container {
+                display: flex;
+                justify-content: center;
+            }
+        }
     </style>
     <div class="container w-100 vh-100 d-flex justify-content-center align-items-center">
         <div class="form-container position-relative" style="width: 75%; height: 70%; margin-top: 70px;">
