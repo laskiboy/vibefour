@@ -25,6 +25,15 @@
             padding: 0 !important;
         }
 
+        .form-container {
+            width: 90% !important;
+        }
+
+        .right .forum,
+        .left .forum {
+            width: 80% !important;
+        }
+
         .daftar .left {
             width: 100% !important;
         }
@@ -43,6 +52,10 @@
             display: flex;
             justify-content: center;
         }
+
+        .left .otp {
+            margin-bottom: 0 !important;
+        }
     }
 </style>
 @section('konten')
@@ -51,9 +64,9 @@
             <div class="daftar card shadow-sm d-flex flex-row overflow-hidden w-100 h-100" style="border-radius: 20px;">
                 <div class="left w-50 h-100 d-flex flex-column justify-content-center align-items-center">
                     <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Verifikasi OTP</h2>
-                    <p class="w-75 mb-4 text-center">Masukkan kode Verifikasi anda yang telah dikirim ke alamat email
+                    <p class="w-75 mb-4 forum text-center">Masukkan kode Verifikasi anda yang telah dikirim ke alamat email
                         anda sebelumnya.</p>
-                    <div class="mb-4 w-75 otp-container">
+                    <div class="mb-4 forum w-75 otp-container">
                         <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 1)"
                             onkeydown="movePrev(event, this)">
                         <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 2)"
@@ -67,12 +80,12 @@
                         <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 6)"
                             onkeydown="movePrev(event, this)">
                     </div>
-                    <a class="btn mb-4 w-75"
+                    <a class="btn forum mb-4 w-75"
                         style="text-decoration: none; color: #fff; background-color: #8854BB; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
                         href="{{ route('pw-baru-register') }}">
                         Verifikasi OTP
                     </a>
-                    <div class="daftar text-center w-75 mb-4">
+                    <div class="daftar otp text-center w-75">
                         <a style="text-decoration: none; color: #000" href="{{ route('login') }}">Kirim Ulang Kode</a>
                     </div>
                 </div>

@@ -9,6 +9,15 @@
             display: none !important;
         }
 
+        .form-container {
+            width: 90% !important;
+        }
+
+        .right .forum,
+        .left .forum {
+            width: 80% !important;
+        }
+
         .container {
             margin: 0 !important;
             padding: 0 !important;
@@ -42,20 +51,20 @@
                     </div>
                     <div class="right w-50 h-100 d-flex flex-column justify-content-center align-items-center">
                         <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Masuk</h2>
-                        <div class="mb-4 w-75">
+                        <div class="mb-4 forum w-75">
                             <input type="text" class="ps-3 form-control" placeholder="Masukkan email atau username">
                         </div>
-                        <div class="mb-4 w-75">
+                        <div class="mb-4 forum w-75">
                             <input type="password" class="ps-3 form-control" placeholder="Masukkan Password">
                         </div>
-                        <div class="w-75 mb-4">
+                        <div class="w-75 forum mb-4">
                             <a class="ms-1" style="text-decoration: none; color: #000"
                                 href="{{ route('lupa-password') }}">Lupa Password?</a>
                         </div>
-                        <button class="btn mb-4 w-75"
+                        <button class="btn forum mb-4 w-75"
                             style="background-color: #8854BB; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
                             Masuk</button>
-                        <div class="daftar text-end w-75 mb-4">
+                        <div class="daftar forum text-end w-75">
                             <span>Belum punya akun? </span><a href="#" id="show-daftar"
                                 style="text-decoration: none; color: #72B5F6">Daftar</a>
                         </div>
@@ -68,19 +77,19 @@
                 style="border-radius: 20px; opacity: 0; z-index: 1; transition: opacity 0.5s ease-in-out, z-index 0.1s 0.5s;">
                 <div class="left w-50 h-100 d-flex flex-column justify-content-center align-items-center">
                     <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Daftar</h2>
-                    <div class="mb-4 w-75">
+                    <div class="mb-4 forum w-75">
                         <input type="text" class="ps-3 form-control" placeholder="Masukkan Username">
                     </div>
-                    <div class="mb-4 w-75">
+                    <div class="mb-4 forum w-75">
                         <input type="text" class="ps-3 form-control" placeholder="Masukkan Nama">
                     </div>
-                    <div class="mb-4 w-75">
+                    <div class="mb-4 forum w-75">
                         <input type="email" class="ps-3 form-control" placeholder="Masukkan Email">
                     </div>
-                    <a class="btn mb-4 w-75"
+                    <a class="btn mb-4 forum w-75"
                         style="text-decoration: none; color: #fff; background-color: #8854BB; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
                         href="{{ route('otp-register') }}">Daftar</a>
-                    <div class="masuk text-end w-75 mb-4">
+                    <div class="masuk forum text-end w-75">
                         <span>Sudah punya akun? </span><a href="#" id="show-masuk"
                             style="text-decoration: none; color: #72B5F6">Masuk</a>
                     </div>

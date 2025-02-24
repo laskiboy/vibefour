@@ -452,7 +452,7 @@
     {{-- end konten kedua --}}
 
     {{-- konten ketiga --}}
-    <div class="bg-light d-flex justify-content-center flex-column align-items-center" style="padding-top: 100px;">
+    <div class="bg-light d-flex justify-content-center flex-column align-items-center" style="padding-top: 100px; padding-bottom: 100px;">
         <span class="fs-2 mb-3 fw-bold  span-title" style="color: #72B5F6; font-family: 'Montserrat';">Pencapaian
             Kami</span>
         <span class="span-title span-bangga w-50 text-center" style="margin-bottom: 100px">Kami bangga telah membantu
@@ -585,7 +585,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Tunggu sampai Bootstrap sepenuhnya dimuat
             function waitForBootstrap(callback) {
                 if (typeof bootstrap !== 'undefined') {
                     callback();

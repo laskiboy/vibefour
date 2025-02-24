@@ -15,13 +15,15 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="{{ url('berita') }}">Berita</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Pernikahan terbaik tahun ini</li>
+                    <li class="breadcrumb-item active" aria-current="page">Baru !!! VibeFour Kini Hadir untuk Memudahkan
+                        Pengguna</li>
                 </ol>
             </nav>
             <div class="d-flex flex-column">
-                <span class="fs-1 mb-4 " style="font-weight: 500">Pernikahan terbaik tahun ini</span>
+                <span class="fs-1 mb-4 " style="font-weight: 500">Baru !!! VibeFour Kini Hadir untuk Memudahkan
+                    Pengguna</span>
                 <span class="fs-5 mb-5 " style="color: #ABABAB">10 Februari 2025</span>
-                <img class="shadow" src="{{ asset('img/nice.webp') }}"
+                <img class="shadow" src="{{ asset('img/hn.jpg') }}"
                     style="border-radius: 20px; width: 100%; height: 25rem; object-fit: cover; margin-bottom: 50px"
                     alt="">
                 <span class="">

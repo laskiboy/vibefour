@@ -9,6 +9,15 @@
             display: none !important;
         }
 
+        .form-container {
+            width: 90% !important;
+        }
+
+        .right .forum,
+        .left .forum {
+            width: 80% !important;
+        }
+
         .container {
             margin: 0 !important;
             padding: 0 !important;
@@ -20,6 +29,10 @@
 
         #daftar-card .left {
             width: 100% !important;
+        }
+
+        .daftar {
+            text-align: center;
         }
     }
 </style>
@@ -43,19 +56,20 @@
                     </div>
                     <div class="right w-50 h-100 d-flex flex-column justify-content-center align-items-center">
                         <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Lupa Kata Sandi</h2>
-                        <p class="w-75 mb-4 text-center">Masukkan email Anda yang telah terdaftar. Kami akan mengirimkan
+                        <p class="w-75 forum mb-4 text-center">Masukkan email Anda yang telah terdaftar. Kami akan
+                            mengirimkan
                             email untuk
                             melakukan reset kata
                             sandi.</p>
-                        <div class="mb-4 w-75">
+                        <div class="mb-4 forum w-75">
                             <input type="email" class="ps-3 form-control" placeholder="Masukkan Email">
                         </div>
-                        <a class="btn mb-4 w-75"
+                        <a class="btn mb-4 forum w-75"
                             style="text-decoration: none; color: #fff; background-color: #8854BB; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
                             href="{{ route('otp-lupa-pw') }}">Lupa Kata
                             Sandi
                         </a>
-                        <div class="daftar w-75 mb-4">
+                        <div class="daftar forum w-75">
                             <a style="text-decoration: none; color: #000" href="{{ route('login') }}">Kembali ke login? </a>
                         </div>
                     </div>
