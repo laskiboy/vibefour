@@ -41,12 +41,12 @@
             transition: all 0.3s ease-in-out;
         }
 
-        .fitur-1:hover {
-            padding: 20px;
-            border-radius: 20px;
-            transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
+        /* .fitur-1:hover {
+                padding: 20px;
+                border-radius: 20px;
+                transform: scale(1.05);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            } */
 
         .video {
             display: none;
@@ -85,7 +85,7 @@
             }
 
             .dua {
-                margin-top: 200px !important;
+                margin-top: 50px !important;
             }
 
             .video {
@@ -113,6 +113,7 @@
             #testimonialCarousel .carousel-inner img {
                 width: 100%;
                 height: 300px;
+                margin-bottom: 50px;
             }
 
             .fitir {
@@ -122,6 +123,7 @@
                 align-items: center !important;
                 text-align: center !important;
                 margin-top: 30px;
+                margin-bottom: 0 !important;
             }
 
             .fitur {
@@ -129,11 +131,6 @@
                 display: flex;
                 justify-content: center !important;
                 align-items: center !important;
-            }
-
-            .fitur-1 {
-                width: 80% !important;
-                margin-bottom: 60px !important;
             }
 
             .husus {
@@ -148,9 +145,31 @@
                 margin-bottom: 30px;
             }
 
+            .fitur-1 {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 100% !important;
+                margin-bottom: 30px !important;
+            }
+
+            .fitur-1 i {
+                margin-right: 20px;
+            }
+
+            .fitur-1 .klas {
+                display: flex;
+                text-align: start;
+                flex-direction: column;
+            }
+
             .span-bergabung {
                 text-align: center;
                 margin-bottom: 40px !important;
+            }
+
+            .kiri .unggul {
+                width: 100% !important;
             }
         }
     </style>
@@ -201,6 +220,40 @@
 
     {{-- konten kedua --}}
     <div class="kiri dua d-flex w-100 justify-content-around flex-row align-item-center">
+
+        <div style="width: 50%" class="d-flex fitir justify-content-center flex-column mb-5">
+            <div class="kiri d-flex flex-column">
+                <span class="fs-2 unggul fw-bold" style="color: #72B5F6; font-family: 'Montserrat';">Fitur unggulan
+                    penjadwalan</span>
+                <span class="my-4">Dengan VibeFour, pengelolaan jadwal jadi lebih rapi, cepat, dan efisien!</span>
+                <div class="fitur d-flex justify-content-start flex-row mt-4">
+                    <div class="fitur-1" style="width: 40%;">
+                        <i class="fa-solid fa-address-card fs-2 mb-4" style="color: #8854BB;"></i><br>
+                        <div class="klas">
+                            <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Undang
+                                temanmu</strong>
+                            <p class="mt-2">Pada fitur penjadwalan, kamu bisa langsung mengirim undangan walapun temanmu
+                                belum
+                                punya
+                                akun</p>
+                        </div>
+                    </div>
+                    <div class="fitur-1 husus ms-4" style="width: 40%;">
+                        <i class="fa-solid fa-square-check fs-2 mb-4" style="color: #8854BB;"></i>
+                        {{-- <i class="fa-solid fa-face-smile></i><br> --}}
+                        <div class="klas">
+                            <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Menambahkan
+                                ketersediaan</strong>
+                            <p class="mt-2">Anda bisa menambah ketersediaan untuk mempermudah pembuat jadwal menentukan
+                                jadwal
+                                tanpa
+                                menunggu konfirmasi</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         <div id="testimonialCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -209,31 +262,6 @@
                 <div class="carousel-item">
                     <img style="object-fit: cover" src="{{ asset('img/vitur5.png') }}" width="500" alt="">
                 </div>
-            </div>
-        </div>
-        <div style="width: 50%" class="d-flex fitir justify-content-center flex-column mb-5">
-            <div class="kiri d-flex flex-column">
-                <span class="fs-2 fw-bold" style="color: #72B5F6; font-family: 'Montserrat';">Fitur unggulan
-                    penjadwalan</span>
-                <span class="my-4">Dengan VibeFour, pengelolaan jadwal jadi lebih rapi, cepat, dan efisien!</span>
-                <div class="fitur d-flex justify-content-start flex-row mt-4">
-                    <div class="fitur-1" style="width: 40%;">
-                        <i class="fa-solid fa-lock fs-2 mb-4" style="color: #8854BB;"></i><br>
-                        <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Undang temanmu</strong>
-                        <p class="mt-2">Pada fitur penjadwalan, kamu bisa langsung mengirim undangan walapun temanmu belum
-                            punya
-                            akun</p>
-                    </div>
-                    <div class="fitur-1 husus ms-4" style="width: 40%;">
-                        <i class="fa-solid fa-face-smile fs-2 mb-4" style="color: #8854BB;"></i><br>
-                        <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Menambahkan
-                            ketersediaan</strong>
-                        <p class="mt-2">Anda bisa menambah ketersediaan untuk mempermudah pembuat jadwal menentukan jadwal
-                            tanpa
-                            menunggu konfirmasi</p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
@@ -277,7 +305,7 @@
                     <span class="fw-bold fs-4">Rp. 570.000 </span><span>/ Tahun</span>
                     <hr>
                     <p>Penggunaan akses full</p>
-                    <p>Tanpa batasan penggunaan fitur</p>
+                    <p>Tanpa batasan penggunaan fi<i class="fa-solid fa-address-card"></i>tur</p>
                     <p>Langganan Tahunan</p>
                     <a href="#" class="btn"
                         style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">Pilih

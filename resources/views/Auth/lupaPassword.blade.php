@@ -65,7 +65,7 @@
                             <input type="email" class="ps-3 form-control" placeholder="Masukkan Email">
                         </div>
                         <a class="btn mb-4 forum w-75"
-                            style="text-decoration: none; color: #fff; background-color: #8854BB; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
+                            style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
                             href="{{ route('otp-lupa-pw') }}">Lupa Kata
                             Sandi
                         </a>

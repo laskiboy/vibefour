@@ -99,7 +99,7 @@
                                 onkeydown="movePrev(event, this)">
                         </div>
                         <a class="btn forum mb-4 w-75"
-                            style="text-decoration: none; color: #fff; background-color: #8854BB; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
+                            style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
                             href="{{ route('pw-baru') }}">
                             Verifikasi OTP
                         </a>

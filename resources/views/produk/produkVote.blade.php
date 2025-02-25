@@ -40,12 +40,12 @@
             transition: all 0.3s ease-in-out;
         }
 
-        .fitur-1:hover {
-            padding: 20px;
-            border-radius: 20px;
-            transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
+        /* .fitur-1:hover {
+                                                padding: 20px;
+                                                border-radius: 20px;
+                                                transform: scale(1.05);
+                                                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                                            } */
 
         .video {
             display: none;
@@ -107,6 +107,7 @@
             #testimonialCarousel .carousel-inner img {
                 width: 100%;
                 height: 300px;
+                margin-bottom: 50px;
             }
 
             .fitir {
@@ -116,6 +117,7 @@
                 align-items: center !important;
                 text-align: center !important;
                 margin-top: 30px;
+                margin-bottom: 0 !important;
             }
 
             .fitur {
@@ -126,8 +128,21 @@
             }
 
             .fitur-1 {
-                width: 80% !important;
-                margin-bottom: 60px !important;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 100% !important;
+                margin-bottom: 30px !important;
+            }
+
+            .fitur-1 i {
+                margin-right: 20px;
+            }
+
+            .fitur-1 .klas {
+                display: flex;
+                text-align: start;
+                flex-direction: column;
             }
 
             .husus {
@@ -194,6 +209,46 @@
 
     {{-- konten kedua --}}
     <div class="kiri dua d-flex w-100 justify-content-around flex-row align-item-center">
+        <div style="width: 50%" class="d-flex fitir justify-content-center flex-column mb-5">
+            <div class="kiri d-flex flex-column">
+                <span class="fs-2 fw-bold" style="color: #72B5F6; font-family: 'Montserrat';">Fitur unggulan voting</span>
+                <span class="my-4">Dengan VibeFour, voting menjadi lebih efisien, aman, dan ramah
+                    lingkungan!</span>
+                <div class="fitur d-flex justify-content-start flex-row mt-4">
+                    <div class="fitur-1" style="width: 40%;">
+                        <i class="fa-solid fa-lock fs-3 mb-4" style="color: #8854BB;"></i><br>
+                        <div class="klas">
+                            <strong class="" style="color: #72B5F6; font-family: 'Montserrat';">Keamanan voting
+                                terjamin</strong>
+                            <p class="mt-2">Vote bisa menjadi general ataupun privat menggunakan kode room yang dibuat
+                                secara
+                                otomatis</p>
+                        </div>
+                    </div>
+                    <div class="fitur-1 husus ms-4" style="width: 40%;">
+                        <i class="fa-solid fa-face-smile fs-3 mb-4" style="color: #8854BB;"></i><br>
+                        <div class="klas">
+                            <strong class="" style="color: #72B5F6; font-family: 'Montserrat';">Pengaturan
+                                anonimus</strong>
+                            <p class="mt-2">Pembuat voting bisa melakukan kostumisasi siapa saja yang bisa memilih voting,
+                                atau
+                                pembuat voting juga bisa menyamarkan pemilih</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fitur d-flex justify-content-between flex-row mt-3">
+                    <div class="fitur-1" style="width: 40%;">
+                        <i class="fa-solid fa-eye-low-vision fs-3 mb-4" style="color: #8854BB;"></i><br>
+                        <div class="klas">
+                            <strong class="" style="color: #72B5F6; font-family: 'Montserrat';">Kostumisasi hasil
+                                vote</strong>
+                            <p class="mt-2">Hasil voting bisa dikostumisasi, public untuk hasil vote yang bisa dilihat
+                                pemilih, dan private untuk hasil yang hanya bisa dilihat pembuat voting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="testimonialCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -204,39 +259,6 @@
                 </div>
                 <div class="carousel-item">
                     <img style="object-fit: cover" src="{{ asset('img/vitur3.png') }}" width="500" alt="">
-                </div>
-            </div>
-        </div>
-        <div style="width: 50%" class="d-flex fitir justify-content-center flex-column mb-5">
-            <div class="kiri d-flex flex-column">
-                <span class="fs-2 fw-bold" style="color: #72B5F6; font-family: 'Montserrat';">Fitur unggulan voting</span>
-                <span class="my-4">Dengan VibeFour, voting menjadi lebih efisien, aman, dan ramah
-                    lingkungan!</span>
-                <div class="fitur d-flex justify-content-start flex-row mt-4">
-                    <div class="fitur-1" style="width: 40%;">
-                        <i class="fa-solid fa-lock fs-2 mb-4" style="color: #8854BB;"></i><br>
-                        <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Keamanan voting
-                            terjamin</strong>
-                        <p class="mt-2">Vote bisa menjadi general ataupun privat menggunakan kode room yang dibuat secara
-                            otomatis</p>
-                    </div>
-                    <div class="fitur-1 husus ms-4" style="width: 40%;">
-                        <i class="fa-solid fa-face-smile fs-2 mb-4" style="color: #8854BB;"></i><br>
-                        <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Pengaturan
-                            anonimus</strong>
-                        <p class="mt-2">Pembuat voting bisa melakukan kostumisasi siapa saja yang bisa memilih voting,
-                            atau
-                            pembuat voting juga bisa menyamarkan pemilih</p>
-                    </div>
-                </div>
-                <div class="fitur d-flex justify-content-between flex-row mt-3">
-                    <div class="fitur-1" style="width: 40%;">
-                        <i class="fa-solid fa-eye-low-vision fs-2 mb-4" style="color: #8854BB;"></i><br>
-                        <strong class="fs-5" style="color: #72B5F6; font-family: 'Montserrat';">Kostumisasi hasil
-                            vote</strong>
-                        <p class="mt-2">Hasil voting bisa dikostumisasi, public untuk hasil vote yang bisa dilihat
-                            pemilih, dan private untuk hasil yang hanya bisa dilihat pembuat voting</p>
-                    </div>
                 </div>
             </div>
         </div>

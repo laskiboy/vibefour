@@ -104,7 +104,7 @@
                             <input type="password" class="ps-3 form-control" placeholder="Konfirmasi Password">
                         </div>
                         <a class="btn forum w-75"
-                            style="text-decoration: none; color: #fff; background-color: #8854BB; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
+                            style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
                             href="{{ route('login') }}">
                             Perbarui Kata Sandi
                         </a>

@@ -165,7 +165,7 @@
                             <a href="{{ route('login') }}">
                                 <button class="btn btn-login"
                                     style="background-color: #72B5F6; color: #FFF; border-radius: 20px; width: 120px;"><i
-                                        class="fa-solid fa-user me-2"></i> Masuk</button>
+                                        class="fa-solid fa-door-open me-2"></i> Masuk</button>
                             </a>
                         </li>
                     </ul>

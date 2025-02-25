@@ -18,6 +18,15 @@
             width: 80% !important;
         }
 
+        .right .botom,
+        .left .botom {
+            text-align: left !important;
+        }
+
+        .right .forum .lupa {
+            float: right;
+        }
+
         .container {
             margin: 0 !important;
             padding: 0 !important;
@@ -58,13 +67,13 @@
                             <input type="password" class="ps-3 form-control" placeholder="Masukkan Password">
                         </div>
                         <div class="w-75 forum mb-4">
-                            <a class="ms-1" style="text-decoration: none; color: #000"
+                            <a class="ms-1 lupa" style="text-decoration: none; color: #000"
                                 href="{{ route('lupa-password') }}">Lupa Password?</a>
                         </div>
                         <button class="btn forum mb-4 w-75"
-                            style="background-color: #8854BB; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
+                            style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
                             Masuk</button>
-                        <div class="daftar forum text-end w-75">
+                        <div class="daftar botom forum text-end w-75">
                             <span>Belum punya akun? </span><a href="#" id="show-daftar"
                                 style="text-decoration: none; color: #72B5F6">Daftar</a>
                         </div>
@@ -87,9 +96,9 @@
                         <input type="email" class="ps-3 form-control" placeholder="Masukkan Email">
                     </div>
                     <a class="btn mb-4 forum w-75"
-                        style="text-decoration: none; color: #fff; background-color: #8854BB; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
+                        style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
                         href="{{ route('otp-register') }}">Daftar</a>
-                    <div class="masuk forum text-end w-75">
+                    <div class="masuk botom forum text-end w-75">
                         <span>Sudah punya akun? </span><a href="#" id="show-masuk"
                             style="text-decoration: none; color: #72B5F6">Masuk</a>
                     </div>
