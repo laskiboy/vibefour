@@ -49,6 +49,7 @@
                 .navbar {
                     justify-content: start !important;
                     width: 100% !important;
+                    max-width: 768px !important;
                 }
 
                 .navbar-nav {

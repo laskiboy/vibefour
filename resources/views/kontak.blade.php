@@ -65,7 +65,7 @@
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn w-100"
-                            style="background-color: #72B5F6; color: #FFF; border-radius: 20px;"">Kirim</button>
+                            style="background-color: #72B5F6; color: #FFF; border-radius: 20px;""><i class="fa-solid fa-paper-plane me-2"></i> Kirim</button>
                     </div>
                 </form>
                 {{-- <h1>p</h1> --}}

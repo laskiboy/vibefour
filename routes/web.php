@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,9 +66,15 @@ Route::get('/faq', function () {
 
 
 //login
-Route::get('/login', function () {
-    return view('Auth.login');
-})->name('login');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login'); // Halaman login
+Route::post('/login', [AuthController::class, 'login']); // Proses login
+
+//regis
+Route::get('/register', [AuthController::class, 'showRegisForm'])->name('register'); // Halaman register
+Route::post('/register', [AuthController::class, 'register'])->name('regis'); // Proses register
+Route::post('/check-username', [AuthController::class, 'checkUsername'])->name('check.username');
+Route::post('/check-email', [AuthController::class, 'checkEmail'])->name('check.email');
+
 
 Route::get('/lupa-password', function () {
     return view('Auth.lupaPassword');

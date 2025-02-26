@@ -1,199 +1,237 @@
-@extends('layout.headerAsli')
+<style>
+    body {
+        overflow-x: hidden;
+    }
 
-@section('konten')
-    <style>
-        body {
-            overflow-x: hidden;
-        }
+    .custom-accordion {
+        width: 500px !important;
+        margin: 20px auto;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
+    .accordion-button {
+        font-size: 0.95rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .accordion-button:not(.collapsed) {
+        background-color: #f8f9fa;
+    }
+
+    .accordion-body {
+        font-size: 0.9rem;
+        padding: 1rem;
+        background-color: #ffffff;
+    }
+
+    .accordion-body ul {
+        margin-top: 0.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .accordion-body li {
+        margin-bottom: 0.3rem;
+    }
+
+    .image-carousel {
+        width: 30rem;
+        height: 17rem;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .carousel-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .carousel-image.active {
+        opacity: 1;
+    }
+
+    @media (max-width: 576px) {
         .custom-accordion {
             width: 500px !important;
             margin: 20px auto;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);transform: ;msFilter:;'%3E%3Cpath d='M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z'%3E%3C/path%3E%3C/svg%3E");
+        background-size: 24px;
+        background-color: transparent;
+        padding: 1rem;
+    }
+
+    .carousel-control-prev-icon {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);transform: ;msFilter:;'%3E%3Cpath d='M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z'%3E%3C/path%3E%3C/svg%3E");
+        background-size: 24px;
+        background-color: transparent;
+        padding: 1rem;
+    }
+
+    .carousel-control-next,
+    .carousel-control-prev {
+        background-color: #72B5F6;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        top: calc(50% - 20px);
+        opacity: 0.8;
+    }
+
+    .carousel-control-next {
+        right: 20px;
+    }
+
+    .carousel-control-prev {
+        left: 20px;
+    }
+
+    .carousel-control-next:hover,
+    .carousel-control-prev:hover {
+        opacity: 1;
+        background-color: #48a4ff;
+    }
+
+    @media (max-width: 768px) {
+        body .satu {
+            width: 100% !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            margin-top: 120px !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
         }
 
-        .accordion-button {
-            font-size: 0.95rem;
-            padding: 0.8rem 1rem;
+        body .dua {
+            width: 100% !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            margin-top: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
         }
 
-        .accordion-button:not(.collapsed) {
-            background-color: #f8f9fa;
+        .h1 {
+            font-size: 45px !important;
+            text-align: center !important;
         }
 
-        .accordion-body {
-            font-size: 0.9rem;
-            padding: 1rem;
-            background-color: #ffffff;
+        .solusi {
+            margin: 0 50px !important;
+            text-align: center !important;
         }
 
-        .accordion-body ul {
-            margin-top: 0.5rem;
-            padding-left: 1.5rem;
+        .giv-blob {
+            display: none !important;
         }
 
-        .accordion-body li {
-            margin-bottom: 0.3rem;
+        .a-masuk {
+            text-decoration: none !important;
+            display: flex !important;
+            justify-content: center !important;
         }
 
-        .image-carousel {
-            width: 30rem;
-            height: 17rem;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
+        .a-masuk button {
+            width: 90% !important;
+            font-size: 20px !important;
         }
 
-        .carousel-image {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+        #featureAccordion1 {
+            display: none;
         }
 
-        .carousel-image.active {
-            opacity: 1;
+        #featureAccordion2 {
+            display: block !important;
         }
 
-        @media (max-width: 576px) {
-            .custom-accordion {
-                width: 500px !important;
-                margin: 20px auto;
-            }
+        #carousel1,
+        .span-blob {
+            display: none !important;
         }
 
-        .carousel-control-next-icon {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);transform: ;msFilter:;'%3E%3Cpath d='M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z'%3E%3C/path%3E%3C/svg%3E");
-            background-size: 24px;
-            background-color: transparent;
-            padding: 1rem;
+        .custom-accordion {
+            width: 100% !important;
         }
 
-        .carousel-control-prev-icon {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);transform: ;msFilter:;'%3E%3Cpath d='M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z'%3E%3C/path%3E%3C/svg%3E");
-            background-size: 24px;
-            background-color: transparent;
-            padding: 1rem;
+        .span-kami {
+            margin-bottom: 0 !important;
+            text-align: center !important;
         }
 
-        .carousel-control-next,
-        .carousel-control-prev {
-            background-color: #72B5F6;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            top: calc(50% - 20px);
-            opacity: 0.8;
+        .tiha .span-bangga {
+            width: 85% !important;
         }
 
-        .carousel-control-next {
-            right: 20px;
+        .pencapaian {
+            flex-direction: column;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
         }
 
-        .carousel-control-prev {
-            left: 20px;
+        .tiha .poin {
+            width: 85% !important;
+            margin-bottom: 50px;
         }
 
-        .carousel-control-next:hover,
-        .carousel-control-prev:hover {
-            opacity: 1;
-            background-color: #48a4ff;
+        .butin {
+            margin-top: 100px;
         }
 
-        @media (max-width: 768px) {
-            .satu {
-                width: 100% !important;
-                flex-direction: column !important;
-                justify-content: center !important;
-                align-items: center !important;
-                margin-top: 120px !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-            }
-
-            .h1 {
-                font-size: 45px !important;
-                text-align: center !important;
-            }
-
-            .solusi {
-                margin: 0 50px !important;
-                text-align: center !important;
-            }
-
-            .giv-blob {
-                display: none !important;
-            }
-
-            .a-masuk {
-                text-decoration: none !important;
-                display: flex !important;
-                justify-content: center !important;
-            }
-
-            .a-masuk button {
-                width: 90% !important;
-                font-size: 20px !important;
-            }
-
-            #featureAccordion1 {
-                display: none;
-            }
-
-            #featureAccordion2 {
-                display: block !important;
-            }
-
-            #carousel1,
-            .span-blob {
-                display: none !important;
-            }
-
-            .custom-accordion {
-                width: 100% !important;
-            }
-
-            .span-kami {
-                margin-bottom: 0 !important;
-                text-align: center !important;
-            }
-
-            .span-bangga {
-                width: 85% !important;
-            }
-
-            .pencapaian {
-                flex-direction: column;
-                display: flex !important;
-                justify-content: center !important;
-                align-items: center !important;
-            }
-
-            .poin {
-                width: 85% !important;
-                margin-bottom: 50px;
-            }
-
-            .butin {
-                margin-top: 100px;
-            }
-
-            .accordion-collapse {
-                width: 100% !important;
-            }
+        .accordion-collapse {
+            width: 100% !important;
         }
-    </style>
 
+        .accordion-item .yoi{
+            width: 100% !important;
+        }
+    }
+
+    .slideshow-container {
+        position: relative;
+        z-index: 1;
+        max-width: 600px;
+    }
+
+    .slides {
+        display: none;
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .active {
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .slideshow-container {
+            margin: 30px !important;
+            margin-top: 40px;
+        }
+    }
+</style>
+@extends('layout.headerAsli')
+@section('konten')
     {{-- konten pertama --}}
     <div class="satu bg-white vh-100 d-flex justify-content-evenly flex-row align-items-center">
         <div class="span d-flex flex-column">
-            <h1 class="atas h1" style="font-family: 'Montserrat'; color: #000; font-weight: bold; font-size: 4em">VibeFour
+            <h1 class="atas h1" style="font-family: 'Montserrat'; color: #000; font-weight: bold; font-size: 4em">
+                VibeFour
             </h1>
             <h1 class="kiri to-everyone h1"
-                style="font-family: 'Montserrat'; color: #000; margin-bottom: 30px; font-weight: bold; font-size: 4em">To
+                style="font-family: 'Montserrat'; color: #000; margin-bottom: 30px; font-weight: bold; font-size: 4em">
+                To
                 Everyone
             </h1>
             <div class="solusi">
@@ -201,11 +239,15 @@
             </div>
             <a href="{{ route('login') }}" class="a-masuk">
                 <button class="bawah btn shadow mb-3 mt-5"
-                    style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px">
-                    Masuk</button>
+                    style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px"><i
+                        class="fa-solid fa-door-open me-2"></i> Masuk</button>
             </a>
         </div>
-        @include('layout.slideshowHome')
+        {{-- @include('layout.slideshowHome') --}}
+        <div class="slideshow-container kanan">
+            <img class="slides active" src="{{ asset('img/penjadwalan.png') }}" alt="">
+            <img class="slides" src="{{ asset('img/votingan.png') }}" alt="">
+        </div>
         <span class="kanan giv-blob" style="position: absolute; right: 0; margin-right: 100px">
             <img width="500" src="{{ asset('img/svg.gif') }}" alt="">
         </span>
@@ -216,8 +258,7 @@
     <div class="d-flex flex-column align-items-center m-5">
         <span class="fs-2 fw-bold span-title" style="color: #72B5F6; font-family: 'Montserrat';">Fitur Unggulan</span>
         <span class="mb-5 span-kami span-sub">Kami menyediakan dua fitur unggulan dari produk kami</span>
-
-        <div class="w-75 d-flex w-100 align-items-center mt-5 justify-content-around">
+        <div class="w-75 dua d-flex w-100 align-items-center mt-5 justify-content-around">
             <span class="kiri span-blob" style="position: absolute; left: 0; margin-left: -350px; z-index: -1">
                 <svg width="500px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path fill="#E8F4FF"
@@ -296,7 +337,8 @@
                             data-bs-parent="#featureAccordion1">
                             <div class="accordion-body">
                                 <p class="mb-0">
-                                    Pada fitur penjadwalan, kamu bisa langsung mengirim undangan walapun temanmu belum punya
+                                    Pada fitur penjadwalan, kamu bisa langsung mengirim undangan walapun temanmu belum
+                                    punya
                                     akun
                                 </p>
                             </div>
@@ -315,7 +357,8 @@
                             data-bs-parent="#featureAccordion1">
                             <div class="accordion-body">
                                 <p class="mb-0">
-                                    Anda bisa menambah ketersediaan untuk mempermudah pembuat jadwal menentukan jadwal tanpa
+                                    Anda bisa menambah ketersediaan untuk mempermudah pembuat jadwal menentukan jadwal
+                                    tanpa
                                     menunggu konfirmasi
                                 </p>
                             </div>
@@ -332,7 +375,7 @@
                                 Keamanan vote terjamin
                             </button>
                         </h2>
-                        <div id="collapseOne2" class="accordion-collapse collapse" aria-labelledby="headingOne2"
+                        <div id="collapseOne2" class="accordion-collapse collapse yoi" aria-labelledby="headingOne2"
                             data-bs-parent="#featureAccordion2">
                             <div class="accordion-body">
                                 <p class="mb-0">
@@ -355,7 +398,7 @@
                                 Pengaturan anonimus
                             </button>
                         </h2>
-                        <div id="collapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo2"
+                        <div id="collapseTwo2" class="accordion-collapse collapse yoi" aria-labelledby="headingTwo2"
                             data-bs-parent="#featureAccordion2">
                             <div class="accordion-body">
                                 <p class="mb-0">
@@ -378,7 +421,7 @@
                                 Kostumisasi hasil vote
                             </button>
                         </h2>
-                        <div id="collapseThree2" class="accordion-collapse collapse" aria-labelledby="headingThree2"
+                        <div id="collapseThree2" class="accordion-collapse collapse yoi" aria-labelledby="headingThree2"
                             data-bs-parent="#featureAccordion2">
                             <div class="accordion-body">
                                 <p class="mb-0">
@@ -401,11 +444,12 @@
                                 Undang temanmu yang belum punya akun
                             </button>
                         </h2>
-                        <div id="collapseFour2" class="accordion-collapse collapse" aria-labelledby="headingFour2"
+                        <div id="collapseFour2" class="accordion-collapse collapse yoi" aria-labelledby="headingFour2"
                             data-bs-parent="#featureAccordion2">
                             <div class="accordion-body">
                                 <p class="mb-0">
-                                    Pada fitur penjadwalan, kamu bisa langsung mengirim undangan walapun temanmu belum punya
+                                    Pada fitur penjadwalan, kamu bisa langsung mengirim undangan walapun temanmu belum
+                                    punya
                                     akun <br>
                                 <div class="d-flex justify-content-center align-items-center mt-4">
                                     <img class="shadow" width="300" src="{{ asset('img/Screenshot (77).png') }}"
@@ -424,11 +468,12 @@
                                 Menambahkan ketersediaan
                             </button>
                         </h2>
-                        <div id="collapseFive2" class="accordion-collapse collapse" aria-labelledby="headingFive2"
+                        <div id="collapseFive2" class="accordion-collapse collapse yoi" aria-labelledby="headingFive2"
                             data-bs-parent="#featureAccordion2">
                             <div class="accordion-body">
                                 <p class="mb-0">
-                                    Anda bisa menambah ketersediaan untuk mempermudah pembuat jadwal menentukan jadwal tanpa
+                                    Anda bisa menambah ketersediaan untuk mempermudah pembuat jadwal menentukan jadwal
+                                    tanpa
                                     menunggu konfirmasi <br>
                                 <div class="d-flex justify-content-center align-items-center mt-4">
                                     <img class="shadow" width="300" src="{{ asset('img/Screenshot (77).png') }}"
@@ -452,9 +497,9 @@
     {{-- end konten kedua --}}
 
     {{-- konten ketiga --}}
-    <div class="bg-light d-flex justify-content-center flex-column align-items-center"
+    <div class="bg-light tiha d-flex justify-content-center flex-column align-items-center"
         style="padding-top: 100px; padding-bottom: 100px;">
-        <span class="fs-2 mb-3 fw-bold  span-title" style="color: #72B5F6; font-family: 'Montserrat';">Pencapaian
+        <span class="fs-2 mb-3 fw-bold span-title" style="color: #72B5F6; font-family: 'Montserrat';">Pencapaian
             Kami</span>
         <span class="span-title span-bangga w-50 text-center" style="margin-bottom: 100px">Kami bangga telah membantu
             banyak pengguna
@@ -482,7 +527,8 @@
             <div class="w-25 poin kanan d-flex flex-column text-center">
                 <i style="color: #8854BB" class="fa-solid fa-shield fs-1 mb-4"></i>
                 <strong class="fs-5 mb-3" style="font-family: 'Montserrat';">Teknologi yang Aman & Andal</strong>
-                <span>Dengan sistem yang terus diperbarui, VibeFour memastikan keamanan data dan keakuratan hasil voting.
+                <span>Dengan sistem yang terus diperbarui, VibeFour memastikan keamanan data dan keakuratan hasil
+                    voting.
                     Kami menggunakan enkripsi data dan sistem autentikasi yang kuat untuk melindungi informasi
                     pengguna.</span>
             </div>
@@ -556,7 +602,8 @@
                                         <i class="fas fa-star"></i>
                                     </div>
                                     <p class="lead">
-                                        "Tidak pernah mengecewakan, hasil dari vote akurat, dan dengan adanya fitur avalible
+                                        "Tidak pernah mengecewakan, hasil dari vote akurat, dan dengan adanya fitur
+                                        avalible
                                         mempercepat penjadwalan."
                                     </p>
                                     <p class="font-weight-bold text-primary">- PT Maju Bersama</p>
@@ -692,5 +739,22 @@
                 interval: 5000
             });
         }
+
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slides");
+
+        function showSlides() {
+            slides.forEach((slide, index) => {
+                slide.style.display = "none";
+            });
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+
+        showSlides();
     </script>
 @endsection

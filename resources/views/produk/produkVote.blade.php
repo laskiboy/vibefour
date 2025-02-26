@@ -41,11 +41,11 @@
         }
 
         /* .fitur-1:hover {
-                                                padding: 20px;
-                                                border-radius: 20px;
-                                                transform: scale(1.05);
-                                                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                                            } */
+                                                        padding: 20px;
+                                                        border-radius: 20px;
+                                                        transform: scale(1.05);
+                                                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                                                    } */
 
         .video {
             display: none;
@@ -179,9 +179,9 @@
                     berbagai kebutuhan, kami memastikan bahwa setiap suara dihitung secara adil dan akurat.</span>
             </div>
             <div class="tombol">
-                <button href="{{ route('login') }}" class="bawah btn shadow mb-3 mt-5"
-                    style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 250px; height: 50px">
-                    Coba Fitur</button>
+                <button onclick="window.location.href='{{ route('login') }}'" class="bawah btn shadow mb-3 mt-5"
+                    style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 250px; height: 50px"><i
+                        class="fa-solid fa-rocket me-2"></i> Coba Fitur</button>
                 <button type="button" class="bawah lihat btn btn-secondary shadow ms-4 mb-3 mt-5" data-bs-toggle="modal"
                     data-bs-target="#modalVideo" style="border-radius: 20px; width: 200px; height: 50px"><i
                         class="fa-regular fa-circle-play me-2 fs-5"></i> Lihat Tutorial</button>

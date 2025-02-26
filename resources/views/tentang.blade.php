@@ -122,8 +122,8 @@
                 keputusan yang lebih efisien.</p style="width: 40rem">
             <a href="{{ route('login') }}">
                 <button class="bawah btn masyuk shadow mt-4"
-                    style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px">
-                    Masuk</button>
+                    style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px"><i
+                        class="fa-solid fa-door-open me-2"></i> Masuk</button>
             </a>
         </div>
     </div>
