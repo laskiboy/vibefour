@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\VerificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,11 +71,29 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login'); /
 Route::post('/login', [AuthController::class, 'login']); // Proses login
 
 //regis
-Route::get('/register', [AuthController::class, 'showRegisForm'])->name('register'); // Halaman register
-Route::post('/register', [AuthController::class, 'register'])->name('regis'); // Proses register
+Route::get('/pw-baru-register', function () {
+    return view('Auth.pwBaruRegis');
+})->name('pw-baru-register');
+// Proses registrasi
+Route::post('/pw-baru-register', [AuthController::class, 'buat_password'])->name('pw.register.proses');
+
+Route::get('/register', function () {
+    return view('Auth.login');
+})->name('register');
+// Proses registrasi
+Route::post('/register', [AuthController::class, 'register'])->name('register.process');
+
 Route::post('/check-username', [AuthController::class, 'checkUsername'])->name('check.username');
 Route::post('/check-email', [AuthController::class, 'checkEmail'])->name('check.email');
 
+// Halaman verifikasi OTP
+Route::get('/verify-otp', function () {
+    return view('Auth.otpRegis');
+})->name('verify.otp.view');
+
+// Proses verifikasi OTP
+Route::post('/verify-otp', [AuthController::class, 'verifyOtp'])->name('verify.otp');
+Route::get('/resend-otp', [AuthController::class, 'resendOtp'])->name('resend.otp');
 
 Route::get('/lupa-password', function () {
     return view('Auth.lupaPassword');

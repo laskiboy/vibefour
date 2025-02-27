@@ -91,10 +91,9 @@
                 style="border-radius: 20px; opacity: 0; z-index: 1; transition: opacity 0.5s ease-in-out, z-index 0.1s 0.5s;">
                 <div class="left w-50 h-100 d-flex flex-column justify-content-center align-items-center">
                     <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Daftar</h2>
-                    <form id="registerForm" action="{{ url('/register') }}" method="POST"
+                    <form id="registerForm" action="{{ route('register.process') }}" method="POST"
                         class="w-100 d-flex justify-content-center align-items-center flex-column">
                         @csrf
-
                         <div class="mb-4 forum w-75">
                             <input name="username" type="text" class="ps-3 form-control" placeholder="Masukkan Username">
                             <div class="invalid-feedback d-block" id="usernameError" style="display: none;"></div>
@@ -266,10 +265,9 @@
                     success: function(response) {
                         if (response.exists) {
                             $('input[name="username"]').addClass('is-invalid').removeClass('is-valid');
-                            if (!$('input[name="username"]').next('.invalid-feedback').length) {
-                                $('input[name="username"]').after(
-                                    '<div class="invalid-feedback">Username sudah digunakan.</div>');
-                            }
+                            $('#usernameError').html(
+                                '<p class="text-danger mb-0">Username sudah digunakan</p>');
+
                             usernameValid = false;
                         } else {
                             $('input[name="username"]').removeClass('is-invalid');
@@ -295,10 +293,8 @@
                     success: function(response) {
                         if (response.exists) {
                             $('input[name="email"]').addClass('is-invalid').removeClass('is-valid');
-                            if (!$('input[name="email"]').next('.invalid-feedback').length) {
-                                $('input[name="email"]').after(
-                                    '<div class="invalid-feedback">Email sudah digunakan.</div>');
-                            }
+                            $('#emailError').html(
+                                '<p class="text-danger mb-0">Email sudah digunakan</p>');
                             emailValid = false;
                         } else {
                             $('input[name="email"]').removeClass('is-invalid');

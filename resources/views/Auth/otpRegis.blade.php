@@ -66,27 +66,28 @@
                     <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Verifikasi OTP</h2>
                     <p class="w-75 mb-4 forum text-center">Masukkan kode Verifikasi anda yang telah dikirim ke alamat email
                         anda sebelumnya.</p>
-                    <div class="mb-4 forum w-75 otp-container">
-                        <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 1)"
-                            onkeydown="movePrev(event, this)">
-                        <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 2)"
-                            onkeydown="movePrev(event, this)">
-                        <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 3)"
-                            onkeydown="movePrev(event, this)">
-                        <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 4)"
-                            onkeydown="movePrev(event, this)">
-                        <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 5)"
-                            onkeydown="movePrev(event, this)">
-                        <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 6)"
-                            onkeydown="movePrev(event, this)">
-                    </div>
-                    <a class="btn forum mb-4 w-75"
-                        style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
-                        href="{{ route('pw-baru-register') }}">
-                        Verifikasi OTP
-                    </a>
+                    <form id="otpForm" action="{{ route('verify.otp') }}" method="POST"
+                        class="w-100 d-flex justify-content-center align-items-center flex-column">
+                        @csrf
+                        <div class="mb-4 forum w-75 otp-container">
+                            @for ($i = 0; $i < 6; $i++)
+                                <input type="text" name="otp[]" class="otp-input" maxlength="1"
+                                    oninput="moveNext(this, {{ $i + 1 }})" onkeydown="movePrev(event, this)">
+                            @endfor
+                        </div>
+                        <input type="hidden" name="otp_full" id="otpFull">
+                        <input type="hidden" name="type" value="register">
+                        <button class="btn forum mb-4 w-75"
+                            style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
+                            Verifikasi OTP
+                        </button>
+                    </form>
+                    {{-- <form action="/verify" method="POST">
+                        @csrf
+                        <button type="submit">Kirim otp</button>
+                    </form> --}}
                     <div class="daftar otp text-center w-75">
-                        <a style="text-decoration: none; color: #000" href="{{ route('login') }}">Kirim Ulang Kode</a>
+                        <a style="text-decoration: none; color: #000" href="{{ route('resend.otp') }}">Kirim Ulang Kode</a>
                     </div>
                 </div>
                 <div id="register-img-div"
@@ -104,6 +105,18 @@
     </div>
 
     <script>
+        document.getElementById('otpForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Cegah submit langsung
+
+            let otpInputs = document.querySelectorAll('.otp-input');
+            let fullOtp = "";
+
+            otpInputs.forEach(input => fullOtp += input.value);
+            document.getElementById('otpFull').value = fullOtp; // Simpan hasil gabungan
+
+            this.submit(); // Submit form manual setelah data diperbaiki
+        });
+
         function moveNext(input, index) {
             let nextInput = document.querySelectorAll('.otp-input')[index];
             if (input.value && nextInput) {
@@ -118,14 +131,6 @@
                     prevInput.focus();
                 }
             }
-        }
-
-        function submitOTP() {
-            let otp = "";
-            document.querySelectorAll('.otp-input').forEach(input => {
-                otp += input.value;
-            });
-            alert("Kode OTP: " + otp);
         }
     </script>
 @endsection

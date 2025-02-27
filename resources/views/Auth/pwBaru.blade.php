@@ -95,6 +95,7 @@
                             <li>Minimal terdiri dani 8 karakter</li>
                             {{-- <li>Mengandung minimal 1 huruf kapital</li>
                             <li>Mengandung minimal 1 huruf kecil</li> --}}
+                            <li>Mengandung minimal 1 huruf kecil</li>
                             <li>Mengandung minimal 1 digit angka</li>
                         </ul>
                         <div class="mb-4 forum w-75">

@@ -77,19 +77,25 @@
                     <span class="w-75 forum mb-2">Masukkan kata sandi baru anda dengan ketentuan :</span>
                     <ul class="mb-4 forum" style="margin-left: -75px">
                         <li>Minimal terdiri dani 8 karakter</li>
+                        <li>Mengandung minimal 1 huruf kecil</li>
                         <li>Mengandung minimal 1 digit angka</li>
                     </ul>
-                    <div class="mb-4 forum w-75">
-                        <input type="password" class="ps-3 form-control" placeholder="Masukkan Password">
-                    </div>
-                    <div class="mb-4 forum w-75">
-                        <input type="password" class="ps-3 form-control" placeholder="Konfirmasi Password">
-                    </div>
-                    <a class="btn forum mb-4"
-                        style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
-                        href="{{ route('login') }}">
-                        Buat Kata Sandi
-                    </a>
+                    <form id="otpForm" action="{{ route('pw.register.proses') }}" method="POST"
+                        class="w-100 d-flex justify-content-center align-items-center flex-column">
+                        @csrf
+                        <div class="mb-4 forum w-75">
+                            <input type="password" name="password" class="ps-3 form-control"
+                                placeholder="Masukkan Password">
+                        </div>
+                        <div class="mb-4 forum w-75">
+                            <input type="password" name="confirm_password" class="ps-3 form-control"
+                                placeholder="Konfirmasi Password">
+                        </div>
+                        <button class="btn forum mb-4" type="submit"
+                            style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
+                            Buat Kata Sandi
+                        </button>
+                    </form>
                 </div>
                 <div id="register-img-div"
                     class="right w-50 h-100 d-flex flex-column justify-content-center align-items-center">
