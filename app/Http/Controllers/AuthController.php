@@ -164,16 +164,41 @@ class AuthController extends Controller
             return back()->withErrors(['email' => 'User tidak ditemukan.']);
         }
 
+        // Cek tanggal terakhir permintaan OTP, reset jika hari berganti
+        if ($user->otp_last_request != Carbon::today()->toDateString()) {
+            $user->update([
+                'otp_attempts' => 0,
+                'otp_last_request' => Carbon::today()->toDateString()
+            ]);
+        }
+
+        // Cek apakah sudah mencapai limit 10 kali per hari
+        if ($user->otp_attempts >= 10) {
+            return back()->withErrors(['otp' => 'Anda telah mencapai batas permintaan OTP hari ini. Coba lagi besok.']);
+        }
+
+        // Cek cooldown 60 detik
+        $lastSentTime = Session::get('last_otp_sent_time');
+        if ($lastSentTime && now()->diffInSeconds($lastSentTime) < 60) {
+            $remainingTime = 60 - now()->diffInSeconds($lastSentTime);
+            return back()->withErrors(['otp' => "Silakan coba lagi dalam $remainingTime detik."]);
+        }
+
         // Generate OTP baru
         $otp = rand(100000, 999999);
         $user->update([
             'otp' => $otp,
-            'otp_expires_at' => Carbon::now()->addMinutes(5)
+            'otp_expires_at' => Carbon::now()->addMinutes(5),
+            'otp_attempts' => $user->otp_attempts + 1, // Tambah hitungan permintaan
+            'otp_last_request' => Carbon::today()->toDateString()
         ]);
 
         Mail::raw("Kode OTP baru Anda: $otp", function ($message) use ($user) {
             $message->to($user->email)->subject('Kode OTP Baru');
         });
+
+        // Simpan timestamp terakhir pengiriman OTP ke session
+        Session::put('last_otp_sent_time', now());
 
         return back()->with('success', 'Kode OTP baru telah dikirim.');
     }
