@@ -214,7 +214,7 @@
                     },
                     error: function() {
                         $('#message').html(
-                            '<p class="text-danger">Terjadi kesalahan. Coba lagi.</p>');
+                            '<p class="text-danger">Isi semua kolom terlebih dahulu</p>');
                     }
                 });
             });
