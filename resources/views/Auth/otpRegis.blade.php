@@ -66,6 +66,11 @@
                     <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Verifikasi OTP</h2>
                     <p class="w-75 mb-4 forum text-center">Masukkan kode Verifikasi anda yang telah dikirim ke alamat email
                         anda sebelumnya.</p>
+                    @if (session('error'))
+                        <p style="color: red">
+                            {{ session('error') }}
+                        </p>
+                    @endif
                     <form id="otpForm" action="{{ route('verify.otp') }}" method="POST"
                         class="w-100 d-flex justify-content-center align-items-center flex-column">
                         @csrf
@@ -82,13 +87,34 @@
                             Verifikasi OTP
                         </button>
                     </form>
-                    {{-- <form action="/verify" method="POST">
-                        @csrf
-                        <button type="submit">Kirim otp</button>
-                    </form> --}}
                     <div class="daftar otp text-center w-75">
-                        <a style="text-decoration: none; color: #000" href="{{ route('resend.otp') }}">Kirim Ulang Kode</a>
+                        @if (session('last_otp_sent_time') && now()->diffInSeconds(session('last_otp_sent_time')) < 60)
+                            <p style="color: gray;">Silakan coba lagi dalam <span id="cooldown"></span> detik.</p>
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                            <script>
+                                $(document).ready(function() {
+                                    let cooldownTime = {{ 60 - now()->diffInSeconds(session('last_otp_sent_time')) }};
+                                    let cooldownElement = $("#cooldown");
+
+                                    function updateCooldown() {
+                                        if (cooldownTime > 0) {
+                                            cooldownElement.text(cooldownTime);
+                                            cooldownTime--;
+                                            setTimeout(updateCooldown, 1000);
+                                        } else {
+                                            location.reload();
+                                        }
+                                    }
+
+                                    updateCooldown();
+                                });
+                            </script>
+                        @else
+                            <a style="text-decoration: none; color: #000" href="{{ route('resend.otp') }}"
+                                id="resendOtp">Kirim Ulang Kode</a>
+                        @endif
                     </div>
+
                 </div>
                 <div id="register-img-div"
                     class="right w-50 h-100 d-flex flex-column justify-content-center align-items-center">
