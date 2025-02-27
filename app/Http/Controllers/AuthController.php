@@ -25,15 +25,19 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        $petugas = User::where('username', $request->usernameAndEmail)->first();
+        // Cari user berdasarkan username atau email
+        $user = User::where('username', $request->usernameAndEmail)
+            ->orWhere('email', $request->usernameAndEmail)
+            ->first();
 
-        if ($petugas && Hash::check($request->password, $petugas->password)) {
+        // Jika user ditemukan dan password cocok
+        if ($user && Hash::check($request->password, $user->password)) {
             return response('success');
         } else {
-            return '<p style="color: red;">Username atau password salah!</p>';
+            return response('<p style="color: red;">Username atau password salah!</p>', 401);
         }
-        return response('error', 401);
     }
+
 
     // public function showRegisForm()
     // {
