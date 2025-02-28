@@ -67,7 +67,7 @@
                     <p class="w-75 mb-4 forum text-center">Masukkan kode Verifikasi anda yang telah dikirim ke alamat email
                         anda sebelumnya.</p>
                     @if (session('error'))
-                        <p style="color: red">
+                        <p style="color: red" class="w-75 mb-4 forum text-center">
                             {{ session('error') }}
                         </p>
                     @endif
@@ -88,25 +88,29 @@
                         </button>
                     </form>
                     <div class="daftar otp text-center w-75">
-                        @if (session('last_otp_sent_time') && now()->diffInSeconds(session('last_otp_sent_time')) < 60)
-                            <p style="color: gray;">Silakan coba lagi dalam <span id="cooldown"></span> detik.</p>
+                        @php
+                            $lastOtpSentTime = session('last_otp_sent_time');
+                            $remainingTime = $lastOtpSentTime ? max(60 - now()->diffInSeconds($lastOtpSentTime), 0) : 0;
+                        @endphp
+
+                        @if ($remainingTime > 0)
+                            <p style="color: gray;">Silakan coba lagi dalam <span id="cooldown">{{ $remainingTime }}</span>
+                                detik.</p>
                             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                             <script>
                                 $(document).ready(function() {
-                                    let cooldownTime = {{ 60 - now()->diffInSeconds(session('last_otp_sent_time')) }};
+                                    let cooldownTime = parseInt($("#cooldown").text());
                                     let cooldownElement = $("#cooldown");
 
-                                    function updateCooldown() {
+                                    let interval = setInterval(() => {
                                         if (cooldownTime > 0) {
                                             cooldownElement.text(cooldownTime);
                                             cooldownTime--;
-                                            setTimeout(updateCooldown, 1000);
                                         } else {
+                                            clearInterval(interval);
                                             location.reload();
                                         }
-                                    }
-
-                                    updateCooldown();
+                                    }, 1000);
                                 });
                             </script>
                         @else
@@ -114,6 +118,7 @@
                                 id="resendOtp">Kirim Ulang Kode</a>
                         @endif
                     </div>
+
 
                 </div>
                 <div id="register-img-div"

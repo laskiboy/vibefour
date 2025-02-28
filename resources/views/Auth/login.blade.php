@@ -204,8 +204,7 @@
                     },
                     success: function(response) {
                         if (response === 'success') {
-                            window.location.href =
-                                "/"; // Redirect setelah login berhasil
+                            window.location.href = "/"; // Redirect setelah login berhasil
                         } else {
                             $('#message').html(
                                 '<p class="text-danger w-100">Username atau password salah.</p>'
@@ -222,99 +221,104 @@
 
         // Add this script to your registration page
         $(document).ready(function() {
-            // Variables to track validation status
-            let usernameValid = true;
-            let emailValid = true;
+            // Menyembunyikan pesan error saat inisialisasi
+            $('#usernameError, #emailError').hide();
 
-            // Function to validate the form before submission
-            function validateForm() {
-                return usernameValid && emailValid;
-            }
+            // Handler untuk submit form registrasi
+            $('#registerForm').submit(function(e) {
+                e.preventDefault();
 
-            // Username validation on input change
-            $('input[name="username"]').on('blur', function() {
-                const username = $(this).val();
-                if (username.length > 0) {
-                    checkUsername(username);
-                } else {
-                    $(this).removeClass('is-invalid is-valid');
-                    usernameValid = false;
+                // Ambil data form
+                const username = $('input[name="username"]').val();
+                const email = $('input[name="email"]').val();
+                const nama = $('input[name="nama"]').val();
+                const token = $('input[name="_token"]').val();
+
+                // Reset validasi
+                $('input[name="username"], input[name="email"]').removeClass('is-invalid');
+                $('#usernameError, #emailError').hide();
+
+                // Validasi dasar form
+                let isValid = true;
+
+                if (!username) {
+                    $('input[name="username"]').addClass('is-invalid');
+                    $('#usernameError').html('<p class="text-danger mb-0">Username tidak boleh kosong</p>')
+                        .show();
+                    isValid = false;
                 }
-            });
 
-            // Email validation on input change
-            $('input[name="email"]').on('blur', function() {
-                const email = $(this).val();
-                if (email.length > 0) {
-                    checkEmail(email);
-                } else {
-                    $(this).removeClass('is-invalid is-valid');
-                    emailValid = false;
+                if (!email) {
+                    $('input[name="email"]').addClass('is-invalid');
+                    $('#emailError').html('<p class="text-danger mb-0">Email tidak boleh kosong</p>')
+                        .show();
+                    isValid = false;
                 }
-            });
 
-            // Function to check if username already exists
-            function checkUsername(username) {
-                $.ajax({
-                    url: "/check-username",
-                    type: "POST",
-                    data: {
-                        username: username,
-                        _token: $('input[name="_token"]').val()
-                    },
-                    success: function(response) {
-                        if (response.exists) {
-                            $('input[name="username"]').addClass('is-invalid').removeClass('is-valid');
-                            $('#usernameError').html(
-                                '<p class="text-danger mb-0">Username sudah digunakan</p>');
+                if (!nama) {
+                    $('input[name="nama"]').addClass('is-invalid');
+                    isValid = false;
+                }
 
-                            usernameValid = false;
-                        } else {
-                            $('input[name="username"]').removeClass('is-invalid');
-                            $('input[name="username"]').next('.invalid-feedback').remove();
-                            usernameValid = true;
+                if (!isValid) {
+                    return false;
+                }
+
+                // Periksa username dan email sebelum submit
+                $.when(
+                    // Cek username
+                    $.ajax({
+                        url: "/check-username",
+                        type: "POST",
+                        data: {
+                            username: username,
+                            _token: token
                         }
-                    },
-                    error: function() {
-                        console.error("Terjadi kesalahan saat memeriksa username");
+                    }),
+                    // Cek email
+                    $.ajax({
+                        url: "/check-email",
+                        type: "POST",
+                        data: {
+                            email: email,
+                            _token: token
+                        }
+                    })
+                ).done(function(usernameResponse, emailResponse) {
+                    // Cek hasil validasi username
+                    if (usernameResponse[0].exists) {
+                        $('input[name="username"]').addClass('is-invalid');
+                        $('#usernameError').html(
+                            '<p class="text-danger mb-0">Username sudah digunakan</p>').show();
+                        isValid = false;
+                    }
+
+                    // Cek hasil validasi email
+                    if (emailResponse[0].exists) {
+                        $('input[name="email"]').addClass('is-invalid');
+                        $('#emailError').html(
+                            '<p class="text-danger mb-0">Email sudah digunakan</p>').show();
+                        isValid = false;
+                    }
+
+                    // Jika semua validasi berhasil, submit form
+                    if (isValid) {
+                        // Submit form dengan AJAX
+                        $.ajax({
+                            url: $('#registerForm').attr('action'),
+                            type: "POST",
+                            data: $('#registerForm').serialize(),
+                            success: function(response) {
+                                // Redirect setelah berhasil mendaftar
+                                window.location.href = response.redirect ||
+                                    '/verifikasi';
+                            },
+                            error: function(xhr) {
+                                console.error("Terjadi kesalahan saat mendaftar");
+                            }
+                        });
                     }
                 });
-            }
-
-            // Function to check if email already exists
-            function checkEmail(email) {
-                $.ajax({
-                    url: "/check-email",
-                    type: "POST",
-                    data: {
-                        email: email,
-                        _token: $('input[name="_token"]').val()
-                    },
-                    success: function(response) {
-                        if (response.exists) {
-                            $('input[name="email"]').addClass('is-invalid').removeClass('is-valid');
-                            $('#emailError').html(
-                                '<p class="text-danger mb-0">Email sudah digunakan</p>');
-                            emailValid = false;
-                        } else {
-                            $('input[name="email"]').removeClass('is-invalid');
-                            $('input[name="email"]').next('.invalid-feedback').remove();
-                            emailValid = true;
-                        }
-                    },
-                    error: function() {
-                        console.error("Terjadi kesalahan saat memeriksa email");
-                    }
-                });
-            }
-
-            // Prevent form submission if validation fails
-            $('form').on('submit', function(e) {
-                if (!validateForm()) {
-                    e.preventDefault();
-                    // Trigger validation for empty fields
-                    $('input[name="username"], input[name="email"]').trigger('blur');
-                }
             });
         });
     </script>

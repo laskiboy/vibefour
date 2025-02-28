@@ -65,6 +65,11 @@ Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
 
+Route::get('/oi', function () {
+    return view('Untitled-1');
+})->name('oi')->middleware('auth');
+
+// Route::get('/oi', [HomeController::class, 'index'])->name('beranda')->middleware('auth');
 
 //login
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login'); // Halaman login
@@ -75,8 +80,8 @@ Route::get('/pw-baru-register', function () {
     return view('Auth.pwBaruRegis');
 })->name('pw-baru-register');
 // Proses registrasi
-Route::post('/pw-baru-register', [AuthController::class, 'buat_password'])->name('pw.register.proses');
-
+Route::post('/pw-baru-register', [AuthController::class, 'buat_password'])->name('pw.register.proses')->middleware('web');
+Route::post('/validate-password', [AuthController::class, 'validatePassword']);
 Route::get('/register', function () {
     return view('Auth.login');
 })->name('register');
