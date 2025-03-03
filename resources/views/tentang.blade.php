@@ -1,108 +1,111 @@
 @extends('layout.headerAsli')
-@section('konten')
-    <style>
-        body {
-            overflow-x: hidden;
+<style>
+    body {
+        overflow-x: hidden;
+    }
 
-        }
+    .bg-image {
+        background: url('img/wedding-decoration-Listing-and-Top-image123.jpg') center/cover no-repeat;
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
 
-        .bg-image {
-            background: url('img/wedding-decoration-Listing-and-Top-image123.jpg') center/cover no-repeat;
-            width: 100%;
-            height: 100vh;
-            position: relative;
-            top: 0;
-            left: 0;
-        }
+    .conten-satu {
+        -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
+        position: relative;
+    }
 
-        .conten-satu {
-            -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
-            position: relative;
-        }
+    .tulisan {
+        margin-top: -30px;
+    }
 
-        .tulisan {
-            margin-top: -30px;
-        }
+    .collapse-trigger {
+        position: relative;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
 
-        .collapse-trigger {
-            position: relative;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
+    .collapse-trigger.active::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0px;
+        width: 70%;
+        height: 5px;
+        background-color: #8854BB;
+        transform: translateX(-50%);
+        opacity: 0;
+        animation: underline-fade-slide 0.3s ease-in-out forwards;
+    }
 
-        .collapse-trigger.active::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 0px;
-            width: 70%;
-            height: 5px;
-            background-color: #8854BB;
-            transform: translateX(-50%);
+    @keyframes underline-fade-slide {
+        0% {
+            width: 0;
             opacity: 0;
-            animation: underline-fade-slide 0.3s ease-in-out forwards;
         }
 
-        @keyframes underline-fade-slide {
-            0% {
-                width: 0;
-                opacity: 0;
-            }
+        100% {
+            width: 70%;
+            opacity: 1;
+        }
+    }
 
-            100% {
-                width: 70%;
-                opacity: 1;
-            }
+    .keunggulan-card {
+        transition: 0.3s;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .keunggulan-card:hover {
+        background: #f8f9fa;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        body {
+            width: 100% !important;
         }
 
-        .keunggulan-card {
-            transition: 0.3s;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #ddd;
+        .satu {
+            margin-top: 90px;
+            width: 100% !important;
         }
 
-        .keunggulan-card:hover {
-            background: #f8f9fa;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .h1 {
+            font-size: 45px !important;
         }
 
-        @media (max-width: 768px) {
-            .satu {
-                margin-top: 90px;
-            }
-
-            .h1 {
-                font-size: 45px !important;
-            }
-
-            .hadir {
-                width: 100% !important;
-            }
-
-            .masyuk {
-                width: 300px !important;
-            }
-
-            .visi {
-                flex-direction: column !important;
-            }
-
-            .cisi {
-                width: 80% !important;
-                margin-bottom: 40px;
-            }
-
-            .keunggulan {
-                margin-bottom: 50px;
-            }
+        .hadir {
+            width: 100% !important;
         }
-    </style>
 
+        .masyuk {
+            width: 300px !important;
+        }
+
+        .visi {
+            flex-direction: column !important;
+        }
+
+        .cisi {
+            width: 80% !important;
+            margin-bottom: 40px;
+        }
+
+        .keunggulan {
+            margin-bottom: 50px;
+        }
+    }
+</style>
+@section('konten')
     {{-- konten pertama --}}
     <div class="bg-white satu vh-100 w-100 d-flex justify-content-around flex-column align-items-center">
         <div class="text w-75 d-flex justify-content-around flex-column align-items-center">
@@ -133,7 +136,8 @@
     <div class="bg-white atas w-100 d-flex justify-content-around flex-column align-items-center"
         style="margin-bottom: 150px;">
         <span class="fs-1 fw-bold mb-4" style="color: #000; font-family: 'Montserrat';">Tentang Kami</span>
-        <span class="fs-5 w-75 text-center">VibeFour adalah platform digital yang menyediakan sistem voting dan penjadwalan
+        <span class="fs-5 w-75 text-center">VibeFour adalah platform digital yang menyediakan sistem voting dan
+            penjadwalan
             otomatis
             untuk memudahkan organisasi dan komunitas dalam mengambil keputusan dan mengelola acara.</span>
     </div>

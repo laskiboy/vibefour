@@ -15,6 +15,14 @@
         justify-content: center;
     }
 
+    .invalid-feedback {
+        display: none;
+    }
+
+    .invalid-feedback.show {
+        display: block !important;
+    }
+
     @media (max-width: 768px) {
         .daftar #register-img-div {
             display: none !important;
@@ -83,6 +91,7 @@
                     <form id="buatPasswordForm" method="POST"
                         class="w-100 d-flex justify-content-center align-items-center flex-column">
                         @csrf
+                        <input type="hidden" name="type" value="register">
                         <div class="mb-4 forum w-75">
                             <div class="input-group">
                                 <input type="password" class="form-control" id="password" name="password">
@@ -124,87 +133,136 @@
     </div>
     <script>
         $(document).ready(function() {
-            // Toggle Show/Hide Password
-            $(".toggle-password").click(function() {
-                let target = $(this).data("target");
-                let input = $("#" + target);
-                let icon = $(this).find("i");
+            // Toggle password visibility
+            $('.toggle-password').on('click', function() {
+                const targetId = $(this).data('target');
+                const passwordInput = $('#' + targetId);
 
-                if (input.attr("type") === "password") {
-                    input.attr("type", "text");
-                    icon.removeClass("fa-eye").addClass("fa-eye-slash");
+                if (passwordInput.attr('type') === 'password') {
+                    passwordInput.attr('type', 'text');
+                    $(this).find('i').removeClass('fa-eye').addClass('fa-eye-slash');
                 } else {
-                    input.attr("type", "password");
-                    icon.removeClass("fa-eye-slash").addClass("fa-eye");
+                    passwordInput.attr('type', 'password');
+                    $(this).find('i').removeClass('fa-eye-slash').addClass('fa-eye');
                 }
             });
 
-            // Ajax Validasi Password
-            $("#buatPasswordForm").submit(function(e) {
-                e.preventDefault(); // Mencegah submit normal
+            // Function to validate password
+            function validatePassword() {
+                const password = $('#password').val();
+                let isValid = true;
 
-                let formData = $(this).serialize(); // Mengambil data form
+                // Reset previous error
+                $('#password').removeClass('is-invalid');
+                $('#passwordError').text('').hide();
 
-                $.ajax({
-                    url: "{{ route('pw.register.proses') }}", // Sesuaikan dengan route
-                    type: "POST",
-                    data: formData,
-                    dataType: "json", // Tambahkan ini untuk memastikan respons diparse sebagai JSON
-                    success: function(response) {
-                        // Jika sukses, cek jika ada URL redirect
-                        if (response.success) {
-                            // Tampilkan pesan sukses jika ada
-                            if (response.message) {
-                                $("#successMessage").removeClass("d-none").text(response
-                                    .message);
-                                $("#errorMessage").addClass("d-none");
-                            }
+                // Validate password
+                if (!password) {
+                    $('#password').addClass('is-invalid');
+                    $('#passwordError').text('Kata sandi tidak boleh kosong.').show();
+                    isValid = false;
+                } else if (password.length < 8) {
+                    $('#password').addClass('is-invalid');
+                    $('#passwordError').text('Kata sandi minimal 8 karakter.').show();
+                    isValid = false;
+                } else if (!/[a-z]/.test(password)) {
+                    $('#password').addClass('is-invalid');
+                    $('#passwordError').text('Kata sandi harus mengandung huruf.').show();
+                    isValid = false;
+                } else if (!/[0-9]/.test(password)) {
+                    $('#password').addClass('is-invalid');
+                    $('#passwordError').text('Kata sandi harus mengandung angka.').show();
+                    isValid = false;
+                }
 
-                            // Redirect ke halaman tujuan setelah login
-                            window.location.href = response.redirect || "{{ route('oi') }}";
-                        }
-                    },
-                    error: function(xhr) {
-                        // Hapus pesan error sebelumnya
-                        $(".invalid-feedback").text("");
-                        $(".form-control").removeClass("is-invalid");
+                return isValid;
+            }
 
-                        // Coba parse response sebagai JSON
-                        try {
-                            let response = JSON.parse(xhr.responseText);
+            // Function to validate password confirmation
+            function validateConfirmPassword() {
+                const password = $('#password').val();
+                const confirmPassword = $('#confirm_password').val();
+                let isValid = true;
 
-                            if (response.errors) {
-                                // Handle validation errors
-                                if (response.errors.password) {
-                                    $("#password").addClass("is-invalid");
-                                    $("#passwordError").text(response.errors.password[0]);
+                // Reset previous error
+                $('#confirm_password').removeClass('is-invalid');
+                $('#confirmPasswordError').text('').hide();
+
+                // Validate password confirmation
+                if (!confirmPassword) {
+                    $('#confirm_password').addClass('is-invalid');
+                    $('#confirmPasswordError').text('Konfirmasi kata sandi tidak boleh kosong.').show();
+                    isValid = false;
+                } else if (password !== confirmPassword) {
+                    $('#confirm_password').addClass('is-invalid');
+                    $('#confirmPasswordError').text('Konfirmasi kata sandi tidak cocok.').show();
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+            // Validate password on input and blur
+            $('#password').on('input blur', function() {
+                validatePassword();
+                // If confirm password has a value, validate it again
+                if ($('#confirm_password').val()) {
+                    validateConfirmPassword();
+                }
+            });
+
+            // Validate confirm password on input and blur
+            $('#confirm_password').on('input blur', function() {
+                validateConfirmPassword();
+            });
+
+            // Handle form submission with Ajax
+            $('#buatPasswordForm').on('submit', function(e) {
+                e.preventDefault();
+
+                // Perform final validation
+                const isPasswordValid = validatePassword();
+                const isConfirmPasswordValid = validateConfirmPassword();
+
+                // If all fields are valid, proceed with Ajax submission
+                if (isPasswordValid && isConfirmPasswordValid) {
+                    $.ajax({
+                        url: $(this).attr('action'),
+                        type: 'POST',
+                        data: $(this).serialize(),
+                        dataType: 'json',
+                        success: function(response) {
+                            // Handle successful response
+                            if (response.success) {
+                                // If a redirect URL is provided
+                                if (response.redirect) {
+                                    window.location.href = response.redirect;
+                                } else {
+                                    alert(response.message || 'Kata sandi berhasil dibuat!');
                                 }
-                                if (response.errors.confirm_password) {
-                                    $("#confirm_password").addClass("is-invalid");
-                                    $("#confirmPasswordError").text(response.errors
-                                        .confirm_password[0]);
-                                }
-                            } else if (response.error) {
-                                $("#errorMessage").removeClass("d-none").text(response.error);
                             }
-                        } catch (e) {
-                            // Fallback ke handling HTML lama
-                            let responseHTML = xhr.responseText;
-
-                            if (responseHTML.includes("error")) {
-                                $("#errorMessage").removeClass("d-none").text(
-                                    "Email Anda tidak ditemukan.");
+                        },
+                        error: function(xhr) {
+                            // Handle server errors (if any)
+                            if (xhr.status === 500) {
+                                alert(
+                                    'Terjadi kesalahan pada server. Silakan coba lagi nanti.'
+                                );
                             } else {
-                                // Cek jika ada validasi Laravel
-                                if (responseHTML.includes("The password field is required")) {
-                                    $("#password").addClass("is-invalid");
-                                    $("#passwordError").text("Password wajib diisi.");
-                                }
-                                // ... kode validasi lainnya tetap sama
+                                alert('Terjadi kesalahan. Silakan coba lagi.');
                             }
                         }
-                    }
-                });
+                    });
+                }
+            });
+
+            // Make sure error elements are properly styled
+            $('#passwordError, #confirmPasswordError').css({
+                'display': 'none',
+                'width': '100%',
+                'margin-top': '0.25rem',
+                'font-size': '0.875em',
+                'color': '#dc3545'
             });
         });
     </script>

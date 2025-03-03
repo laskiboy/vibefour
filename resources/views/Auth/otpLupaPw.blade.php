@@ -82,29 +82,64 @@
                     </div>
                     <div class="right w-50 h-100 d-flex flex-column justify-content-center align-items-center">
                         <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Verifikasi OTP</h2>
-                        <p class="w-75 forum mb-4 text-center">Masukkan kode Verifikasi anda yang telah dikirim ke alamat email
+                        <p class="w-75 forum mb-4 text-center">Masukkan kode Verifikasi anda yang telah dikirim ke alamat
+                            email
                             anda sebelumnya.</p>
-                        <div class="mb-4 forum w-75 otp-container">
-                            <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 1)"
-                                onkeydown="movePrev(event, this)">
-                            <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 2)"
-                                onkeydown="movePrev(event, this)">
-                            <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 3)"
-                                onkeydown="movePrev(event, this)">
-                            <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 4)"
-                                onkeydown="movePrev(event, this)">
-                            <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 5)"
-                                onkeydown="movePrev(event, this)">
-                            <input type="text" class="otp-input form-control" maxlength="1" oninput="moveNext(this, 6)"
-                                onkeydown="movePrev(event, this)">
-                        </div>
-                        <a class="btn forum mb-4 w-75"
-                            style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
-                            href="{{ route('pw-baru') }}">
-                            Verifikasi OTP
-                        </a>
-                        <div class="daftar text-center w-75">
-                            <a style="text-decoration: none; color: #000" href="{{ route('login') }}">Kirim Ulang Kode</a>
+                        @if (session('error'))
+                            <p style="color: red" class="w-75 mb-4 forum text-center">
+                                {{ session('error') }}
+                            </p>
+                        @endif
+                        <form id="otpForm" action="{{ route('verify.otp') }}" method="POST"
+                            class="w-100 d-flex justify-content-center align-items-center flex-column">
+                            @csrf
+                            {{-- <input type="hidden" name="type" value="pwBaru"> --}}
+                            <div class="mb-4 forum w-75 otp-container">
+                                @for ($i = 0; $i < 6; $i++)
+                                    <input type="text" name="otp[]" class="otp-input" maxlength="1"
+                                        oninput="moveNext(this, {{ $i + 1 }})" onkeydown="movePrev(event, this)">
+                                @endfor
+                            </div>
+                            <input type="hidden" name="otp_full" id="otpFull">
+                            {{-- </div> --}}
+                            <button class="btn forum mb-4 w-75"
+                                style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
+                                Verifikasi OTP
+                            </button>
+                        </form>
+                        <div class="daftar otp text-center w-75">
+                            @php
+                                $lastOtpSentTime = session('last_otp_sent_time');
+                                $remainingTime = $lastOtpSentTime
+                                    ? max(60 - now()->diffInSeconds($lastOtpSentTime), 0)
+                                    : 0;
+                            @endphp
+
+                            @if ($remainingTime > 0)
+                                <p style="color: gray;">Silakan coba lagi dalam <span
+                                        id="cooldown">{{ $remainingTime }}</span>
+                                    detik.</p>
+                                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                <script>
+                                    $(document).ready(function() {
+                                        let cooldownTime = parseInt($("#cooldown").text());
+                                        let cooldownElement = $("#cooldown");
+
+                                        let interval = setInterval(() => {
+                                            if (cooldownTime > 0) {
+                                                cooldownElement.text(cooldownTime);
+                                                cooldownTime--;
+                                            } else {
+                                                clearInterval(interval);
+                                                location.reload();
+                                            }
+                                        }, 1000);
+                                    });
+                                </script>
+                            @else
+                                <a style="text-decoration: none; color: #000" href="{{ route('resend.otp.baru') }}"
+                                    id="resendOtp">Kirim Ulang Kode</a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -112,6 +147,18 @@
         </div>
     </div>
     <script>
+        document.getElementById('otpForm').addEventListener('submit', function(event) {
+            event.keventDefault(); // Cegah submit langsung
+
+            let otpInputs = document.querySelectorAll('.otp-input');
+            let fullOtp = "";
+
+            otpInputs.forEach(input => fullOtp += input.value);
+            document.getElementById('otpFull').value = fullOtp; // Simpan hasil gabungan
+
+            this.submit(); // Submit form manual setelah data diperbaiki
+        });
+
         function moveNext(input, index) {
             let nextInput = document.querySelectorAll('.otp-input')[index];
             if (input.value && nextInput) {
@@ -126,14 +173,6 @@
                     prevInput.focus();
                 }
             }
-        }
-
-        function submitOTP() {
-            let otp = "";
-            document.querySelectorAll('.otp-input').forEach(input => {
-                otp += input.value;
-            });
-            alert("Kode OTP: " + otp);
         }
     </script>
 @endsection

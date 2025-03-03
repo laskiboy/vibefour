@@ -154,11 +154,13 @@
             }
 
             .isi {
+                width: 100% !important;
                 margin-bottom: 30px;
             }
 
             .span-bergabung {
                 text-align: center;
+                width: 75%  ;
                 margin-bottom: 40px !important;
             }
         }

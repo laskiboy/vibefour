@@ -65,52 +65,75 @@ Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
 
+
 Route::get('/oi', function () {
     return view('Untitled-1');
 })->name('oi')->middleware('auth');
-
 // Route::get('/oi', [HomeController::class, 'index'])->name('beranda')->middleware('auth');
+
 
 //login
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login'); // Halaman login
+
 Route::post('/login', [AuthController::class, 'login']); // Proses login
 
-//regis
+//Buat password baru
 Route::get('/pw-baru-register', function () {
     return view('Auth.pwBaruRegis');
 })->name('pw-baru-register');
-// Proses registrasi
+
 Route::post('/pw-baru-register', [AuthController::class, 'buat_password'])->name('pw.register.proses')->middleware('web');
+
 Route::post('/validate-password', [AuthController::class, 'validatePassword']);
+
+
+// Proses registrasi
 Route::get('/register', function () {
     return view('Auth.login');
 })->name('register');
-// Proses registrasi
+
 Route::post('/register', [AuthController::class, 'register'])->name('register.process');
 
 Route::post('/check-username', [AuthController::class, 'checkUsername'])->name('check.username');
+
 Route::post('/check-email', [AuthController::class, 'checkEmail'])->name('check.email');
+
 
 // Halaman verifikasi OTP
 Route::get('/verify-otp', function () {
     return view('Auth.otpRegis');
 })->name('verify.otp.view');
 
+
 // Proses verifikasi OTP
 Route::post('/verify-otp', [AuthController::class, 'verifyOtp'])->name('verify.otp');
+
+Route::post('/verify-otp-baru', [AuthController::class, 'verifyOtpBaru'])->name('verify.otp.baru');
+
 Route::get('/resend-otp', [AuthController::class, 'resendOtp'])->name('resend.otp');
 
+Route::get('/resend-otp-baru', [AuthController::class, 'resendOtpBaru'])->name('resend.otp.baru');
+
+//Kirim email lupa password
 Route::get('/lupa-password', function () {
-    return view('Auth.lupaPassword');
+    return view('auth.lupaPassword'); // Perhatikan huruf kecil untuk folder
 })->name('lupa-password');
+
+Route::post('/lupa-password', [AuthController::class, 'konfirm_email'])->name('lupa-password-proses');
+
+
+Route::get('/pw-baru', function () {
+    return view('Auth.pwBaru');
+})->name('pw-baru');
+
+Route::post('/pw-baru', [AuthController::class, 'buat_password_baru'])->name('pw.baru.proses');
+
 
 Route::get('/otp-lupa-pw', function () {
     return view('Auth.otpLupaPw');
 })->name('otp-lupa-pw');
 
-Route::get('/pw-baru', function () {
-    return view('Auth.pwBaru');
-})->name('pw-baru');
+
 
 Route::get('/otp-register', function () {
     return view('Auth.otpRegis');

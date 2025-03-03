@@ -57,24 +57,57 @@
                     <div class="right w-50 h-100 d-flex flex-column justify-content-center align-items-center">
                         <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Lupa Kata Sandi</h2>
                         <p class="w-75 forum mb-4 text-center">Masukkan email Anda yang telah terdaftar. Kami akan
-                            mengirimkan
-                            email untuk
-                            melakukan reset kata
-                            sandi.</p>
-                        <div class="mb-4 forum w-75">
-                            <input type="email" class="ps-3 form-control" placeholder="Masukkan Email">
-                        </div>
-                        <a class="btn mb-4 forum w-75"
-                            style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px"
-                            href="{{ route('otp-lupa-pw') }}">Lupa Kata
-                            Sandi
-                        </a>
-                        <div class="daftar forum w-75">
-                            <a style="text-decoration: none; color: #000" href="{{ route('login') }}">Kembali ke login? </a>
+                            mengirimkan email untuk melakukan reset kata sandi.</p>
+                        <form id="lupaPwForm" action="{{ route('lupa-password-proses') }}" method="POST"
+                            class="w-100 d-flex justify-content-center align-items-center flex-column">
+                            @csrf
+                            <div class="mb-4 forum w-75">
+                                <input name="email" type="email" class="ps-3 form-control" placeholder="Masukkan Email">
+                                <div class="invalid-feedback d-block" id="emailError" style="display: none;"></div>
+                                @if (session('error'))
+                                    <div class="text-danger">{{ session('error') }}</div>
+                                @endif
+                            </div>
+                            <button type="submit" id="daftar" class="btn mb-4 forum w-75"
+                                style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
+                                Lupa Kata Sandi
+                            </button>
+                        </form>
+                        <div class="daftar forum w-75" style="text-align: center">
+                            <a style="text-decoration: none; color: #000;" href="{{ route('login') }}">Kembali ke login?</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            // Menyembunyikan pesan error saat inisialisasi
+            $('#emailError').hide();
+
+            // Handler untuk submit form
+            $('#lupaPwForm').submit(function(e) {
+                e.preventDefault();
+
+                // Ambil data form
+                const email = $('input[name="email"]').val();
+
+                // Reset validasi
+                $('input[name="email"]').removeClass('is-invalid');
+                $('#emailError').hide();
+
+                // Validasi dasar form
+                if (!email) {
+                    $('input[name="email"]').addClass('is-invalid');
+                    $('#emailError').html('<p class="text-danger mb-0">Email tidak boleh kosong</p>')
+                        .show();
+                    return;
+                }
+
+                // Submit form langsung ke kontroler
+                this.submit();
+            });
+        });
+    </script>
 @endsection

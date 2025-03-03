@@ -42,11 +42,11 @@
         }
 
         /* .fitur-1:hover {
-                        padding: 20px;
-                        border-radius: 20px;
-                        transform: scale(1.05);
-                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                    } */
+                            padding: 20px;
+                            border-radius: 20px;
+                            transform: scale(1.05);
+                            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                        } */
 
         .video {
             display: none;
@@ -142,7 +142,14 @@
             }
 
             .isi {
+                width: 100% !important;
                 margin-bottom: 30px;
+            }
+
+            .span-bergabung {
+                text-align: center;
+                width: 75%;
+                margin-bottom: 40px !important;
             }
 
             .fitur-1 {
@@ -161,11 +168,6 @@
                 display: flex;
                 text-align: start;
                 flex-direction: column;
-            }
-
-            .span-bergabung {
-                text-align: center;
-                margin-bottom: 40px !important;
             }
 
             .kiri .unggul {

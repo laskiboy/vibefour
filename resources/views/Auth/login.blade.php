@@ -192,34 +192,31 @@
             });
         });
 
-        $(document).ready(function() {
-            $('#loginForm').submit(function(e) {
-                e.preventDefault();
-                $.ajax({
-                    url: "{{ url('/login') }}",
-                    type: "POST",
-                    data: $(this).serialize(),
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    success: function(response) {
-                        if (response === 'success') {
-                            window.location.href = "/"; // Redirect setelah login berhasil
-                        } else {
-                            $('#message').html(
-                                '<p class="text-danger w-100">Username atau password salah.</p>'
-                            );
-                        }
-                    },
-                    error: function() {
-                        $('#message').html(
-                            '<p class="text-danger">Isi semua kolom terlebih dahulu</p>');
+        $('#loginForm').submit(function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: "{{ url('/login') }}",
+                type: "POST",
+                data: $(this).serialize(),
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    console.log("Success response:", response); // Debug respons
+                    if (response.trim() === 'success') { // Trim untuk menghilangkan spasi/enter
+                        window.location.href = "/oi"; // Redirect jika sukses
+                    } else {
+                        $('#message').html('<p class="text-danger">Username atau password salah.</p>');
                     }
-                });
+                },
+                error: function(xhr, status, error) {
+                    console.log("Error response:", xhr.responseText); // Debug jika ada error
+                    $('#message').html('<p class="text-danger">Isi semua kolom terlebih dahulu</p>');
+                }
             });
         });
 
-        // Add this script to your registration page
         $(document).ready(function() {
             // Menyembunyikan pesan error saat inisialisasi
             $('#usernameError, #emailError').hide();
@@ -311,7 +308,7 @@
                             success: function(response) {
                                 // Redirect setelah berhasil mendaftar
                                 window.location.href = response.redirect ||
-                                    '/verifikasi';
+                                    '/verify-otp';
                             },
                             error: function(xhr) {
                                 console.error("Terjadi kesalahan saat mendaftar");

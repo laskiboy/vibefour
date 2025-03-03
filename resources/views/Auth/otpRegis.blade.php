@@ -81,7 +81,6 @@
                             @endfor
                         </div>
                         <input type="hidden" name="otp_full" id="otpFull">
-                        <input type="hidden" name="type" value="register">
                         <button class="btn forum mb-4 w-75"
                             style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
                             Verifikasi OTP

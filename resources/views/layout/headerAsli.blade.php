@@ -46,10 +46,24 @@
             }
 
             @media (max-width: 768px) {
-                .navbar {
-                    justify-content: start !important;
+                body {
                     width: 100% !important;
-                    max-width: 768px !important;
+                }
+
+                .navbar {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                }
+
+                .container-fluid {
+                    width: 100% !important;
+                    padding-left: 10px !important;
+                    padding-right: 10px !important;
+                    margin: 0 !important;
+                }
+
+                .konten {
+                    width: 100% !important;
                 }
 
                 .navbar-nav {
@@ -104,6 +118,13 @@
                 #languageDropdown img {
                     width: 30px !important;
                     height: 30px !important;
+                }
+
+                /* Pastikan tidak ada elemen yang lebih lebar dari viewport */
+                * {
+                    box-sizing: border-box;
+                    max-width: 100%;
+                    /* overflow-x: hidden; */
                 }
             }
         </style>
@@ -173,7 +194,6 @@
                 </div>
             </div>
         </nav>
-
         @yield('konten')
     </body>
 
