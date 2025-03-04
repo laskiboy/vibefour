@@ -41,11 +41,11 @@
         }
 
         /* .fitur-1:hover {
-                                                        padding: 20px;
-                                                        border-radius: 20px;
-                                                        transform: scale(1.05);
-                                                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                                                    } */
+                                                                padding: 20px;
+                                                                border-radius: 20px;
+                                                                transform: scale(1.05);
+                                                                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                                                            } */
 
         .video {
             display: none;
@@ -160,7 +160,7 @@
 
             .span-bergabung {
                 text-align: center;
-                width: 75%  ;
+                width: 75%;
                 margin-bottom: 40px !important;
             }
         }
@@ -281,7 +281,7 @@
                     <hr>
                     <p>Memberikan akses trial</p>
                     <p>Penggunaan fitur sebanyak 10 kali</p>
-                    <a href="#" class="btn"
+                    <a href="{{ route('login') }}" class="btn mt-5"
                         style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">Pilih
                         Paket</a>
                 </div>
@@ -294,7 +294,7 @@
                     <p>Penggunaan akses full</p>
                     <p>Tanpa batasan penggunaan fitur</p>
                     <p>Langganan Bulanan</p>
-                    <a href="#" class="btn"
+                    <a href="{{ route('login') }}" class="btn mt-5"
                         style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">Pilih
                         Paket</a>
                 </div>
@@ -307,7 +307,7 @@
                     <p>Penggunaan akses full</p>
                     <p>Tanpa batasan penggunaan fitur</p>
                     <p>Langganan Tahunan</p>
-                    <a href="#" class="btn"
+                    <a href="{{ route('login') }}" class="btn mt-5"
                         style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">Pilih
                         Paket</a>
                 </div>

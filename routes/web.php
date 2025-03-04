@@ -139,9 +139,9 @@ Route::get('/otp-register', function () {
     return view('Auth.otpRegis');
 })->name('otp-register');
 
-Route::get('/pw-baru-register', function () {
-    return view('Auth.pwBaruRegis');
-})->name('pw-baru-register');
+// Route::get('/pw-baru-register', function () {
+//     return view('Auth.pwBaruRegis');
+// })->name('pw-baru-register');
 
 Route::get('/y', function () {
     return view('Untitled-1');

@@ -93,7 +93,6 @@
                         <form id="otpForm" action="{{ route('verify.otp') }}" method="POST"
                             class="w-100 d-flex justify-content-center align-items-center flex-column">
                             @csrf
-                            {{-- <input type="hidden" name="type" value="pwBaru"> --}}
                             <div class="mb-4 forum w-75 otp-container">
                                 @for ($i = 0; $i < 6; $i++)
                                     <input type="text" name="otp[]" class="otp-input" maxlength="1"
@@ -101,7 +100,6 @@
                                 @endfor
                             </div>
                             <input type="hidden" name="otp_full" id="otpFull">
-                            {{-- </div> --}}
                             <button class="btn forum mb-4 w-75"
                                 style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
                                 Verifikasi OTP
@@ -148,7 +146,7 @@
     </div>
     <script>
         document.getElementById('otpForm').addEventListener('submit', function(event) {
-            event.keventDefault(); // Cegah submit langsung
+            event.preventDefault(); // Cegah submit langsung
 
             let otpInputs = document.querySelectorAll('.otp-input');
             let fullOtp = "";

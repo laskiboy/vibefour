@@ -1,8 +1,4 @@
 <style>
-    body {
-        overflow-x: hidden;
-    }
-
     .custom-accordion {
         width: 500px !important;
         margin: 20px auto;
@@ -63,14 +59,14 @@
     }
 
     .carousel-control-next-icon {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);transform: ;msFilter:;'%3E%3Cpath d='M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z'%3E%3C/path%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);transform: ;msFilter:;'%3E%3Cpath d='M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z'%3E%3C/path%3E%3C/svg%3E") !important;
         background-size: 24px;
         background-color: transparent;
         padding: 1rem;
     }
 
     .carousel-control-prev-icon {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);transform: ;msFilter:;'%3E%3Cpath d='M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z'%3E%3C/path%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);transform: ;msFilter:;'%3E%3Cpath d='M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z'%3E%3C/path%3E%3C/svg%3E") !important;
         background-size: 24px;
         background-color: transparent;
         padding: 1rem;
@@ -78,12 +74,12 @@
 
     .carousel-control-next,
     .carousel-control-prev {
-        background-color: #72B5F6;
-        width: 40px;
-        height: 40px;
+        background-color: #72B5F6 !important;
+        width: 40px !important;
+        height: 40px !important;
         border-radius: 50%;
-        top: calc(50% - 20px);
-        opacity: 0.8;
+        top: calc(50% - 20px) !important;
+        opacity: 0.8 !important;
     }
 
     .carousel-control-next {
@@ -192,7 +188,7 @@
             width: 100% !important;
         }
 
-        .accordion-item .yoi{
+        .accordion-item .yoi {
             width: 100% !important;
         }
     }

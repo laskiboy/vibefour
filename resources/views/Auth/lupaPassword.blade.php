@@ -1,5 +1,28 @@
 @extends('layout.headerAsli')
 <style>
+    .position-relative {
+        position: relative;
+    }
+
+    .floating-label {
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-in-out;
+        background: white;
+        padding: 0 5px;
+        color: #888;
+    }
+
+    .position-relative input:focus+.floating-label,
+    .position-relative input:not(:placeholder-shown)+.floating-label {
+        top: -15px;
+        /* Label keluar dari input */
+        font-size: 12px;
+        color: #007bff;
+    }
+
     @media (max-width: 768px) {
         #masuk-card #login-img-div {
             display: none !important;
@@ -62,11 +85,15 @@
                             class="w-100 d-flex justify-content-center align-items-center flex-column">
                             @csrf
                             <div class="mb-4 forum w-75">
-                                <input name="email" type="email" class="ps-3 form-control" placeholder="Masukkan Email">
-                                <div class="invalid-feedback d-block" id="emailError" style="display: none;"></div>
-                                @if (session('error'))
-                                    <div class="text-danger">{{ session('error') }}</div>
-                                @endif
+                                <div class="position-relative">
+                                    <input id="customInput1" placeholder=" " name="email" type="email"
+                                        class="ps-3 form-control">
+                                    <label for="customInput1" class="floating-label">Masukkan Email</label>
+                                    <div class="invalid-feedback d-block" id="emailError" style="display: none;"></div>
+                                    @if (session('error'))
+                                        <div class="text-danger">{{ session('error') }}</div>
+                                    @endif
+                                </div>
                             </div>
                             <button type="submit" id="daftar" class="btn mb-4 forum w-75"
                                 style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">

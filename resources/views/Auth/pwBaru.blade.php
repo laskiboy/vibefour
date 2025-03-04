@@ -15,6 +15,30 @@
         justify-content: center;
     }
 
+    .position-relative {
+        position: relative;
+    }
+
+    .floating-label {
+        position: absolute;
+        z-index: 2;
+        left: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-in-out;
+        background: white;
+        padding: 0 5px;
+        color: #888;
+    }
+
+    .position-relative input:focus+.floating-label,
+    .position-relative input:not(:placeholder-shown)+.floating-label {
+        top: -15px;
+        /* Label keluar dari input */
+        font-size: 12px;
+        color: #007bff;
+    }
+
     @media (max-width: 768px) {
         #masuk-card #login-img-div {
             display: none !important;
@@ -91,7 +115,7 @@
                     <div class="right w-50 h-100 d-flex flex-column justify-content-center align-items-center">
                         <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Perbarui Kata Sandi</h2>
                         <span class="w-75 forum mb-2">Masukkan kata sandi baru anda dengan ketentuan :</span>
-                        <ul class="mb-4 forum" style="margin-left: -30px">
+                        <ul class="mb-4 forum" style="margin-left: -75px">
                             <li>Minimal terdiri dani 8 karakter</li>
                             <li>Mengandung minimal 1 huruf kecil</li>
                             <li>Mengandung minimal 1 digit angka</li>
@@ -101,25 +125,32 @@
                             @csrf
                             {{-- <input type="hidden" name="type" value="pwBaru"> --}}
                             <div class="mb-4 forum w-75">
-                                <div class="input-group">
-                                    <input type="password" class="form-control" id="password" name="password">
-                                    <button class="btn btn-outline-secondary toggle-password" type="button"
-                                        data-target="password">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </button>
+                                <div class="position-relative">
+                                    <div class="input-group">
+                                        <input id="password" placeholder=" " type="password" class="form-control"
+                                            name="password">
+                                        <label for="password" class="floating-label">Masukkan Password</label>
+                                        <button class="btn btn-outline-secondary toggle-password" type="button"
+                                            data-target="password">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="invalid-feedback" id="passwordError"></div>
                                 </div>
-                                <div class="invalid-feedback" id="passwordError"></div>
                             </div>
                             <div class="mb-4 forum w-75">
-                                <div class="input-group">
-                                    <input type="password" class="form-control" id="confirm_password"
-                                        name="confirm_password">
-                                    <button class="btn btn-outline-secondary toggle-password" type="button"
-                                        data-target="confirm_password">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </button>
+                                <div class="position-relative">
+                                    <div class="input-group">
+                                        <input id="confirm_password" placeholder=" " type="password" class="form-control"
+                                            name="confirm_password">
+                                        <label for="confirm_password" class="floating-label">Konfirmasi Password</label>
+                                        <button class="btn btn-outline-secondary toggle-password" type="button"
+                                            data-target="confirm_password">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="invalid-feedback" id="confirmPasswordError"></div>
                                 </div>
-                                <div class="invalid-feedback" id="confirmPasswordError"></div>
                             </div>
                             <button class="btn forum" type="submit"
                                 style="text-decoration: none; color: #fff; background-color: #72B5F6; font-weight: 500; border-radius: 20px; height: 40px; width: 75%">

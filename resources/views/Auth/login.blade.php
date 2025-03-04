@@ -1,5 +1,28 @@
 @extends('layout.headerAsli')
 <style>
+    .position-relative {
+        position: relative;
+    }
+
+    .floating-label {
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-in-out;
+        background: white;
+        padding: 0 5px;
+        color: #888;
+    }
+
+    .position-relative input:focus+.floating-label,
+    .position-relative input:not(:placeholder-shown)+.floating-label {
+        top: -15px;
+        /* Label keluar dari input */
+        font-size: 12px;
+        color: #007bff;
+    }
+
     @media (max-width: 768px) {
         #masuk-card #login-img-div {
             display: none !important;
@@ -63,13 +86,26 @@
                         <div id="message"></div>
                         <form id="loginForm" class="w-100 d-flex justify-content-center align-items-center flex-column">
                             <div class="mb-4 forum w-75">
-                                <input type="text" class="ps-3 form-control" name="usernameAndEmail"
-                                    placeholder="Masukkan email atau username">
+                                <div class="position-relative">
+                                    <input id="customInput1" placeholder=" " name="usernameAndEmail" type="text"
+                                        class="ps-3 form-control">
+                                    <label for="customInput1" class="floating-label">Masukkan Email</label>
+                                </div>
                             </div>
                             <div class="mb-4 forum w-75">
-                                <input type="password" name="password" class="ps-3 form-control"
-                                    placeholder="Masukkan Password">
+                                <div class="position-relative">
+                                    <div class="input-group">
+                                        <input id="password" placeholder=" " type="password" class="form-control"
+                                            name="password">
+                                        <label for="password" class="floating-label">Masukkan Password</label>
+                                        <button class="btn btn-outline-secondary toggle-password" type="button"
+                                            data-target="password">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
+
                             <div class="w-75 forum mb-4">
                                 <a class="ms-1 lupa" style="text-decoration: none; color: #000"
                                     href="{{ route('lupa-password') }}">Lupa Password?</a>
@@ -95,19 +131,30 @@
                         class="w-100 d-flex justify-content-center align-items-center flex-column">
                         @csrf
                         <div class="mb-4 forum w-75">
-                            <input name="username" type="text" class="ps-3 form-control" placeholder="Masukkan Username">
+                            <div class="position-relative">
+                                <input id="customInput1" placeholder=" " name="username" type="text"
+                                    class="ps-3 form-control">
+                                <label for="customInput1" class="floating-label">Masukkan Username</label>
+                            </div>
                             <div class="invalid-feedback d-block" id="usernameError" style="display: none;"></div>
                         </div>
 
                         <div class="mb-4 forum w-75">
-                            <input name="nama" type="text" class="ps-3 form-control" placeholder="Masukkan Nama">
-                        </div>
-
-                        <div class="mb-4 forum w-75">
-                            <input name="email" type="email" class="ps-3 form-control" placeholder="Masukkan Email">
+                            <div class="position-relative">
+                                <input id="customInput2" placeholder=" " name="email" type="email"
+                                    class="ps-3 form-control">
+                                <label for="customInput2" class="floating-label">Masukkan Email</label>
+                            </div>
                             <div class="invalid-feedback d-block" id="emailError" style="display: none;"></div>
                         </div>
 
+                        <div class="mb-4 forum w-75">
+                            <div class="position-relative">
+                                <input id="customInput3" placeholder=" " name="nama" type="text"
+                                    class="ps-3 form-control">
+                                <label for="customInput3" class="floating-label">Masukkan Nama</label>
+                            </div>
+                        </div>
                         <button type="submit" id="daftar" class="btn mb-4 forum w-75"
                             style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
                             Daftar
@@ -136,6 +183,19 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            $('.toggle-password').on('click', function() {
+                const targetId = $(this).attr('data-target');
+                const passwordInput = $('#' + targetId);
+
+                if (passwordInput.attr('type') === 'password') {
+                    passwordInput.attr('type', 'text');
+                    $(this).find('i').removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    passwordInput.attr('type', 'password');
+                    $(this).find('i').removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
+
             const masukCard = document.getElementById('masuk-card');
             const daftarCard = document.getElementById('daftar-card');
             const loginImgDiv = document.getElementById('login-img-div');

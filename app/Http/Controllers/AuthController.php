@@ -48,11 +48,28 @@ class AuthController extends Controller
 
         $request['role_id'] = 1;
 
-        $user = User::create([
-            'username' => $request->username,
-            'nama' => $request->nama,
-            'email' => $request->email,
-        ]);
+        $user = User::where('email', $request->email)->first();
+
+        if ($user) {
+            if ($user->status === 'pending') {
+                $user->update([
+                    'username' => $request->username,
+                    'nama' => $request->nama,
+                    'email' => $request->email,
+                ]);
+            } elseif ($user->status === 'active') {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Email sudah terdaftar dan aktif. Silakan login.'
+                ], 400);
+            }
+        } else {
+            $user = User::create([
+                'username' => $request->username,
+                'nama' => $request->nama,
+                'email' => $request->email,
+            ]);
+        }
 
         $otp = OtpCode::create([
             'user_id' => $user->id,
@@ -69,13 +86,17 @@ class AuthController extends Controller
 
         session(['email_verifikasi' => $user->email]);
 
-        session(['tipe' => $user->type]);
+        session(['tipe' => $otp->type]);
 
         session(['attempts' => $otp->attempts]);
 
         session(['user_id_verifikasi' => $otp->user_id]);
 
-        return redirect()->route('verify.otp.view')->with('success', 'Kode OTP telah dikirim ke email Anda.');
+        return response()->json([
+            'status' => 'pending',
+            'message' => 'Kode OTP telah dikirim ke email Anda.',
+            'redirect' => route('verify.otp.view')
+        ]);
     }
 
     public function validatePassword(Request $request)
@@ -111,11 +132,6 @@ class AuthController extends Controller
         if (!$user) {
             return redirect()->back()->with('error', 'Email tidak ditemukan');
         }
-
-        // Hapus OTP lama jika ada
-        OtpCode::where('user_id', $user->id)
-            ->where('type', 'pwBaru')
-            ->delete();
 
         // Buat OTP baru
         $otp_anda = rand(100000, 999999);
@@ -157,6 +173,10 @@ class AuthController extends Controller
         ]);
 
         $user = User::where('email', $email)->first();
+
+        $user->update([
+            'status' => 'active'
+        ]);
 
         if (!$user) {
             if ($request->ajax()) {
@@ -250,7 +270,9 @@ class AuthController extends Controller
         $type = Session::get('tipe');
 
         $userId = session('user_id_verifikasi'); // Ubah sesi untuk menyimpan user_id, bukan email
+
         $user = User::find($userId);
+        // dd($type, $request->all());
 
         if (!$user) {
             return back()->with('error', 'User tidak ditemukan.');
@@ -270,9 +292,9 @@ class AuthController extends Controller
         // Session::forget('user_id_verifikasi');
 
         if ($type == 'register') {
-            return redirect()->route('pw-baru-register')->with('success', 'Akun berhasil diverifikasi!');
+            return redirect('pw-baru-register')->with('success', 'Akun berhasil diverifikasi!');
         } elseif ($type == 'pwBaru') {
-            return redirect()->route('pw-baru')->with('success', 'Akun berhasil diverifikasi!');
+            return redirect('/pw-baru')->with('success', 'Akun berhasil diverifikasi!');
         }
     }
 
