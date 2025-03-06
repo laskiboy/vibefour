@@ -31,6 +31,22 @@
         text-decoration: none;
     }
 
+    .btn {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
+    .vm {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .vm:hover {
+        transform: translateY(-10px) !important;
+    }
+
     .collapse-trigger.active::after {
         content: "";
         position: absolute;
@@ -124,7 +140,7 @@
                 teknologi canggih dan sistem yang aman, kami membantu individu, komunitas, dan organisasi dalam membuat
                 keputusan yang lebih efisien.</p style="width: 40rem">
             <a href="{{ route('login') }}">
-                <button class="bawah btn masyuk shadow mt-4"
+                <button class="bawah btn masyuk mt-4"
                     style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px"><i
                         class="fa-solid fa-door-open me-2"></i> Masuk</button>
             </a>
@@ -160,18 +176,18 @@
     <div class="bg-light w-100 mt-5 d-flex justify-content-around flex-column align-items-center" style="padding: 80px 0">
         <h2 class="fw-bold mb-4 atas" style="font-family: 'Montserrat';">Visi & Misi Kami</h2>
         <div class="w-75 text-center">
-            <div class="atas bg-white p-4 shadow rounded bg-white text-dark">
+            <div class="atas bg-white vm p-4 shadow rounded bg-white text-dark">
                 <h4 class="fw-bold" style="font-family: 'Montserrat';">Visi</h4>
                 <p>Menjadi platform digital terdepan dalam voting dan penjadwalan yang efisien dan transparan.
                 </p>
             </div>
         </div>
         <div class="d-flex w-75 justify-content-between mt-4 text-center">
-            <div style="width: 49%" class="kiri p-3 border rounded shadow-sm bg-white">
+            <div style="width: 49%" class="kiri p-3 vm border rounded shadow-sm bg-white">
                 <h5 class="mt-2" style="font-family: 'Montserrat';">Kolaboratif</h5>
                 <p>Meningkatkan efisiensi kerja dengan teknologi modern.</p>
             </div>
-            <div style="width: 49%" class="kanan p-3 border rounded shadow-sm bg-white">
+            <div style="width: 49%" class="kanan p-3 vm border rounded shadow-sm bg-white">
                 <h5 class="mt-2" style="font-family: 'Montserrat';">Keamanan</h5>
                 <p>Menjamin data pengguna tetap aman dan terlindungi.</p>
             </div>

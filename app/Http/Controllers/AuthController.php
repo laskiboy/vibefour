@@ -11,6 +11,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Monolog\Processor\MemoryPeakUsageProcessor;
 
 class AuthController extends Controller
 {
@@ -40,10 +41,11 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+        // Validasi input
         $request->validate([
             'username' => 'required',
             'nama' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
         ]);
 
         $request['role_id'] = 1;
@@ -51,53 +53,76 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if ($user) {
-            if ($user->status === 'pending') {
-                $user->update([
-                    'username' => $request->username,
-                    'nama' => $request->nama,
-                    'email' => $request->email,
-                ]);
-            } elseif ($user->status === 'active') {
+            if ($user->status === 'active') {
                 return response()->json([
                     'status' => 'error',
                     'message' => 'Email sudah terdaftar dan aktif. Silakan login.'
                 ], 400);
             }
+
+            // Cek apakah username atau email sudah digunakan oleh orang lain
+            $isUsernameTaken = User::where('username', $request->username)->where('id', '!=', $user->id)->exists();
+            $isEmailTaken = User::where('email', $request->email)->where('id', '!=', $user->id)->exists();
+
+            if ($isUsernameTaken) {
+                return response()->json(['status' => 'error', 'message' => 'Username sudah digunakan'], 400);
+            }
+
+            if ($isEmailTaken) {
+                return response()->json(['status' => 'error', 'message' => 'Email sudah digunakan'], 400);
+            }
+
+            // Update user jika email dan username tidak digunakan oleh orang lain
+            $user->update([
+                'username' => $request->username,
+                'nama' => $request->nama,
+                'email' => $request->email,
+            ]);
         } else {
             $user = User::create([
                 'username' => $request->username,
                 'nama' => $request->nama,
                 'email' => $request->email,
+                'status' => 'pending'
             ]);
         }
 
-        $otp = OtpCode::create([
+        // Generate OTP
+        $otpCode = rand(100000, 999999);
+
+        OtpCode::create([
             'user_id' => $user->id,
-            'otp' => $otp_anda = rand(100000, 999999),
+            'otp' => $otpCode,
             'expires_at' => Carbon::now()->addMinutes(10),
             'attempts' => 0,
             'type' => 'register'
         ]);
 
-        Mail::send('emails.otp', ['otp' => $otp_anda], function ($message) use ($user) {
-            $message->to($user->email)
-                ->subject('Kode OTP Anda');
+        // Kirim email OTP
+        Mail::send('emails.otp', ['otp' => $otpCode], function ($message) use ($user) {
+            $message->to($user->email)->subject('Kode OTP Anda');
         });
 
-        session(['email_verifikasi' => $user->email]);
-
-        session(['tipe' => $otp->type]);
-
-        session(['attempts' => $otp->attempts]);
-
-        session(['user_id_verifikasi' => $otp->user_id]);
-
-        return response()->json([
-            'status' => 'pending',
-            'message' => 'Kode OTP telah dikirim ke email Anda.',
-            'redirect' => route('verify.otp.view')
+        // Simpan informasi verifikasi dalam session
+        session([
+            'email_verifikasi' => $user->email,
+            'tipe' => 'register',
+            'attempts' => 0,
+            'user_id_verifikasi' => $user->id
         ]);
+
+        // Cek apakah request berasal dari AJAX
+        if ($request->ajax()) {
+            return response()->json([
+                'status' => 'pending',
+                'message' => 'Kode OTP telah dikirim ke email Anda.',
+                'redirect' => route('verify.otp.view')
+            ]);
+        }
+
+        return redirect()->route('verify.otp.view');
     }
+
 
     public function validatePassword(Request $request)
     {

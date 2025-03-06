@@ -72,6 +72,14 @@
         padding: 1rem;
     }
 
+    .btn {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
     .carousel-control-next,
     .carousel-control-prev {
         background-color: #72B5F6 !important;
@@ -234,7 +242,7 @@
                 <span class="fs-5 kanan">Solusi Voting dan Penjadwalan Tanpa Ribet!</span>
             </div>
             <a href="{{ route('login') }}" class="a-masuk">
-                <button class="bawah btn shadow mb-3 mt-5"
+                <button class="bawah btn mb-3 mt-5"
                     style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px"><i
                         class="fa-solid fa-door-open me-2"></i> Masuk</button>
             </a>

@@ -84,6 +84,11 @@
                     <div class="right w-50 h-100 d-flex flex-column justify-content-center align-items-center">
                         <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Masuk</h2>
                         <div id="message"></div>
+                        @if (session('error'))
+                            <p style="color: red" class="w-75 mb-4 forum text-center">
+                                {{ session('error') }}
+                            </p>
+                        @endif
                         <form id="loginForm" class="w-100 d-flex justify-content-center align-items-center flex-column">
                             <div class="mb-4 forum w-75">
                                 <div class="position-relative">
@@ -132,28 +137,29 @@
                         @csrf
                         <div class="mb-4 forum w-75">
                             <div class="position-relative">
-                                <input id="customInput1" placeholder=" " name="username" type="text"
+                                <input id="customInput3" placeholder=" " name="username" type="text"
                                     class="ps-3 form-control">
-                                <label for="customInput1" class="floating-label">Masukkan Username</label>
+                                <label for="customInput3" class="floating-label">Masukkan Username</label>
                             </div>
-                            <div class="invalid-feedback d-block" id="usernameError" style="display: none;"></div>
+                            <div class="invalid-feedback" id="error-username"></div>
                         </div>
 
                         <div class="mb-4 forum w-75">
                             <div class="position-relative">
-                                <input id="customInput2" placeholder=" " name="email" type="email"
+                                <input id="customInput4" placeholder=" " name="email" type="email"
                                     class="ps-3 form-control">
-                                <label for="customInput2" class="floating-label">Masukkan Email</label>
+                                <label for="customInput4" class="floating-label">Masukkan Email</label>
                             </div>
-                            <div class="invalid-feedback d-block" id="emailError" style="display: none;"></div>
+                            <div class="invalid-feedback" id="error-email"></div>
                         </div>
 
                         <div class="mb-4 forum w-75">
                             <div class="position-relative">
-                                <input id="customInput3" placeholder=" " name="nama" type="text"
+                                <input id="customInput5" placeholder=" " name="nama" type="text"
                                     class="ps-3 form-control">
-                                <label for="customInput3" class="floating-label">Masukkan Nama</label>
+                                <label for="customInput5" class="floating-label">Masukkan Nama</label>
                             </div>
+                            <div class="invalid-feedback" id="error-nama"></div>
                         </div>
                         <button type="submit" id="daftar" class="btn mb-4 forum w-75"
                             style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
@@ -278,105 +284,146 @@
         });
 
         $(document).ready(function() {
-            // Menyembunyikan pesan error saat inisialisasi
-            $('#usernameError, #emailError').hide();
+            $('#registerForm').submit(function(event) {
+                event.preventDefault(); // Mencegah reload halaman
 
-            // Handler untuk submit form registrasi
-            $('#registerForm').submit(function(e) {
-                e.preventDefault();
+                let formData = {
+                    username: $('input[name="username"]').val(),
+                    email: $('input[name="email"]').val(),
+                    nama: $('input[name="nama"]').val(),
+                    _token: $('input[name="_token"]').val() // Kirim CSRF Token
+                };
 
-                // Ambil data form
-                const username = $('input[name="username"]').val();
-                const email = $('input[name="email"]').val();
-                const nama = $('input[name="nama"]').val();
-                const token = $('input[name="_token"]').val();
+                $.ajax({
+                    url: "{{ route('register.process') }}", // Sesuaikan dengan route backend
+                    type: "POST",
+                    data: formData,
+                    success: function(response) {
+                        window.location.href = response.redirect;
+                    },
+                    error: function(xhr) {
+                        let response = xhr.responseJSON;
+                        console.log(response); // Debugging, lihat error di console
 
-                // Reset validasi
-                $('input[name="username"], input[name="email"]').removeClass('is-invalid');
-                $('#usernameError, #emailError').hide();
+                        // Reset error sebelum menampilkan yang baru
+                        $('.invalid-feedback').text('').hide();
+                        $('.form-control').removeClass('is-invalid');
 
-                // Validasi dasar form
-                let isValid = true;
-
-                if (!username) {
-                    $('input[name="username"]').addClass('is-invalid');
-                    $('#usernameError').html('<p class="text-danger mb-0">Username tidak boleh kosong</p>')
-                        .show();
-                    isValid = false;
-                }
-
-                if (!email) {
-                    $('input[name="email"]').addClass('is-invalid');
-                    $('#emailError').html('<p class="text-danger mb-0">Email tidak boleh kosong</p>')
-                        .show();
-                    isValid = false;
-                }
-
-                if (!nama) {
-                    $('input[name="nama"]').addClass('is-invalid');
-                    isValid = false;
-                }
-
-                if (!isValid) {
-                    return false;
-                }
-
-                // Periksa username dan email sebelum submit
-                $.when(
-                    // Cek username
-                    $.ajax({
-                        url: "/check-username",
-                        type: "POST",
-                        data: {
-                            username: username,
-                            _token: token
+                        // Tangani pesan error sesuai response dari backend
+                        if (response.message.includes("Username")) {
+                            $('#error-username').text(response.message).show();
+                            $('input[name="username"]').addClass('is-invalid');
                         }
-                    }),
-                    // Cek email
-                    $.ajax({
-                        url: "/check-email",
-                        type: "POST",
-                        data: {
-                            email: email,
-                            _token: token
+                        if (response.message.includes("Email")) {
+                            $('#error-email').text(response.message).show();
+                            $('input[name="email"]').addClass('is-invalid');
                         }
-                    })
-                ).done(function(usernameResponse, emailResponse) {
-                    // Cek hasil validasi username
-                    if (usernameResponse[0].exists) {
-                        $('input[name="username"]').addClass('is-invalid');
-                        $('#usernameError').html(
-                            '<p class="text-danger mb-0">Username sudah digunakan</p>').show();
-                        isValid = false;
-                    }
-
-                    // Cek hasil validasi email
-                    if (emailResponse[0].exists) {
-                        $('input[name="email"]').addClass('is-invalid');
-                        $('#emailError').html(
-                            '<p class="text-danger mb-0">Email sudah digunakan</p>').show();
-                        isValid = false;
-                    }
-
-                    // Jika semua validasi berhasil, submit form
-                    if (isValid) {
-                        // Submit form dengan AJAX
-                        $.ajax({
-                            url: $('#registerForm').attr('action'),
-                            type: "POST",
-                            data: $('#registerForm').serialize(),
-                            success: function(response) {
-                                // Redirect setelah berhasil mendaftar
-                                window.location.href = response.redirect ||
-                                    '/verify-otp';
-                            },
-                            error: function(xhr) {
-                                console.error("Terjadi kesalahan saat mendaftar");
-                            }
-                        });
                     }
                 });
             });
         });
+        z
+
+        // $(document).ready(function() {
+        //     // Menyembunyikan pesan error saat inisialisasi
+        //     $('#usernameError, #emailError').hide();
+
+        //     // Handler untuk submit form registrasi
+        //     $('#registerForm').submit(function(e) {
+        //         e.preventDefault();
+
+        //         // Ambil data form
+        //         const username = $('input[name="username"]').val();
+        //         const email = $('input[name="email"]').val();
+        //         const nama = $('input[name="nama"]').val();
+        //         const token = $('input[name="_token"]').val();
+
+        //         // Reset validasi
+        //         $('input[name="username"], input[name="email"]').removeClass('is-invalid');
+        //         $('#usernameError, #emailError').hide();
+
+        //         // Validasi dasar form
+        //         let isValid = true;
+
+        //         if (!username) {
+        //             $('input[name="username"]').addClass('is-invalid');
+        //             $('#usernameError').html('<p class="text-danger mb-0">Username tidak boleh kosong</p>')
+        //                 .show();
+        //             isValid = false;
+        //         }
+
+        //         if (!email) {
+        //             $('input[name="email"]').addClass('is-invalid');
+        //             $('#emailError').html('<p class="text-danger mb-0">Email tidak boleh kosong</p>')
+        //                 .show();
+        //             isValid = false;
+        //         }
+
+        //         if (!nama) {
+        //             $('input[name="nama"]').addClass('is-invalid');
+        //             isValid = false;
+        //         }
+
+        //         if (!isValid) {
+        //             return false;
+        //         }
+
+        //         // Periksa username dan email sebelum submit
+        //         $.when(
+        //             // Cek username
+        //             $.ajax({
+        //                 url: "/check-username",
+        //                 type: "POST",
+        //                 data: {
+        //                     username: username,
+        //                     _token: token
+        //                 }
+        //             }),
+        //             // Cek email
+        //             $.ajax({
+        //                 url: "/check-email",
+        //                 type: "POST",
+        //                 data: {
+        //                     email: email,
+        //                     _token: token
+        //                 }
+        //             })
+        //         ).done(function(usernameResponse, emailResponse) {
+        //             // Cek hasil validasi username
+        //             if (usernameResponse[0].exists) {
+        //                 $('input[name="username"]').addClass('is-invalid');
+        //                 $('#usernameError').html(
+        //                     '<p class="text-danger mb-0">Username sudah digunakan</p>').show();
+        //                 isValid = false;
+        //             }
+
+        //             // Cek hasil validasi email
+        //             if (emailResponse[0].exists) {
+        //                 $('input[name="email"]').addClass('is-invalid');
+        //                 $('#emailError').html(
+        //                     '<p class="text-danger mb-0">Email sudah digunakan</p>').show();
+        //                 isValid = false;
+        //             }
+
+        //             // Jika semua validasi berhasil, submit form
+        //             if (isValid) {
+        //                 // Submit form dengan AJAX
+        //                 $.ajax({
+        //                     url: $('#registerForm').attr('action'),
+        //                     type: "POST",
+        //                     data: $('#registerForm').serialize(),
+        //                     success: function(response) {
+        //                         // Redirect setelah berhasil mendaftar
+        //                         window.location.href = response.redirect ||
+        //                             '/verify-otp';
+        //                     },
+        //                     error: function(xhr) {
+        //                         console.error("Terjadi kesalahan saat mendaftar");
+        //                     }
+        //                 });
+        //             }
+        //         });
+        //     });
+        // });
     </script>
 @endsection

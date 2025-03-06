@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\HeaderController;
+use App\Http\Controllers\TncController;
 use App\Http\Controllers\VerificationController;
 
 /*
@@ -25,10 +29,8 @@ Route::get('/tentang', function () {
     return view('tentang');
 })->name('tentang');
 
+Route::get('/kontak', [ContactController::class, 'index'])->name('kontak'); // Halaman login
 
-Route::get('/kontak', function () {
-    return view('kontak');
-})->name('kontak');
 
 
 //produk
@@ -50,10 +52,11 @@ Route::get('/detail-berita', function () {
     return view('berita.detailBerita');
 })->name('detail-berita');
 
+Route::get('/tnc', [TncController::class, 'index'])->name('tnc'); // Halaman login
 
-Route::get('/tnc', function () {
-    return view('tnc');
-})->name('tnc');
+// Route::get('/tnc', function () {
+//     return view('tnc');
+// })->name('tnc');
 
 
 Route::get('/privasi', function () {
@@ -61,9 +64,12 @@ Route::get('/privasi', function () {
 })->name('privasi');
 
 
-Route::get('/faq', function () {
-    return view('faq');
-})->name('faq');
+// Route::get('/faq', function () {
+//     return view('faq');
+// })->name('faq');
+Route::get('/faq', [FaqController::class, 'index'])->name('faq'); // Halaman login
+
+// Route::get('/header', [HeaderController::class, 'index'])->name('header'); // Halaman login
 
 
 Route::get('/oi', function () {

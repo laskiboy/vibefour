@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Header;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -9,6 +11,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
+
     public function register(): void
     {
         //
@@ -19,6 +22,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $headers = Header::whereIn('nama', [
+            'Beranda',
+            'Tentang',
+            'Kontak',
+            'Produk',
+            'Produk Voting',
+            'Produk Penjadwalan',
+            'Masuk'
+        ])->get()->keyBy('nama');
+
+        View::share('headers', $headers);
     }
 }

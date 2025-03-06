@@ -41,12 +41,13 @@
             transition: all 0.3s ease-in-out;
         }
 
-        /* .fitur-1:hover {
-                                    padding: 20px;
-                                    border-radius: 20px;
-                                    transform: scale(1.05);
-                                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                                } */
+        .btn-coba {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-coba:hover {
+            background-color: #6ba8e5 !important;
+        }
 
         .video {
             display: none;
@@ -192,7 +193,7 @@
                     lebih terorganisir, sehingga tidak ada lagi jadwal bentrok atau miskomunikasi.</span>
             </div>
             <div class="tombol">
-                <button onclick="window.location.href='{{ route('login') }}'" class="bawah btn shadow mb-3 mt-5"
+                <button onclick="window.location.href='{{ route('login') }}'" class="bawah btn-coba btn shadow mb-3 mt-5"
                     style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 250px; height: 50px"><i
                         class="fa-solid fa-rocket me-2"></i> Coba Fitur</button>
                 <button type="button" class="bawah lihat btn btn-secondary shadow ms-4 mb-3 mt-5" data-bs-toggle="modal"
