@@ -10,12 +10,12 @@
 </style>
 @section('konten')
     <div class="container main w-75 p-5">
-        <p class="fs-2 fw-bold" style="color: #72B5F6; margin-top: 60px">{{ $judul->isi }}</p>
-        <p class="mt-4" style="color: #ABABAB">Terakhir diperbarui 10 Februari 2025</p>
+        <p class="fs-2 fw-bold" style="color: #72B5F6; margin-top: 60px">{{ __('tnc.judul') }}</p>
+        <p class="mt-4" style="color: #ABABAB">{{ __('tnc.update') }}</p>
         <p class="mt-4">
-            {{ $ket->isi }}
+            {{ __('tnc.keterangan') }}
         </p>
-        {!! $val->isi !!}
+        {!! __('tnc.value') !!}
     </div>
     {{-- footer --}}
     @include('layout.footer')

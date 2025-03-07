@@ -20,6 +20,13 @@ use App\Http\Controllers\VerificationController;
 |
 */
 
+Route::get('locale/{locale}', function ($locale) {
+    app()->setlocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+})->name('locale');
+
+
 Route::get('/', function () {
     return view('beranda');
 })->name('beranda');

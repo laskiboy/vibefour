@@ -9,7 +9,8 @@ class FaqController extends Controller
 {
     public function index()
     {
-        $faqs = FAQ::all();
+        $faqs = FAQ::where('bahasa_id', app()->getLocale() == 'id' ? 1 : 2)->get();
         return view('faq', compact('faqs'));
+
     }
 }

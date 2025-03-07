@@ -231,7 +231,7 @@
     <div class="satu bg-white vh-100 d-flex justify-content-evenly flex-row align-items-center">
         <div class="span d-flex flex-column">
             <h1 class="atas h1" style="font-family: 'Montserrat'; color: #000; font-weight: bold; font-size: 4em">
-                VibeFour
+                @lang('users.nama')
             </h1>
             <h1 class="kiri to-everyone h1"
                 style="font-family: 'Montserrat'; color: #000; margin-bottom: 30px; font-weight: bold; font-size: 4em">

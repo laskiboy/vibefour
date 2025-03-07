@@ -160,45 +160,48 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item ms-3">
                         <a class="nav-link {{ Request::is('/') ? 'active' : '' }}"
-                            href="{{ route('beranda') }}">{{ $headers->get('Beranda')->nama }}</a>
+                            href="{{ route('beranda') }}">{{ __('header.beranda') }}</a>
                     </li>
                     <li class="nav-item dropdown ms-3">
                         <a class="nav-link dropdown-toggle" href="#" id="produkDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ $headers->get('Produk')->nama }}
+                            {{ __('header.produk') }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="produkDropdown">
                             <li>
                                 <a class="dropdown-item"
-                                    href="{{ route('produk-voting') }}">{{ $headers->get('Produk Voting')->nama }}</a>
+                                    href="{{ route('produk-voting') }}">{{ __('header.voting') }}</a>
                             </li>
                             <li><a class="dropdown-item"
-                                    href="{{ route('produk-penjadwalan') }}">{{ $headers->get('Produk Penjadwalan')->nama }}</a>
+                                    href="{{ route('produk-penjadwalan') }}">{{ __('header.penjadwalan') }}</a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item ms-3">
                         <a class="nav-link {{ Request::is('tentang') ? 'active' : '' }}"
-                            href="{{ route('tentang') }}">{{ $headers->get('Tentang')->nama }}</a>
+                            href="{{ route('tentang') }}">{{ __('header.tentang') }}<a>
                     </li>
                     <li class="nav-item ms-3">
                         <a class="nav-link {{ Request::is('kontak') ? 'active' : '' }}"
-                            href="{{ route('kontak') }}">{{ $headers->get('Kontak')->nama }}</a>
+                            href="{{ route('kontak') }}">{{ __('header.kontak') }}<a>
                     </li>
                     <li class="nav-item dropdown ms-3">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ asset('img/indo.png') }}" width="25" height="25"
-                                class="border rounded-pill" alt="">
+                            <img src="{{ asset(session('locale') == 'en' ? 'img/inggrisjpeg.jpeg' : 'img/indo.png') }}"
+                                width="25" height="25" class="border rounded-pill" alt="">
+
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="languageDropdown">
                             <li>
-                                <a class="dropdown-item" href="#"><img src="{{ asset('img/indo.png') }}"
-                                        width="25" height="25" class="shadow-sm rounded-pill" alt="">
+                                <a class="dropdown-item" href="{{ route('locale', ['locale' => 'id']) }}"><img
+                                        src="{{ asset('img/indo.png') }}" width="25" height="25"
+                                        class="shadow-sm rounded-pill" alt="">
                                     Indonesia</a>
                             </li>
-                            <li><a class="dropdown-item" href="#"><img src="{{ asset('img/inggrisjpeg.jpeg') }}"
-                                        width="25" height="25" class="shadow-sm rounded-pill" alt="">
+                            <li><a class="dropdown-item" href="{{ route('locale', ['locale' => 'en']) }}"><img
+                                        src="{{ asset('img/inggrisjpeg.jpeg') }}" width="25" height="25"
+                                        class="shadow-sm rounded-pill" alt="">
                                     English</a></li>
                         </ul>
                     </li>
@@ -206,7 +209,7 @@
                         <a href="{{ route('login') }}">
                             <button class="btn btn-login"
                                 style="background-color: #72B5F6; color: #FFF; border-radius: 20px; width: 120px;"><i
-                                    class="fa-solid fa-door-open me-2"></i> Masuk</button>
+                                    class="fa-solid fa-door-open me-2"></i>{{ __('header.masuk') }}</button>
                         </a>
                     </li>
                 </ul>
