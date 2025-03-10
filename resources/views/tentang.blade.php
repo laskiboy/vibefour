@@ -125,24 +125,15 @@
     {{-- konten pertama --}}
     <div class="bg-white satu vh-100 w-100 d-flex justify-content-around flex-column align-items-center">
         <div class="text w-75 d-flex justify-content-around flex-column align-items-center">
-            <span class="atas px-2 py-1 rounded-pill text-primary" style="background-color: rgba(114, 181, 246, 0.4);">Tentang
-                Kami
-                VibeFour</span>
+            <span class="atas px-2 py-1 rounded-pill text-primary"
+                style="background-color: rgba(114, 181, 246, 0.4);">@lang('about.judul')</span>
             <h1 class="atas h1 mt-4 text-center" style="font-weight: 600; font-size: 4em; font-family: 'Montserrat';">
-                Memudahkan
-                voting dan penjadwalan</h1>
-            <p class="bawah hadir text-center mt-5" style="width: 45rem">VibeFour hadir sebagai solusi modern dalam
-                pengelolaan
-                voting
-                digital dan penjadwalan
-                acara.
-                Dengan
-                teknologi canggih dan sistem yang aman, kami membantu individu, komunitas, dan organisasi dalam membuat
-                keputusan yang lebih efisien.</p style="width: 40rem">
+                @lang('about.slogan')</h1>
+            <p class="bawah hadir text-center mt-5" style="width: 45rem">@lang('about.deskripsi')</p style="width: 40rem">
             <a href="{{ route('login') }}">
                 <button class="bawah btn masyuk mt-4"
                     style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px"><i
-                        class="fa-solid fa-door-open me-2"></i> Masuk</button>
+                        class="fa-solid fa-door-open me-2"></i> @lang('about.masuk')</button>
             </a>
         </div>
     </div>
@@ -151,45 +142,42 @@
     {{-- konten kedua --}}
     <div class="bg-white atas w-100 d-flex justify-content-around flex-column align-items-center"
         style="margin-bottom: 150px;">
-        <span class="fs-1 fw-bold mb-4" style="color: #000; font-family: 'Montserrat';">Tentang Kami</span>
-        <span class="fs-5 w-75 text-center">VibeFour adalah platform digital yang menyediakan sistem voting dan
-            penjadwalan
-            otomatis
-            untuk memudahkan organisasi dan komunitas dalam mengambil keputusan dan mengelola acara.</span>
+        <span class="fs-1 fw-bold mb-4" style="color: #000; font-family: 'Montserrat';">@lang('about.judul_tentang')</span>
+        <span class="fs-5 w-75 text-center">@lang('about.desk_tentang')</span>
     </div>
     {{-- end konten kedua --}}
 
     {{-- konten ketiga --}}
     <div class="bg-white visi d-flex justify-content-around flex-row align-items-center" style="margin-bottom: 150px">
         <div class="kiri cisi d-flex flex-column text-center" style="width: 500px">
-            <span class="fs-3 fw-bold mb-4" style="color: #000; font-family: 'Montserrat';">Voting Digital</span>
-            <span class="fs-5">Sistem voting yang efisien, aman, dan ramah lingkungan!</span>
+            <span class="fs-3 fw-bold mb-4" style="color: #000; font-family: 'Montserrat';">@lang('about.vote')</span>
+            <span class="fs-5">@lang('about.desk_vote')</span>
         </div>
         <div class="kanan cisi d-flex flex-column text-center" style="width: 500px">
-            <span class="fs-3 fw-bold mb-4" style="color: #000; font-family: 'Montserrat';">Penjadwalan Cerdas</span>
-            <span class="fs-5">Sistem pengelolaan jadwal yang lebih rapi, cepat, dan efisien!</span>
+            <span class="fs-3 fw-bold mb-4" style="color: #000; font-family: 'Montserrat';">@lang('about.jadwal')</span>
+            <span class="fs-5">@lang('about.desk_jadwal')</span>
         </div>
     </div>
     {{-- end konten ketiga --}}
 
     {{-- konten keempat --}}
     <div class="bg-light w-100 mt-5 d-flex justify-content-around flex-column align-items-center" style="padding: 80px 0">
-        <h2 class="fw-bold mb-4 atas" style="font-family: 'Montserrat';">Visi & Misi Kami</h2>
+        <h2 class="fw-bold mb-4 atas" style="font-family: 'Montserrat';">@lang('about.judul_visi_misi')</h2>
         <div class="w-75 text-center">
             <div class="atas bg-white vm p-4 shadow rounded bg-white text-dark">
-                <h4 class="fw-bold" style="font-family: 'Montserrat';">Visi</h4>
-                <p>Menjadi platform digital terdepan dalam voting dan penjadwalan yang efisien dan transparan.
+                <h4 class="fw-bold" style="font-family: 'Montserrat';">@lang('about.judul_visi')</h4>
+                <p>@lang('about.desk_visi')
                 </p>
             </div>
         </div>
         <div class="d-flex w-75 justify-content-between mt-4 text-center">
             <div style="width: 49%" class="kiri p-3 vm border rounded shadow-sm bg-white">
-                <h5 class="mt-2" style="font-family: 'Montserrat';">Kolaboratif</h5>
-                <p>Meningkatkan efisiensi kerja dengan teknologi modern.</p>
+                <h5 class="mt-2" style="font-family: 'Montserrat';">@lang('about.judul_misi_1')</h5>
+                <p>@lang('about.desk_misi_1')</p>
             </div>
             <div style="width: 49%" class="kanan p-3 vm border rounded shadow-sm bg-white">
-                <h5 class="mt-2" style="font-family: 'Montserrat';">Keamanan</h5>
-                <p>Menjamin data pengguna tetap aman dan terlindungi.</p>
+                <h5 class="mt-2" style="font-family: 'Montserrat';">@lang('about.judul_misi_2')</h5>
+                <p>@lang('about.desk_misi_2')</p>
             </div>
         </div>
     </div>
@@ -198,27 +186,27 @@
     {{-- konten kelima --}}
     <section class="keunggulan-section text-center" style="padding: 80px 0">
         <div class="container">
-            <h2 class="atas fw-bold mb-5" style="font-family: 'Montserrat';">Keunggulan VibeFour</h2>
+            <h2 class="atas fw-bold mb-5" style="font-family: 'Montserrat';">@lang('about.judul_keunggulan')</h2>
             <div class="row">
                 <div class="kiri keunggulan col-md-4">
                     <div class="keunggulan-card">
                         <i class="fas fa-clock fa-3x"></i>
-                        <h5 class="mt-3" style="font-family: 'Montserrat';">Cepat & Mudah</h5>
-                        <p>Proses voting dan penjadwalan hanya dalam hitungan detik.</p>
+                        <h5 class="mt-3" style="font-family: 'Montserrat';">@lang('about.judul_keunggulan_1')</h5>
+                        <p>@lang('about.desk_keunggulan_1')</p>
                     </div>
                 </div>
                 <div class="bawah keunggulan col-md-4">
                     <div class="keunggulan-card">
                         <i class="fas fa-user-lock fa-3x"></i>
-                        <h5 class="mt-3" style="font-family: 'Montserrat';">Aman & Transparan</h5>
-                        <p>Data terlindungi dengan enkripsi tingkat tinggi.</p>
+                        <h5 class="mt-3" style="font-family: 'Montserrat';">@lang('about.judul_keunggulan_2')</h5>
+                        <p>@lang('about.desk_keunggulan_2')</p>
                     </div>
                 </div>
                 <div class="kanan keunggulan col-md-4">
                     <div class="keunggulan-card">
                         <i class="fas fa-thumbs-up fa-3x"></i>
-                        <h5 class="mt-3" style="font-family: 'Montserrat';">Terpercaya</h5>
-                        <p>Dipercaya oleh berbagai organisasi dan komunitas.</p>
+                        <h5 class="mt-3" style="font-family: 'Montserrat';">@lang('about.judul_keunggulan_3')</h5>
+                        <p>@lang('about.desk_keunggulan_3')</p>
                     </div>
                 </div>
             </div>

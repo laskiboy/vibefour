@@ -18,7 +18,7 @@
 @section('konten')
     <div class="container main w-75 p-5 mb-5">
         <p class="fs-2 fw-bold d-flex justify-content-center" style="color: #72B5F6; margin-top: 100px; margin-bottom: 80px">
-            Kami Siap Membantu</p>
+            {{ __('faq.judul') }}</p>
         <div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
             @foreach ($faqs as $faq)
                 <div class="accordion-item">

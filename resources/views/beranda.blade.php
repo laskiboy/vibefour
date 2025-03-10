@@ -231,20 +231,19 @@
     <div class="satu bg-white vh-100 d-flex justify-content-evenly flex-row align-items-center">
         <div class="span d-flex flex-column">
             <h1 class="atas h1" style="font-family: 'Montserrat'; color: #000; font-weight: bold; font-size: 4em">
-                @lang('users.nama')
+                {{ __('home.judul_satu') }}
             </h1>
             <h1 class="kiri to-everyone h1"
                 style="font-family: 'Montserrat'; color: #000; margin-bottom: 30px; font-weight: bold; font-size: 4em">
-                To
-                Everyone
+                {{ __('home.judul_dua') }}
             </h1>
             <div class="solusi">
-                <span class="fs-5 kanan">Solusi Voting dan Penjadwalan Tanpa Ribet!</span>
+                <span class="fs-5 kanan">{{ __('home.slogan') }}</span>
             </div>
             <a href="{{ route('login') }}" class="a-masuk">
                 <button class="bawah btn mb-3 mt-5"
                     style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px"><i
-                        class="fa-solid fa-door-open me-2"></i> Masuk</button>
+                        class="fa-solid fa-door-open me-2"></i> {{ __('home.masuk') }}</button>
             </a>
         </div>
         {{-- @include('layout.slideshowHome') --}}
@@ -260,8 +259,9 @@
 
     {{-- konten kedua --}}
     <div class="d-flex flex-column align-items-center m-5">
-        <span class="fs-2 fw-bold span-title" style="color: #72B5F6; font-family: 'Montserrat';">Fitur Unggulan</span>
-        <span class="mb-5 span-kami span-sub">Kami menyediakan dua fitur unggulan dari produk kami</span>
+        <span class="fs-2 fw-bold span-title"
+            style="color: #72B5F6; font-family: 'Montserrat';">{{ __('home.judul_fitur') }}</span>
+        <span class="mb-5 span-kami span-sub">{{ __('home.ket_fitur') }}</span>
         <div class="w-75 dua d-flex w-100 align-items-center mt-5 justify-content-around">
             <span class="kiri span-blob" style="position: absolute; left: 0; margin-left: -350px; z-index: -1">
                 <svg width="500px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -272,221 +272,47 @@
             </span>
             <div class="fitur kiri">
                 <div class="accordion custom-accordion" id="featureAccordion1">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne1">
-                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="false"
-                                aria-controls="collapseOne1">
-                                Keamanan vote terjamin
-                            </button>
-                        </h2>
-                        <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne1"
-                            data-bs-parent="#featureAccordion1">
-                            <div class="accordion-body">
-                                <p class="mb-0">
-                                    Vote bisa menjadi general ataupun privat menggunakan kode room yang dibuat secara
-                                    otomatis
-                                </p>
+                    @foreach ($fitur as $items)
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading{{ $items->id }}">
+                                <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse{{ $items->id }}"
+                                    aria-expanded="false" aria-controls="collapse{{ $items->id }}">
+                                    {{ $items->nama }}
+                                </button>
+                            </h2>
+                            <div id="collapse{{ $items->id }}" class="accordion-collapse collapse"
+                                aria-labelledby="heading{{ $items->id }}" data-bs-parent="#featureAccordion1">
+                                <div class="accordion-body">
+                                    <p class="mb-0">
+                                        {{ $items->deskripsi }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo1">
-                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseTwo1" aria-expanded="false"
-                                aria-controls="collapseTwo1">
-                                Pengaturan anonimus
-                            </button>
-                        </h2>
-                        <div id="collapseTwo1" class="accordion-collapse collapse" aria-labelledby="headingTwo1"
-                            data-bs-parent="#featureAccordion1">
-                            <div class="accordion-body">
-                                <p class="mb-0">
-                                    Pembuat voting bisa melakukan kostumisasi siapa saja yang bisa memilih voting, atau
-                                    pembuat voting juga bisa menyamarkan pemilih
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree1">
-                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseThree1" aria-expanded="false"
-                                aria-controls="collapseThree1">
-                                Kostumisasi hasil vote
-                            </button>
-                        </h2>
-                        <div id="collapseThree1" class="accordion-collapse collapse" aria-labelledby="headingThree1"
-                            data-bs-parent="#featureAccordion1">
-                            <div class="accordion-body">
-                                <p class="mb-0">
-                                    Hasil voting bisa dikostumisasi, public untuk hasil vote yang bisa dilihat
-                                    pemilih, dan private untuk hasil yang hanya bisa dilihat pembuat voting
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFour1">
-                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseFour1" aria-expanded="false"
-                                aria-controls="collapseFour1">
-                                Undang temanmu yang belum punya akun
-                            </button>
-                        </h2>
-                        <div id="collapseFour1" class="accordion-collapse collapse" aria-labelledby="headingFour1"
-                            data-bs-parent="#featureAccordion1">
-                            <div class="accordion-body">
-                                <p class="mb-0">
-                                    Pada fitur penjadwalan, kamu bisa langsung mengirim undangan walapun temanmu belum
-                                    punya
-                                    akun
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFive1">
-                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseFive1" aria-expanded="false"
-                                aria-controls="collapseFive1">
-                                Menambahkan ketersediaan
-                            </button>
-                        </h2>
-                        <div id="collapseFive1" class="accordion-collapse collapse" aria-labelledby="headingFive1"
-                            data-bs-parent="#featureAccordion1">
-                            <div class="accordion-body">
-                                <p class="mb-0">
-                                    Anda bisa menambah ketersediaan untuk mempermudah pembuat jadwal menentukan jadwal
-                                    tanpa
-                                    menunggu konfirmasi
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
                 <div class="accordion d-none custom-accordion" id="featureAccordion2">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne2">
-                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseOne2" aria-expanded="false"
-                                aria-controls="collapseOne2">
-                                Keamanan vote terjamin
-                            </button>
-                        </h2>
-                        <div id="collapseOne2" class="accordion-collapse collapse yoi" aria-labelledby="headingOne2"
-                            data-bs-parent="#featureAccordion2">
-                            <div class="accordion-body">
-                                <p class="mb-0">
-                                    Vote bisa menjadi general ataupun privat menggunakan kode room yang dibuat secara
-                                    otomatis <br>
-                                <div class="d-flex justify-content-center align-items-center mt-4">
-                                    <img class="shadow" width="300" src="{{ asset('img/Screenshot (77).png') }}"
-                                        style="border-radius: 2px" alt="Voting Feature 1" />
+                    @foreach ($fitur as $items)
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading{{ $items->id }}">
+                                <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse{{ $items->id }}"
+                                    aria-expanded="false" aria-controls="collapse{{ $items->id }}">
+                                    {{ $items->nama }}
+                                </button>
+                            </h2>
+                            <div id="collapse{{ $items->id }}" class="accordion-collapse collapse"
+                                aria-labelledby="heading{{ $items->id }}" data-bs-parent="#featureAccordion1">
+                                <div class="accordion-body">
+                                    <p class="mb-0">
+                                        {{ $items->deskripsi }}
+                                    </p>
                                 </div>
-                                </p>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo2">
-                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false"
-                                aria-controls="collapseTwo2">
-                                Pengaturan anonimus
-                            </button>
-                        </h2>
-                        <div id="collapseTwo2" class="accordion-collapse collapse yoi" aria-labelledby="headingTwo2"
-                            data-bs-parent="#featureAccordion2">
-                            <div class="accordion-body">
-                                <p class="mb-0">
-                                    Pembuat voting bisa melakukan kostumisasi siapa saja yang bisa memilih voting, atau
-                                    pembuat voting juga bisa menyamarkan pemilih <br>
-                                <div class="d-flex justify-content-center align-items-center mt-4">
-                                    <img class="shadow" width="300" src="{{ asset('img/Screenshot (77).png') }}"
-                                        style="border-radius: 2px" alt="Voting Feature 1" />
-                                </div>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree2">
-                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseThree2" aria-expanded="false"
-                                aria-controls="collapseThree2">
-                                Kostumisasi hasil vote
-                            </button>
-                        </h2>
-                        <div id="collapseThree2" class="accordion-collapse collapse yoi" aria-labelledby="headingThree2"
-                            data-bs-parent="#featureAccordion2">
-                            <div class="accordion-body">
-                                <p class="mb-0">
-                                    Hasil voting bisa dikostumisasi, public untuk hasil vote yang bisa dilihat
-                                    pemilih, dan private untuk hasil yang hanya bisa dilihat pembuat voting <br>
-                                <div class="d-flex justify-content-center align-items-center mt-4">
-                                    <img class="shadow" width="300" src="{{ asset('img/Screenshot (77).png') }}"
-                                        style="border-radius: 2px" alt="Voting Feature 1" />
-                                </div>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFour2">
-                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseFour2" aria-expanded="false"
-                                aria-controls="collapseFour2">
-                                Undang temanmu yang belum punya akun
-                            </button>
-                        </h2>
-                        <div id="collapseFour2" class="accordion-collapse collapse yoi" aria-labelledby="headingFour2"
-                            data-bs-parent="#featureAccordion2">
-                            <div class="accordion-body">
-                                <p class="mb-0">
-                                    Pada fitur penjadwalan, kamu bisa langsung mengirim undangan walapun temanmu belum
-                                    punya
-                                    akun <br>
-                                <div class="d-flex justify-content-center align-items-center mt-4">
-                                    <img class="shadow" width="300" src="{{ asset('img/Screenshot (77).png') }}"
-                                        style="border-radius: 2px" alt="Voting Feature 1" />
-                                </div>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFive2">
-                            <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseFive2" aria-expanded="false"
-                                aria-controls="collapseFive2">
-                                Menambahkan ketersediaan
-                            </button>
-                        </h2>
-                        <div id="collapseFive2" class="accordion-collapse collapse yoi" aria-labelledby="headingFive2"
-                            data-bs-parent="#featureAccordion2">
-                            <div class="accordion-body">
-                                <p class="mb-0">
-                                    Anda bisa menambah ketersediaan untuk mempermudah pembuat jadwal menentukan jadwal
-                                    tanpa
-                                    menunggu konfirmasi <br>
-                                <div class="d-flex justify-content-center align-items-center mt-4">
-                                    <img class="shadow" width="300" src="{{ asset('img/Screenshot (77).png') }}"
-                                        style="border-radius: 2px" alt="Voting Feature 1" />
-                                </div>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="image-carousel kanan shadow-lg" id="carousel1">
@@ -503,39 +329,18 @@
     {{-- konten ketiga --}}
     <div class="bg-light tiha d-flex justify-content-center flex-column align-items-center"
         style="padding-top: 100px; padding-bottom: 100px;">
-        <span class="fs-2 mb-3 fw-bold span-title" style="color: #72B5F6; font-family: 'Montserrat';">Pencapaian
-            Kami</span>
-        <span class="span-title span-bangga w-50 text-center" style="margin-bottom: 100px">Kami bangga telah membantu
-            banyak pengguna
-            dalam pengambilan
-            keputusan dan manajemen jadwal
-            yang lebih efektif.</span>
+        <span class="fs-2 mb-3 fw-bold span-title"
+            style="color: #72B5F6; font-family: 'Montserrat';">{{ __('home.judul_pencapaian') }}</span>
+        <span class="span-title span-bangga w-50 text-center"
+            style="margin-bottom: 100px">{{ __('home.ket_pencapaian') }}</span>
         <div class="d-flex justify-content-around pencapaian">
-            <div class="w-25 poin kiri d-flex flex-column text-center">
-                <i style="color: #8854BB" class="fa-solid fa-person fs-1 mb-4"></i>
-                <strong class="fs-5 mb-3" style="font-family: 'Montserrat';">Ribuan Pengguna Aktif</strong>
-                <span>VibeFour telah digunakan oleh lebih dari 5.000 pengguna untuk membantu mereka dalam pengambilan
-                    keputusan
-                    melalui voting digital dan pengelolaan jadwal yang efisien. Kami terus berkembang untuk memberikan
-                    layanan
-                    yang lebih baik.</span>
-            </div>
-            <div class="w-25 poin bawah d-flex flex-column text-center">
-                <i style="color: #8854BB" class="fa-solid fa-check-to-slot fs-1 mb-4"></i>
-                <strong class="fs-5 mb-3" style="font-family: 'Montserrat';">Dipercaya oleh Berbagai Komunitas &
-                    Organisasi</strong>
-                <span>Dari acara kecil hingga event besar, VibeFour telah dipercaya oleh komunitas, perusahaan, dan
-                    institusi pendidikan dalam mengatur pemungutan suara serta penjadwalan acara secara transparan dan
-                    mudah.</span>
-            </div>
-            <div class="w-25 poin kanan d-flex flex-column text-center">
-                <i style="color: #8854BB" class="fa-solid fa-shield fs-1 mb-4"></i>
-                <strong class="fs-5 mb-3" style="font-family: 'Montserrat';">Teknologi yang Aman & Andal</strong>
-                <span>Dengan sistem yang terus diperbarui, VibeFour memastikan keamanan data dan keakuratan hasil
-                    voting.
-                    Kami menggunakan enkripsi data dan sistem autentikasi yang kuat untuk melindungi informasi
-                    pengguna.</span>
-            </div>
+            @foreach ($isi_pencapaian as $item)
+                <div class="w-25 poin kiri d-flex flex-column text-center">
+                    {!! $item->icon !!}
+                    <strong class="fs-5 mb-3" style="font-family: 'Montserrat';">{{ $item->judul }}</strong>
+                    <span>{{ $item->deskripsi }}</span>
+                </div>
+            @endforeach
         </div>
     </div>
     {{-- end konten ketiga --}}
@@ -543,8 +348,7 @@
     {{-- konten keempat --}}
     <div class="container d-flex justify-content-center flex-column align-item-center" style="height: 30rem">
         <span class="fs-2 fw-bold text-center span-title"
-            style="color: #72B5F6; margin-top: 50px; margin-bottom: 30px; font-family: 'Montserrat';">Apa Kata
-            Mereka?</span>
+            style="color: #72B5F6; margin-top: 50px; margin-bottom: 30px; font-family: 'Montserrat';">{{ __('home.judul_testimoni') }}</span>
         <section class="py-5 bawah">
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">

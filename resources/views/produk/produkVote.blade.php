@@ -44,7 +44,7 @@
             transition: all 0.3s ease-in-out;
         }
 
-        .btn-coba:hover{
+        .btn-coba:hover {
             background-color: #6ba8e5 !important;
         }
 
@@ -171,23 +171,19 @@
     <div class="satu bg-white w-100 vh-100 d-flex justify-content-evenly flex-row align-items-center">
         <div class="left marlef w-50 ms-5">
             <div class="mb-5 mt-5 atas">
-                <span class="h1" style="color: #000; font-weight: 600; font-size: 4em; font-family: 'Montserrat';">Apa Itu
-                    Sistem Voting
-                    VibeFour?</span><br>
+                <span class="h1"
+                    style="color: #000; font-weight: 600; font-size: 4em; font-family: 'Montserrat';">@lang('vote.judul')</span><br>
             </div>
             <div class="kiri vib" style="width: 90%">
-                <span>VibeFour menghadirkan solusi voting digital yang cepat, aman, dan transparan, memungkinkan
-                    organisasi,
-                    komunitas, dan acara untuk mengelola pemungutan suara dengan efisien. Dengan sistem yang dirancang untuk
-                    berbagai kebutuhan, kami memastikan bahwa setiap suara dihitung secara adil dan akurat.</span>
+                <span>@lang('vote.deskripsi')</span>
             </div>
             <div class="tombol">
                 <button onclick="window.location.href='{{ route('login') }}'" class="bawah btn-coba btn shadow mb-3 mt-5"
                     style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 250px; height: 50px"><i
-                        class="fa-solid fa-rocket me-2"></i> Coba Fitur</button>
+                        class="fa-solid fa-rocket me-2"></i> @lang('vote.btn_coba_fitur')</button>
                 <button type="button" class="bawah lihat btn btn-secondary shadow ms-4 mb-3 mt-5" data-bs-toggle="modal"
                     data-bs-target="#modalVideo" style="border-radius: 20px; width: 200px; height: 50px"><i
-                        class="fa-regular fa-circle-play me-2 fs-5"></i> Lihat Tutorial</button>
+                        class="fa-regular fa-circle-play me-2 fs-5"></i> @lang('vote.btn_lihat_tutor')</button>
                 <video controls class="video shadow-lg" style="width: 100%;" preload="auto">
                     <source src="{{ asset('img/video.mp4') }}" type="video/mp4">
                 </video>
@@ -214,28 +210,23 @@
     <div class="kiri dua d-flex w-100 justify-content-around flex-row align-item-center">
         <div style="width: 50%" class="d-flex fitir justify-content-center flex-column mb-5">
             <div class="kiri d-flex flex-column">
-                <span class="fs-2 fw-bold" style="color: #72B5F6; font-family: 'Montserrat';">Fitur unggulan voting</span>
-                <span class="my-4">Dengan VibeFour, voting menjadi lebih efisien, aman, dan ramah
-                    lingkungan!</span>
+                <span class="fs-2 fw-bold" style="color: #72B5F6; font-family: 'Montserrat';">@lang('vote.judul_keunggulan')</span>
+                <span class="my-4">@lang('vote.deskripsi_keunggulan')</span>
                 <div class="fitur d-flex justify-content-start flex-row mt-4">
                     <div class="fitur-1" style="width: 40%;">
                         <i class="fa-solid fa-lock fs-3 mb-4" style="color: #8854BB;"></i><br>
                         <div class="klas">
-                            <strong class="" style="color: #72B5F6; font-family: 'Montserrat';">Keamanan voting
-                                terjamin</strong>
-                            <p class="mt-2">Vote bisa menjadi general ataupun privat menggunakan kode room yang dibuat
-                                secara
-                                otomatis</p>
+                            <strong class=""
+                                style="color: #72B5F6; font-family: 'Montserrat';">@lang('vote.keunggulan_1')</strong>
+                            <p class="mt-2">@lang('vote.desk_keunggulan_1')</p>
                         </div>
                     </div>
                     <div class="fitur-1 husus ms-4" style="width: 40%;">
                         <i class="fa-solid fa-face-smile fs-3 mb-4" style="color: #8854BB;"></i><br>
                         <div class="klas">
-                            <strong class="" style="color: #72B5F6; font-family: 'Montserrat';">Pengaturan
-                                anonimus</strong>
-                            <p class="mt-2">Pembuat voting bisa melakukan kostumisasi siapa saja yang bisa memilih voting,
-                                atau
-                                pembuat voting juga bisa menyamarkan pemilih</p>
+                            <strong class=""
+                                style="color: #72B5F6; font-family: 'Montserrat';">@lang('vote.keunggulan_2')</strong>
+                            <p class="mt-2">@lang('vote.desk_keunggulan_2')</p>
                         </div>
                     </div>
                 </div>
@@ -243,10 +234,9 @@
                     <div class="fitur-1" style="width: 40%;">
                         <i class="fa-solid fa-eye-low-vision fs-3 mb-4" style="color: #8854BB;"></i><br>
                         <div class="klas">
-                            <strong class="" style="color: #72B5F6; font-family: 'Montserrat';">Kostumisasi hasil
-                                vote</strong>
-                            <p class="mt-2">Hasil voting bisa dikostumisasi, public untuk hasil vote yang bisa dilihat
-                                pemilih, dan private untuk hasil yang hanya bisa dilihat pembuat voting</p>
+                            <strong class=""
+                                style="color: #72B5F6; font-family: 'Montserrat';">@lang('vote.keunggulan_3')</strong>
+                            <p class="mt-2">@lang('vote.desk_keunggulan_3')</p>
                         </div>
                     </div>
                 </div>
@@ -271,46 +261,42 @@
     {{-- konten kelima --}}
     <div class="bg-white my-5 d-flex justify-content-center flex-column align-items-center">
         <span class="fs-2 fw-bold span-bergabung span-title"
-            style="color: #72B5F6; margin-bottom: 70px; font-family: 'Montserrat';">Bergabung Bersama
-            VibeFour</span>
+            style="color: #72B5F6; margin-bottom: 70px; font-family: 'Montserrat';">@lang('vote.judul_join')</span>
 
         <div class="d-flex tiga justify-content-evenly mt-4 w-75">
             <div class="card isi kiri shadow-sm p-3" style="height: 24rem; width: 280px; border-radius: 20px">
                 <div class="card-body">
                     <h6>Basic</h6>
-                    <h4 class="fw-bold">Gratis</h4>
+                    <h4 class="fw-bold">@lang('vote.gratis')</h4>
                     <hr>
-                    <p>Memberikan akses trial</p>
-                    <p>Penggunaan fitur sebanyak 10 kali</p>
+                    <p>@lang('vote.previlage_gratis_1')</p>
+                    <p>@lang('vote.previlage_gratis_2')</p>
                     <a href="{{ route('login') }}" class="btn mt-5"
-                        style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">Pilih
-                        Paket</a>
+                        style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">@lang('vote.pilih_paket')</a>
                 </div>
             </div>
             <div class="card isi bawah shadow-sm p-3" style="height: 24rem; width: 280px; border-radius: 20px">
                 <div class="card-body">
                     <h6>Pro Plan Monthly</h6>
-                    <span class="fw-bold fs-4">Rp. 50.000 </span><span>/ Bulan</span>
+                    <span class="fw-bold fs-4">Rp. 50.000 </span><span>@lang('vote.mont')</span>
                     <hr>
-                    <p>Penggunaan akses full</p>
-                    <p>Tanpa batasan penggunaan fitur</p>
-                    <p>Langganan Bulanan</p>
+                    <p>@lang('vote.previlage_month_1')</p>
+                    <p>@lang('vote.previlage_month_2')</p>
+                    <p>@lang('vote.previlage_month_3')</p>
                     <a href="{{ route('login') }}" class="btn mt-5"
-                        style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">Pilih
-                        Paket</a>
+                        style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">@lang('vote.pilih_paket')</a>
                 </div>
             </div>
             <div class="card isi kanan shadow-sm p-3" style="height: 24rem; width: 280px; border-radius: 20px">
                 <div class="card-body">
                     <h6>Pro Plan Annual</h6>
-                    <span class="fw-bold fs-4">Rp. 570.000 </span><span>/ Tahun</span>
+                    <span class="fw-bold fs-4">Rp. 570.000 </span><span>@lang('vote.annual')</span>
                     <hr>
-                    <p>Penggunaan akses full</p>
-                    <p>Tanpa batasan penggunaan fitur</p>
-                    <p>Langganan Tahunan</p>
+                    <p>@lang('vote.previlage_month_1')</p>
+                    <p>@lang('vote.previlage_month_2')</p>
+                    <p>@lang('vote.previlage_annual_3')</p>
                     <a href="{{ route('login') }}" class="btn mt-5"
-                        style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">Pilih
-                        Paket</a>
+                        style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">@lang('vote.pilih_paket')</a>
                 </div>
             </div>
         </div>

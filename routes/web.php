@@ -27,9 +27,11 @@ Route::get('locale/{locale}', function ($locale) {
 })->name('locale');
 
 
-Route::get('/', function () {
-    return view('beranda');
-})->name('beranda');
+// Route::get('/', function () {
+//     return view('beranda');
+// })->name('beranda');
+Route::get('/', [ContactController::class, 'home'])->name('beranda'); // Halaman login
+
 
 
 Route::get('/tentang', function () {

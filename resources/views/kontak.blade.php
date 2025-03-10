@@ -34,19 +34,16 @@
                     <tbody>
                         <tr>
                             <td><i class="mt-1 fa-solid fa-location-dot"></i></td>
-                            <td>{{ __('users.judul_map') }}</td>
                             <td>:</td>
                             <td>{{ __('users.alamat') }}</td>
                         </tr>
                         <tr>
-                            <td ><i class="mt-1 fa-solid fa-phone"></i></td>
-                            <td>{{ __('users.judul_kontak') }}</td>
+                            <td><i class="mt-1 fa-solid fa-phone"></i></td>
                             <td>:</td>
                             <td>{{ __('users.telepon') }}</td>
                         </tr>
                         <tr>
-                            <td ><i class="mt-1 fa-solid fa-envelope"></i></td>
-                            <td>Email</td>
+                            <td><i class="mt-1 fa-solid fa-envelope"></i></td>
                             <td>:</td>
                             <td>{{ __('users.email') }}</td>
                         </tr>
@@ -57,17 +54,20 @@
             <div class="kanan foem" style="width: 700px;">
                 <form class="row g-3">
                     <div class="col-md-6">
-                        <input type="text" placeholder="{{ __('users.placeholder_nama') }}" class="form-control" id="inputEmail4">
+                        <input type="text" placeholder="{{ __('users.placeholder_nama') }}" class="form-control"
+                            id="inputEmail4">
                     </div>
                     <div class="col-md-6">
-                        <input type="text" placeholder="{{ __('users.placeholder_no_telp') }}" class="form-control" id="inputPassword4">
+                        <input type="text" placeholder="{{ __('users.placeholder_no_telp') }}" class="form-control"
+                            id="inputPassword4">
                     </div>
                     <div class="col-12">
                         <input type="email" placeholder="Email" class="form-control" id="inputAddress"
                             placeholder="1234 Main St">
                     </div>
                     <div class="col-12">
-                        <textarea class="form-control" placeholder="{{ __('users.placeholder_komentar') }}" id="exampleFormControlTextarea1" rows="5"></textarea>
+                        <textarea class="form-control" placeholder="{{ __('users.placeholder_komentar') }}" id="exampleFormControlTextarea1"
+                            rows="5"></textarea>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn w-100"

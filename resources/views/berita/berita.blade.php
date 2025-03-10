@@ -76,7 +76,7 @@
     {{-- end konten pertama --}}
 
     {{-- konten kedua --}}
-    <span class="fs-2 fw-bold span-title mt-5" style="color: #72B5F6; margin-left: 48px">Berita Utama</span>
+    <span class="fs-2 fw-bold span-title mt-5" style="color: #72B5F6; margin-left: 48px">@lang('berita.jdudl_berita')</span>
     <div class="container m-5">
         <div class="berita d-flex justify-content-center align-items-center" style="margin-top: 120px">
             <div class="card me-5 kiri" style="width: 35%; height: 15rem; border-radius: 20px">
