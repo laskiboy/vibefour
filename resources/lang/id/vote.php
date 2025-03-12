@@ -8,7 +8,7 @@ return Cache::remember('lang_id_vote', 60, function () {
         'deskripsi' => 'VibeFour menghadirkan solusi voting digital yang cepat, aman, dan transparan, memungkinkan organisasi, komunitas, dan acara untuk mengelola pemungutan suara dengan efisien. Dengan sistem yang dirancang untuk berbagai kebutuhan, kami memastikan bahwa setiap suara dihitung secara adil dan akurat.',
         'btn_coba_fitur' => 'Coba Fitur',
         'btn_lihat_tutor' => 'Lihat Tutorian',
-        'judul_keunggulan' => 'Fitur unggulan voting',
+        'judul_keunggulan' => 'Fitur Unggulan Voting',
         'deskripsi_keunggulan' => 'Dengan VibeFour, voting menjadi lebih efisien, aman, dan ramah lingkungan!',
         'keunggulan_1' => 'Keamanan voting terjamin',
         'desk_keunggulan_1' => 'Vote bisa menjadi general ataupun privat menggunakan kode room yang dibuat secara otomatis',

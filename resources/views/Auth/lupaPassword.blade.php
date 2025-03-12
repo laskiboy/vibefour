@@ -73,14 +73,13 @@
                             style="border-radius: 20px 0 0 20px; object-fit: cover; filter: brightness(60%);"
                             src="{{ asset('img/logkin.jpg') }}" alt="">
                         <div class="kata text-white text-center" style="position: absolute;">
-                            <h1 style="color: #72B5F6; font-weight: 600">VibeFour</h1>
-                            <p>Solusi Voting & Penjadwalan Tanpa Ribet!</p>
+                            <h1 style="color: #72B5F6; font-weight: 600">@lang('lupa.nama_brand')</h1>
+                            <p>@lang('lupa.slogan')</p>
                         </div>
                     </div>
                     <div class="right w-50 h-100 d-flex flex-column justify-content-center align-items-center">
-                        <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Lupa Kata Sandi</h2>
-                        <p class="w-75 forum mb-4 text-center">Masukkan email Anda yang telah terdaftar. Kami akan
-                            mengirimkan email untuk melakukan reset kata sandi.</p>
+                        <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">@lang('lupa.judul_lupa')</h2>
+                        <p class="w-75 forum mb-4 text-center">@lang('lupa.ket').</p>
                         <form id="lupaPwForm" action="{{ route('lupa-password-proses') }}" method="POST"
                             class="w-100 d-flex justify-content-center align-items-center flex-column">
                             @csrf
@@ -88,7 +87,7 @@
                                 <div class="position-relative">
                                     <input id="customInput1" placeholder=" " name="email" type="email"
                                         class="ps-3 form-control">
-                                    <label for="customInput1" class="floating-label">Masukkan Email</label>
+                                    <label for="customInput1" class="floating-label">@lang('lupa.input_email')</label>
                                     <div class="invalid-feedback d-block" id="emailError" style="display: none;"></div>
                                     @if (session('error'))
                                         <div class="text-danger">{{ session('error') }}</div>
@@ -97,11 +96,11 @@
                             </div>
                             <button type="submit" id="daftar" class="btn mb-4 forum w-75"
                                 style="text-decoration: none; color: #fff; background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
-                                Lupa Kata Sandi
+                                @lang('lupa.btn_lupa')
                             </button>
                         </form>
                         <div class="daftar forum w-75" style="text-align: center">
-                            <a style="text-decoration: none; color: #000;" href="{{ route('login') }}">Kembali ke login?</a>
+                            <a style="text-decoration: none; color: #000;" href="{{ route('login') }}">@lang('lupa.back')</a>
                         </div>
                     </div>
                 </div>

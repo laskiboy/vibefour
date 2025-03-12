@@ -8,7 +8,7 @@ return Cache::remember('lang_id_jadwal', 60, function () {
         'deskripsi' => 'VibeFour menghadirkan solusi penjadwalan digital yang efisien dan otomatis, dirancang untuk membantu organisasi, komunitas, dan event dalam mengatur jadwal dengan lebih mudah, akurat, dan fleksibel. Dengan fitur canggih, platform ini memungkinkan pengguna untuk membuat, mengelola, dan berbagi jadwal dengan lebih terorganisir, sehingga tidak ada lagi jadwal bentrok atau miskomunikasi.',
         'btn_coba_fitur' => 'Coba Fitur',
         'btn_lihat_tutor' => 'Lihat Tutorian',
-        'judul_keunggulan' => 'Fitur unggulan penjadwalan',
+        'judul_keunggulan' => 'Fitur Unggulan Penjadwalan',
         'deskripsi_keunggulan' => 'Dengan VibeFour, pengelolaan jadwal jadi lebih rapi, cepat, dan efisien!',
         'keunggulan_1' => 'Undang temanmu',
         'desk_keunggulan_1' => 'Pada fitur penjadwalan, kamu bisa langsung mengirim undangan walapun temanmu belum punya akun',

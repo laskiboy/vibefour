@@ -105,12 +105,12 @@
         <div class="form-container position-relative" style="width: 75%; height: 70%; margin-top: 70px;">
             <div class="daftar card shadow-sm d-flex flex-row overflow-hidden w-100 h-100" style="border-radius: 20px;">
                 <div class="left w-50 h-100 d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Buat Kata Sandi</h2>
-                    <span class="w-75 forum mb-2">Masukkan kata sandi baru anda dengan ketentuan :</span>
+                    <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">@lang('pw.judul')</h2>
+                    <span class="w-75 forum mb-2">@lang('pw.ket')</span>
                     <ul class="mb-4 forum" style="margin-left: -75px">
-                        <li>Minimal terdiri dari 8 karakter</li>
-                        <li>Mengandung minimal 1 huruf kecil</li>
-                        <li>Mengandung minimal 1 digit angka</li>
+                        <li>@lang('pw.poin1')</li>
+                        <li>@lang('pw.poin2')</li>
+                        <li>@lang('pw.poin3')</li>
                     </ul>
                     <form id="buatPasswordForm" method="POST"
                         class="w-100 d-flex justify-content-center align-items-center flex-column">
@@ -121,7 +121,7 @@
                                 <div class="input-group">
                                     <input id="password" placeholder=" " type="password" class="form-control"
                                         name="password">
-                                    <label for="password" class="floating-label">Masukkan Password</label>
+                                    <label for="password" class="floating-label">@lang('pw.input_pw')</label>
                                     <button class="btn btn-outline-secondary toggle-password" type="button"
                                         data-target="password">
                                         <i class="fa-solid fa-eye"></i>
@@ -135,7 +135,7 @@
                                 <div class="input-group">
                                     <input id="confirm_password" placeholder=" " type="password" class="form-control"
                                         name="confirm_password">
-                                    <label for="confirm_password" class="floating-label">Konfirmasi Password</label>
+                                    <label for="confirm_password" class="floating-label">@lang('pw.input_confirm')</label>
                                     <button class="btn btn-outline-secondary toggle-password" type="button"
                                         data-target="confirm_password">
                                         <i class="fa-solid fa-eye"></i>
@@ -146,7 +146,7 @@
                         </div>
                         <button class="btn forum" type="submit"
                             style="text-decoration: none; color: #fff; background-color: #72B5F6; font-weight: 500; border-radius: 20px; height: 40px; width: 75%">
-                            Buat Kata Sandi
+                            @lang('pw.btn')
                         </button>
                     </form>
                 </div>
@@ -156,8 +156,8 @@
                         style="border-radius: 0 20px 20px 0; object-fit: cover; filter: brightness(60%);"
                         src="{{ asset('img/logkin.jpg') }}" alt="">
                     <div class="kata text-white text-center" style="position: absolute;">
-                        <h1 style="color: #72B5F6; font-weight: 600">VibeFour</h1>
-                        <p>Solusi Voting & Penjadwalan Tanpa Ribet!</p>
+                        <h1 style="color: #72B5F6; font-weight: 600">@lang('pw.nama_brand')</h1>
+                        <p>@lang('pw.slogan')</p>
                     </div>
                 </div>
             </div>

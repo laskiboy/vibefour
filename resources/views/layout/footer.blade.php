@@ -41,7 +41,7 @@
                     <h4 class="mb-4" style="color: #72B5F6">VibeFour</h4>
                     <p class="text-muted">
                         <i class="fas fa-map-marker-alt me-2"></i>
-                        Taman Kopo Indah 3, Ruko D35Bandung
+                        @lang('footer.alamat')
                     </p>
                     <div class="social-links mt-4">
                         <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
@@ -51,28 +51,28 @@
                     </div>
                     <div class="contact-info mt-4">
                         <i class="fab fa-whatsapp contact-icon"></i>
-                        0895 3791 9295
+                        @lang('footer.wa')
                     </div>
                     <div class="contact-info">
                         <i class="fas fa-headphones contact-icon"></i>
-                        0837 1237 1247
+                        @lang('footer.telp')
                     </div>
                 </div>
 
                 <div class="col-md-3 mb-4">
-                    <h5 class="mb-4">Produk</h5>
-                    <a href="{{ route('produk-voting') }}" class="footer-link">Voting</a>
-                    <a href="{{ route('produk-penjadwalan') }}" class="footer-link">Penjadwalan</a>
+                    <h5 class="mb-4">@lang('footer.judul_produk')</h5>
+                    <a href="{{ route('produk-voting') }}" class="footer-link">@lang('footer.voting')</a>
+                    <a href="{{ route('produk-penjadwalan') }}" class="footer-link">@lang('footer.penjadwalan')</a>
                 </div>
 
                 <div class="col-md-2 mb-4 ms-0">
-                    <h5 class="mb-4">Perusahaan</h5>
-                    <a href="{{ route('tentang') }}" class="footer-link">Tentang</a>
-                    <a href="{{ route('kontak') }}" class="footer-link">Kontak</a>
-                    <a href="{{ route('berita') }}" class="footer-link">Berita</a>
-                    <a href="{{ route('tnc') }}" class="footer-link">Syarat & Ketentuan</a>
-                    <a href="{{ route('privasi') }}" class="footer-link">Kebijakan & Privasi</a>
-                    <a href="{{ route('faq') }}" class="footer-link">F.A.Q</a>
+                    <h5 class="mb-4">@lang('footer.judul_menu')</h5>
+                    <a href="{{ route('tentang') }}" class="footer-link">@lang('footer.tentang')</a>
+                    <a href="{{ route('kontak') }}" class="footer-link">@lang('footer.kontak')</a>
+                    <a href="{{ route('berita') }}" class="footer-link">@lang('footer.berita')</a>
+                    <a href="{{ route('tnc') }}" class="footer-link">@lang('footer.tnc')</a>
+                    <a href="{{ route('privasi') }}" class="footer-link">@lang('footer.privasi')</a>
+                    <a href="{{ route('faq') }}" class="footer-link">@lang('footer.faq')</a>
                 </div>
             </div>
         </div>

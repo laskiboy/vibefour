@@ -77,12 +77,12 @@
                             style="border-radius: 20px 0 0 20px; object-fit: cover; filter: brightness(60%);"
                             src="{{ asset('img/logkin.jpg') }}" alt="">
                         <div class="kata text-white text-center" style="position: absolute;">
-                            <h1 style="color: #72B5F6; font-weight: 600">VibeFour</h1>
-                            <p>Solusi Voting & Penjadwalan Tanpa Ribet!</p>
+                            <h1 style="color: #72B5F6; font-weight: 600">@lang('masuk.nama_brand')</h1>
+                            <p>@lang('masuk.slogan')</p>
                         </div>
                     </div>
                     <div class="right w-50 h-100 d-flex flex-column justify-content-center align-items-center">
-                        <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Masuk</h2>
+                        <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">@lang('masuk.masuk')</h2>
                         <div id="message"></div>
                         @if (session('error'))
                             <p style="color: red" class="w-75 mb-4 forum text-center">
@@ -94,7 +94,7 @@
                                 <div class="position-relative">
                                     <input id="customInput1" placeholder=" " name="usernameAndEmail" type="text"
                                         class="ps-3 form-control">
-                                    <label for="customInput1" class="floating-label">Masukkan Email</label>
+                                    <label for="customInput1" class="floating-label">@lang('masuk.input_usn_email')</label>
                                 </div>
                             </div>
                             <div class="mb-4 forum w-75">
@@ -102,7 +102,7 @@
                                     <div class="input-group">
                                         <input id="password" placeholder=" " type="password" class="form-control"
                                             name="password">
-                                        <label for="password" class="floating-label">Masukkan Password</label>
+                                        <label for="password" class="floating-label">@lang('masuk.input_password')</label>
                                         <button class="btn btn-outline-secondary toggle-password" type="button"
                                             data-target="password">
                                             <i class="fa-solid fa-eye"></i>
@@ -113,15 +113,15 @@
 
                             <div class="w-75 forum mb-4">
                                 <a class="ms-1 lupa" style="text-decoration: none; color: #000"
-                                    href="{{ route('lupa-password') }}">Lupa Password?</a>
+                                    href="{{ route('lupa-password') }}">@lang('masuk.lupa_pw')</a>
                             </div>
                             <button type="submit" class="btn forum mb-4 w-75"
                                 style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
-                                Masuk</button>
+                                @lang('masuk.masuk')</button>
                         </form>
                         <div class="daftar botom forum text-end w-75">
-                            <span>Belum punya akun? </span><a href="#" id="show-daftar"
-                                style="text-decoration: none; color: #72B5F6">Daftar</a>
+                            <span>@lang('masuk.regis') </span><a href="#" id="show-daftar"
+                                style="text-decoration: none; color: #72B5F6">@lang('masuk.daftar')</a>
                         </div>
                     </div>
                 </div>
@@ -131,7 +131,7 @@
                 class="daftar card shadow-sm d-flex flex-row overflow-hidden w-100 h-100 position-absolute top-0"
                 style="border-radius: 20px; opacity: 0; z-index: 1; transition: opacity 0.5s ease-in-out, z-index 0.1s 0.5s;">
                 <div class="left w-50 h-100 d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">Daftar</h2>
+                    <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">@lang('masuk.daftar')</h2>
                     <form id="registerForm" action="{{ route('register.process') }}" method="POST"
                         class="w-100 d-flex justify-content-center align-items-center flex-column">
                         @csrf
@@ -139,7 +139,7 @@
                             <div class="position-relative">
                                 <input id="customInput3" placeholder=" " name="username" type="text"
                                     class="ps-3 form-control">
-                                <label for="customInput3" class="floating-label">Masukkan Username</label>
+                                <label for="customInput3" class="floating-label">@lang('masuk.input_usn')</label>
                             </div>
                             <div class="invalid-feedback" id="error-username"></div>
                         </div>
@@ -148,7 +148,7 @@
                             <div class="position-relative">
                                 <input id="customInput4" placeholder=" " name="email" type="email"
                                     class="ps-3 form-control">
-                                <label for="customInput4" class="floating-label">Masukkan Email</label>
+                                <label for="customInput4" class="floating-label">@lang('masuk.input_email')</label>
                             </div>
                             <div class="invalid-feedback" id="error-email"></div>
                         </div>
@@ -157,19 +157,19 @@
                             <div class="position-relative">
                                 <input id="customInput5" placeholder=" " name="nama" type="text"
                                     class="ps-3 form-control">
-                                <label for="customInput5" class="floating-label">Masukkan Nama</label>
+                                <label for="customInput5" class="floating-label">@lang('masuk.input_nama')</label>
                             </div>
                             <div class="invalid-feedback" id="error-nama"></div>
                         </div>
                         <button type="submit" id="daftar" class="btn mb-4 forum w-75"
                             style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
-                            Daftar
+                            @lang('masuk.daftar')
                         </button>
                     </form>
 
                     <div class="masuk botom forum text-end w-75">
-                        <span>Sudah punya akun? </span><a href="#" id="show-masuk"
-                            style="text-decoration: none; color: #72B5F6">Masuk</a>
+                        <span>@lang('masuk.login') </span><a href="#" id="show-masuk"
+                            style="text-decoration: none; color: #72B5F6">@lang('masuk.masuk')</a>
                     </div>
                 </div>
                 <div id="register-img-div"
@@ -179,8 +179,8 @@
                         style="border-radius: 0 20px 20px 0; object-fit: cover; filter: brightness(60%);"
                         src="{{ asset('img/logkin.jpg') }}" alt="">
                     <div class="kata text-white text-center" style="position: absolute;">
-                        <h1 style="color: #72B5F6; font-weight: 600">VibeFour</h1>
-                        <p>Solusi Voting & Penjadwalan Tanpa Ribet!</p>
+                        <h1 style="color: #72B5F6; font-weight: 600">@lang('masuk.nama_brand')</h1>
+                        <p>@lang('masuk.slogan')</p>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ return Cache::remember('lang_en_about', 60, function () {
         'vote' => 'Digital Voting',
         'desk_vote' => 'An efficient, secure, and eco-friendly voting system!',
         'jadwal' => 'Smart Scheduling',
-        'desk_jawal' => 'A scheduling system that is more organized, fast, and efficient!',
+        'desk_jadwal' => 'A scheduling system that is more organized, fast, and efficient!',
         'judul_visi_misi' => 'Our Vision & Mission',
         'judul_visi' => 'Vision',
         'desk_visi' => 'To be the leading digital platform for efficient and transparent voting and scheduling.',

@@ -8,7 +8,7 @@ return Cache::remember('lang_en_vote', 60, function () {
         'deskripsi' => 'VibeFour offers a fast, secure, and transparent digital voting solution, enabling organizations, communities, and events to manage voting efficiently. Designed to meet various needs, we ensure that every vote is counted fairly and accurately.',
         'btn_coba_fitur' => 'Try Features',
         'btn_lihat_tutor' => 'View Tutorial',
-        'judul_keunggulan' => 'Key Voting Features',
+        'judul_keunggulan' => 'Top Features Of Voting',
         'deskripsi_keunggulan' => 'With VibeFour, voting becomes more efficient, secure, and eco-friendly!',
         'keunggulan_1' => 'Guaranteed Voting Security',
         'desk_keunggulan_1' => 'Voting can be general or private using automatically generated room codes.',

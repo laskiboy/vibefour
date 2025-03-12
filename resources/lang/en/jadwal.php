@@ -8,7 +8,7 @@ return Cache::remember('lang_en_schedule', 60, function () {
         'deskripsi' => 'VibeFour offers an efficient and automated digital scheduling solution designed to help organizations, communities, and events manage schedules more easily, accurately, and flexibly. With advanced features, this platform allows users to create, manage, and share schedules in a more organized way, eliminating scheduling conflicts and miscommunication.',
         'btn_coba_fitur' => 'Try Features',
         'btn_lihat_tutor' => 'View Tutorial',
-        'judul_keunggulan' => 'Key Scheduling Features',
+        'judul_keunggulan' => 'Top Features Of Scheduling',
         'deskripsi_keunggulan' => 'With VibeFour, schedule management becomes more organized, fast, and efficient!',
         'keunggulan_1' => 'Invite Your Friends',
         'desk_keunggulan_1' => 'With the scheduling feature, you can send invitations even if your friends don’t have an account yet.',
