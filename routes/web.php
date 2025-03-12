@@ -32,24 +32,28 @@ Route::get('locale/{locale}', function ($locale) {
 // })->name('beranda');
 Route::get('/', [ContactController::class, 'home'])->name('beranda'); // Halaman login
 
+Route::get('/tentang', [ContactController::class, 'tentang'])->name('tentang'); // Halaman login
 
 
-Route::get('/tentang', function () {
-    return view('tentang');
-})->name('tentang');
+
+// Route::get('/tentang', function () {
+//     return view('tentang');
+// })->name('tentang');
 
 Route::get('/kontak', [ContactController::class, 'index'])->name('kontak'); // Halaman login
 
 
 
 //produk
-Route::get('/produk-voting', function () {
-    return view('produk.produkVote');
-})->name('produk-voting');
+// Route::get('/produk-voting', function () {
+//     return view('produk.produkVote');
+// })->name('produk-voting');
 
-Route::get('/produk-penjadwalan', function () {
-    return view('produk.produkPenjadwalan');
-})->name('produk-penjadwalan');
+Route::get('/produk-voting', [ContactController::class, 'vote'])->name('produk-voting'); // Halaman login
+Route::get('/produk-penjadwalan', [ContactController::class, 'jadwal'])->name('produk-penjadwalan'); // Halaman login
+// Route::get('/produk-penjadwalan', function () {
+//     return view('produk.produkPenjadwalan');
+// })->name('produk-penjadwalan');
 
 
 //berita

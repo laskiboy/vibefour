@@ -1,22 +1,18 @@
 <?php
 
+use App\Models\ProducVoting;
 use Illuminate\Support\Facades\Cache;
 
 return Cache::remember('lang_en_vote', 60, function () {
     return [
-        'judul' => 'What is the VibeFour Voting System?',
-        'deskripsi' => 'VibeFour offers a fast, secure, and transparent digital voting solution, enabling organizations, communities, and events to manage voting efficiently. Designed to meet various needs, we ensure that every vote is counted fairly and accurately.',
-        'btn_coba_fitur' => 'Try Features',
-        'btn_lihat_tutor' => 'View Tutorial',
-        'judul_keunggulan' => 'Top Features Of Voting',
-        'deskripsi_keunggulan' => 'With VibeFour, voting becomes more efficient, secure, and eco-friendly!',
-        'keunggulan_1' => 'Guaranteed Voting Security',
-        'desk_keunggulan_1' => 'Voting can be general or private using automatically generated room codes.',
-        'keunggulan_2' => 'Anonymous Settings',
-        'desk_keunggulan_2' => 'Voting creators can customize who is allowed to vote or anonymize voters.',
-        'keunggulan_3' => 'Customizable Voting Results',
-        'desk_keunggulan_3' => 'Voting results can be customized—public for voters to see or private for only the creator.',
-        'judul_join' => 'Join VibeFour',
+        'judul' => ProducVoting::where('nama', 'judul')->where('bahasa_id', 2)->value('isi'),
+        'deskripsi' => ProducVoting::where('nama', 'deskripsi')->where('bahasa_id', 2)->value('isi'),
+        'btn_coba_fitur' => ProducVoting::where('nama', 'btn_coba_fitur')->where('bahasa_id', 2)->value('isi'),
+        'btn_lihat_tutor' => ProducVoting::where('nama', 'btn_lihat_tutor')->where('bahasa_id', 2)->value('isi'),
+        'judul_keunggulan' => ProducVoting::where('nama', 'judul_keunggulan')->where('bahasa_id', 2)->value('isi'),
+        'deskripsi_keunggulan' => ProducVoting::where('nama', 'deskripsi_keunggulan')->where('bahasa_id', 2)->value('isi'),
+        'judul_join' => ProducVoting::where('nama', 'judul_join')->where('bahasa_id', 2)->value('isi'),
+        'gambar' => ProducVoting::where('nama', 'gambar')->value('isi'),
         'gratis' => 'Free',
         'previlage_gratis_1' => 'Provides Trial Access',
         'previlage_gratis_2' => 'Allows up to 10 feature uses',

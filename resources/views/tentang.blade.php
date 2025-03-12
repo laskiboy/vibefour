@@ -171,14 +171,12 @@
             </div>
         </div>
         <div class="d-flex w-75 justify-content-between mt-4 text-center">
-            <div style="width: 49%" class="kiri p-3 vm border rounded shadow-sm bg-white">
-                <h5 class="mt-2" style="font-family: 'Montserrat';">@lang('about.judul_misi_1')</h5>
-                <p>@lang('about.desk_misi_1')</p>
-            </div>
-            <div style="width: 49%" class="kanan p-3 vm border rounded shadow-sm bg-white">
-                <h5 class="mt-2" style="font-family: 'Montserrat';">@lang('about.judul_misi_2')</h5>
-                <p>@lang('about.desk_misi_2')</p>
-            </div>
+            @foreach ($missions as $mission)
+                <div style="width: 49%" class="kiri p-3 vm border rounded shadow-sm bg-white">
+                    <h5 class="mt-2" style="font-family: 'Montserrat';">{{ $mission->nama }}</h5>
+                    <p>{{ $mission->isi }}</p>
+                </div>
+            @endforeach
         </div>
     </div>
     {{-- end konten keempat --}}
@@ -188,27 +186,15 @@
         <div class="container">
             <h2 class="atas fw-bold mb-5" style="font-family: 'Montserrat';">@lang('about.judul_keunggulan')</h2>
             <div class="row">
-                <div class="kiri keunggulan col-md-4">
-                    <div class="keunggulan-card">
-                        <i class="fas fa-clock fa-3x"></i>
-                        <h5 class="mt-3" style="font-family: 'Montserrat';">@lang('about.judul_keunggulan_1')</h5>
-                        <p>@lang('about.desk_keunggulan_1')</p>
+                @foreach ($advantages as $advantage)
+                    <div class="kiri keunggulan col-md-4">
+                        <div class="keunggulan-card">
+                            {!! $advantage->ikon !!}
+                            <h5 class="mt-3" style="font-family: 'Montserrat';">{{ $advantage->nama }}</h5>
+                            <p>{{ $advantage->isi }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="bawah keunggulan col-md-4">
-                    <div class="keunggulan-card">
-                        <i class="fas fa-user-lock fa-3x"></i>
-                        <h5 class="mt-3" style="font-family: 'Montserrat';">@lang('about.judul_keunggulan_2')</h5>
-                        <p>@lang('about.desk_keunggulan_2')</p>
-                    </div>
-                </div>
-                <div class="kanan keunggulan col-md-4">
-                    <div class="keunggulan-card">
-                        <i class="fas fa-thumbs-up fa-3x"></i>
-                        <h5 class="mt-3" style="font-family: 'Montserrat';">@lang('about.judul_keunggulan_3')</h5>
-                        <p>@lang('about.desk_keunggulan_3')</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

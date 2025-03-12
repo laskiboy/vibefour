@@ -1,28 +1,28 @@
 <?php
 
-use App\Models\Privacy;
+use App\Models\About;
 use App\Models\TNC;
 use Illuminate\Support\Facades\Cache;
 
 return Cache::remember('lang_en_about', 60, function () {
     return [
-        'judul' => 'About Us VibeFour',
-        'slogan' => 'Simplifying voting and scheduling',
-        'deskripsi' => 'VibeFour is a modern solution for managing digital voting and event scheduling. With advanced technology and a secure system, we help individuals, communities, and organizations make more efficient decisions.',
-        'masuk' => 'Login',
-        'judul_tentang' => 'About Us',
-        'desk_tentang' => 'VibeFour is a digital platform that provides an automated voting and scheduling system to help organizations and communities make decisions and manage events more easily.',
-        'vote' => 'Digital Voting',
-        'desk_vote' => 'An efficient, secure, and eco-friendly voting system!',
-        'jadwal' => 'Smart Scheduling',
-        'desk_jadwal' => 'A scheduling system that is more organized, fast, and efficient!',
-        'judul_visi_misi' => 'Our Vision & Mission',
-        'judul_visi' => 'Vision',
-        'desk_visi' => 'To be the leading digital platform for efficient and transparent voting and scheduling.',
-        'judul_misi_1' => 'Collaborative',
-        'desk_misi_1' => 'Enhancing work efficiency with modern technology.',
-        'judul_misi_2' => 'Security',
-        'desk_misi_2' => 'Ensuring user data remains safe and protected.',
+        'judul' => About::where('nama', 'judul')->where('bahasa_id', 2)->value('isi'),
+        'slogan' => About::where('nama', 'slogan')->where('bahasa_id', 2)->value('isi'),
+        'deskripsi' => About::where('nama', 'deskripsi')->where('bahasa_id', 2)->value('isi'),
+        'masuk' => About::where('nama', 'masuk')->where('bahasa_id', 2)->value('isi'),
+        'judul_tentang' => About::where('nama', 'judul_tentang')->where('bahasa_id', 2)->value('isi'),
+        'desk_tentang' => About::where('nama', 'desk_tentang')->where('bahasa_id', 2)->value('isi'),
+        'vote' => About::where('nama', 'vote')->where('bahasa_id', 2)->value('isi'),
+        'desk_vote' => About::where('nama', 'desk_vote')->where('bahasa_id', 2)->value('isi'),
+        'jadwal' => About::where('nama', 'jadwal')->where('bahasa_id', 2)->value('isi'),
+        'desk_jadwal' => About::where('nama', 'desk_jadwal')->where('bahasa_id', 2)->value('isi'),
+        'judul_visi_misi' => About::where('nama', 'judul_visi_misi')->where('bahasa_id', 2)->value('isi'),
+        'judul_visi' => About::where('nama', 'judul_visi')->where('bahasa_id', 2)->value('isi'),
+        'desk_visi' => About::where('nama', 'desk_visi')->where('bahasa_id', 2)->value('isi'),
+        'judul_misi_1' => About::where('nama', 'deskripsi')->where('bahasa_id', 2)->value('isi'),
+        'desk_misi_1' => About::where('nama', 'deskripsi')->where('bahasa_id', 2)->value('isi'),
+        'judul_misi_2' => About::where('nama', 'deskripsi')->where('bahasa_id', 2)->value('isi'),
+        'desk_misi_2' => About::where('nama', 'deskripsi')->where('bahasa_id', 2)->value('isi'),
         'judul_keunggulan' => 'VibeFour Advantages',
         'judul_keunggulan_1' => 'Fast & Easy',
         'desk_keunggulan_1' => 'Voting and scheduling processes in just seconds.',

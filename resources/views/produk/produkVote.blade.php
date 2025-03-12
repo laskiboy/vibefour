@@ -198,7 +198,7 @@
                 </div>
             </div>
         </div>
-        <img class="shadow-lg blob mt-5 kanan" src="{{ asset('img/votingan.png') }}"
+        <img class="shadow-lg blob mt-5 kanan" src="{{ asset('storage/images/' . __('vote.gambar')) }}"
             style="border-radius: 20px; width: 500px; z-index: 1" alt="voting">
         <span class="kanan blob mt-5" style="position: absolute; right: 0; margin-right: 20px; overflow: hidden;">
             <img width="450" src="{{ asset('img/svg.gif') }}" alt="">
@@ -212,47 +212,30 @@
             <div class="kiri d-flex flex-column">
                 <span class="fs-2 fw-bold" style="color: #72B5F6; font-family: 'Montserrat';">@lang('vote.judul_keunggulan')</span>
                 <span class="my-4">@lang('vote.deskripsi_keunggulan')</span>
-                <div class="fitur d-flex justify-content-start flex-row mt-4">
-                    <div class="fitur-1" style="width: 40%;">
-                        <i class="fa-solid fa-lock fs-3 mb-4" style="color: #8854BB;"></i><br>
-                        <div class="klas">
-                            <strong class=""
-                                style="color: #72B5F6; font-family: 'Montserrat';">@lang('vote.keunggulan_1')</strong>
-                            <p class="mt-2">@lang('vote.desk_keunggulan_1')</p>
+
+                <!-- Fitur container with custom CSS to force 2 per row -->
+                <div class="fitur mt-4" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                    @foreach ($fitures as $item)
+                        <div class="fitur-1">
+                            <i class="fa-solid fa-address-card fs-2 mb-4" style="color: #8854BB;"></i><br>
+                            <div class="klas">
+                                <strong class="fs-5"
+                                    style="color: #72B5F6; font-family: 'Montserrat';">{{ $item->nama }}</strong>
+                                <p class="mt-2">{{ $item->deskripsi }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="fitur-1 husus ms-4" style="width: 40%;">
-                        <i class="fa-solid fa-face-smile fs-3 mb-4" style="color: #8854BB;"></i><br>
-                        <div class="klas">
-                            <strong class=""
-                                style="color: #72B5F6; font-family: 'Montserrat';">@lang('vote.keunggulan_2')</strong>
-                            <p class="mt-2">@lang('vote.desk_keunggulan_2')</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="fitur d-flex justify-content-between flex-row mt-3">
-                    <div class="fitur-1" style="width: 40%;">
-                        <i class="fa-solid fa-eye-low-vision fs-3 mb-4" style="color: #8854BB;"></i><br>
-                        <div class="klas">
-                            <strong class=""
-                                style="color: #72B5F6; font-family: 'Montserrat';">@lang('vote.keunggulan_3')</strong>
-                            <p class="mt-2">@lang('vote.desk_keunggulan_3')</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
         <div id="testimonialCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img style="object-fit: cover" src="{{ asset('img/vitur1.png') }}" width="500" alt="">
-                </div>
-                <div class="carousel-item">
-                    <img style="object-fit: cover" src="{{ asset('img/vitur2.png') }}" width="500" alt="">
-                </div>
-                <div class="carousel-item">
-                    <img style="object-fit: cover" src="{{ asset('img/vitur3.png') }}" width="500" alt="">
-                </div>
+                @foreach ($fitur as $feature)
+                    <div class="carousel-item active">
+                        <img style="object-fit: cover" src="{{ asset('storage/images/' . $feature->gambar) }}"
+                            width="500" alt="">
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
