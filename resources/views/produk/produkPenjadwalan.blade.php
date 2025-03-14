@@ -194,14 +194,18 @@
                 <button type="button" class="bawah lihat btn btn-secondary shadow ms-4 mb-3 mt-5" data-bs-toggle="modal"
                     data-bs-target="#modalVideo" style="border-radius: 20px; width: 200px; height: 50px"><i
                         class="fa-regular fa-circle-play me-2 fs-5"></i> @lang('jadwal.btn_lihat_tutor')</button>
-                <video controls class="video shadow-lg" style="width: 100%;" preload="auto">
-                    <source src="{{ asset('img/video.mp4') }}" type="video/mp4">
-                </video>
+                <iframe class="video shadow-lg" style="width: 100%; height: 190px" src="{{ __('jadwal.video') }}"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <div class="modal fade" id="modalVideo" tabindex="-1" aria-labelledby="modalVideoLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
                             <div class="modal-body d-flex justify-content-center align-items-center">
-                                <video controls style="width: 100%" src="{{ asset('img/video.mp4') }}"></video>
+                                <iframe style="width: 100%; height: 100%" src="{{ __('jadwal.video') }}"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -241,14 +245,15 @@
         </div>
         <div id="testimonialCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
             <div class="carousel-inner">
-                @foreach ($fitur as $feature)
-                    <div class="carousel-item active">
+                @foreach ($fitures as $key => $feature)
+                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                         <img style="object-fit: cover" src="{{ asset('storage/images/' . $feature->gambar) }}"
                             width="500" alt="">
                     </div>
                 @endforeach
             </div>
         </div>
+
     </div>
     {{-- end konten kedua --}}
 

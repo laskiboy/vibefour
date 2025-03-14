@@ -51,16 +51,15 @@
     <div style="margin-bottom: 130px" class="atu">
         <div id="carouselExample" class="carousel slide" style="margin-top: 80px" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <a href="{{ url('/detail-berita') }}">
-                        <img style="filter: brightness(90%); width: 100%; object-fit: cover;" src="{{ asset('img/hn.jpg') }}"
-                            height="600" class="d-block w-100" alt="Slide 1">
-                    </a>
-                </div>
-                <div class="carousel-item">
-                    <img style="filter: brightness(90%); width: 100%; object-fit: cover" src="{{ asset('img/nws.jpg') }}"
-                        height="600" class="d-block w-100" alt="Slide 3">
-                </div>
+                @foreach ($news as $key => $item)
+                    <div class="carousel-item  {{ $key == 0 ? 'active' : '' }}">
+                        <a href="{{ url('/detail-berita') }}">
+                            <img style="filter: brightness(90%); width: 100%; object-fit: cover;"
+                                src="{{ asset('storage/images/' . $item->gambar) }}" height="600" class="d-block w-100"
+                                alt="Slide 1">
+                        </a>
+                    </div>
+                @endforeach
             </div>
 
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -77,43 +76,26 @@
 
     {{-- konten kedua --}}
     <span class="fs-2 fw-bold span-title mt-5" style="color: #72B5F6; margin-left: 48px">@lang('berita.jdudl_berita')</span>
-    <div class="container m-5">
-        <div class="berita d-flex justify-content-center align-items-center" style="margin-top: 120px">
-            <div class="card me-5 kiri" style="width: 35%; height: 15rem; border-radius: 20px">
-                <img style="height: 15rem; object-fit: cover; border-radius: 20px" src="{{ asset('img/hn.jpg') }}"
-                    alt="">
-            </div>
-            <div class="ms-5 kanan isi d-flex flex-column w-50">
-                <a class="detail-berita text-dark mb-3" style="text-decoration: none" href="{{ url('/detail-berita') }}">
-                    <span class="fs-5 fw-bold">Baru !!! VibeFour Kini Hadir untuk Memudahkan Pengguna</span>
-                </a>
-                <span class="w-50 span mb-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat optio neque
-                    asperiores
-                    id beatae aut
-                    rerum repudiandae consequuntur delectus ullam.</span>
-                <span class="" style="color: #ABABAB">10 Februari 2025</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="container m-5" style="margin-bottom: 150px !important">
-        <div class="berita d-flex justify-content-center align-items-center" style="margin-top: 120px">
-            <div class="card me-5 kiri" style="width: 35%; height: 15rem; border-radius: 20px">
-                <img style="height: 15rem; object-fit: cover; border-radius: 20px" src="{{ asset('img/nws.jpg') }}"
-                    alt="">
-            </div>
-            <div class="ms-5 kanan isi d-flex flex-column w-50">
-                <a class="detail-berita text-dark mb-3" style="text-decoration: none" href="{{ url('/detail-berita') }}">
-                    <span class="fs-5 fw-bold ">VibeFour Membantu Rapat Besar Perusahaan dengan 1000+ Peserta</span>
-                </a>
-                <span class="w-50 span mb-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat optio neque
-                    asperiores
-                    id beatae aut
-                    rerum repudiandae consequuntur delectus ullam.</span>
-                <span class="" style="color: #ABABAB">10 Februari 2025</span>
+    @foreach ($news as $items)
+        <div class="container m-5">
+            <div class="berita d-flex justify-content-center align-items-center" style="margin-top: 120px">
+                <div class="card me-5 kiri" style="width: 35%; height: 15rem; border-radius: 20px">
+                    <img style="height: 15rem; object-fit: cover; border-radius: 20px"
+                        src="{{ asset('storage/images/' . $items->gambar) }}" alt="">
+                </div>
+                <div class="ms-5 kanan isi d-flex flex-column w-50">
+                    <a class="detail-berita text-dark mb-3" style="text-decoration: none"
+                        href="{{ route('detail-berita', $items->id) }}">
+                        <span class="fs-5 fw-bold">{{ $items->judul }}</span>
+                    </a>
+                    <span class="w-50 span mb-3">{!! Str::words($items->isi_berita, 29, '...') !!}</span><br><br>
+                    <span class="mt-3" style="color: #ABABAB">
+                        {{ \Carbon\Carbon::parse($items->created_at)->translatedFormat('d F Y') }}
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
+    @endforeach
     {{-- end konten kedua --}}
 
     {{-- footer --}}

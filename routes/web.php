@@ -57,13 +57,15 @@ Route::get('/produk-penjadwalan', [ContactController::class, 'jadwal'])->name('p
 
 
 //berita
-Route::get('/berita', function () {
-    return view('berita.berita');
-})->name('berita');
+// Route::get('/berita', function () {
+//     return view('berita.berita');
+// })->name('berita');
+Route::get('/berita', [ContactController::class, 'news'])->name('berita'); // Halaman login
 
-Route::get('/detail-berita', function () {
-    return view('berita.detailBerita');
-})->name('detail-berita');
+// Route::get('/detail-berita', function () {
+//     return view('berita.detailBerita');
+// })->name('detail-berita');
+Route::get('/detail-berita/{id}', [ContactController::class, 'show'])->name('detail-berita');
 
 Route::get('/tnc', [TncController::class, 'index'])->name('tnc'); // Halaman login
 

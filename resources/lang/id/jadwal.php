@@ -13,5 +13,6 @@ return Cache::remember('lang_id_jadwal', 60, function () {
         'deskripsi_keunggulan' => ProductScheduling::where('nama', 'deskripsi_keunggulan')->where('bahasa_id', 1)->value('isi'),
         'judul_join' => ProductScheduling::where('nama', 'judul_join')->where('bahasa_id', 1)->value('isi'),
         'gambar' => ProductScheduling::where('nama', 'gambar')->value('isi'),
+        'video' => ProductScheduling::where('nama', 'video')->value('isi'),
     ];
 });

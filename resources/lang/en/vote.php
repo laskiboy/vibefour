@@ -13,6 +13,7 @@ return Cache::remember('lang_en_vote', 60, function () {
         'deskripsi_keunggulan' => ProducVoting::where('nama', 'deskripsi_keunggulan')->where('bahasa_id', 2)->value('isi'),
         'judul_join' => ProducVoting::where('nama', 'judul_join')->where('bahasa_id', 2)->value('isi'),
         'gambar' => ProducVoting::where('nama', 'gambar')->value('isi'),
+        'video  ' => ProducVoting::where('nama', 'video')->value('isi'),
         'gratis' => 'Free',
         'previlage_gratis_1' => 'Provides Trial Access',
         'previlage_gratis_2' => 'Allows up to 10 feature uses',

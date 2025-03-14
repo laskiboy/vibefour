@@ -13,5 +13,6 @@ return Cache::remember('lang_id_vote', 60, function () {
         'deskripsi_keunggulan' => ProducVoting::where('nama', 'deskripsi_keunggulan')->where('bahasa_id', 1)->value('isi'),
         'judul_join' => ProducVoting::where('nama', 'judul_join')->where('bahasa_id', 1)->value('isi'),
         'gambar' => ProducVoting::where('nama', 'gambar')->value('isi'),
+        'video' => ProducVoting::where('nama', 'video')->value('isi'),
     ];
 });
