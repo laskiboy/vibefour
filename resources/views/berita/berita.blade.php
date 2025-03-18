@@ -53,7 +53,7 @@
             <div class="carousel-inner">
                 @foreach ($news as $key => $item)
                     <div class="carousel-item  {{ $key == 0 ? 'active' : '' }}">
-                        <a href="{{ url('/detail-berita') }}">
+                        <a href="{{ route('detail-berita', $item->id) }}">
                             <img style="filter: brightness(90%); width: 100%; object-fit: cover;"
                                 src="{{ asset('storage/images/' . $item->gambar) }}" height="600" class="d-block w-100"
                                 alt="Slide 1">

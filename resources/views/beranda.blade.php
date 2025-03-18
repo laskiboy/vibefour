@@ -51,13 +51,6 @@
         opacity: 1;
     }
 
-    @media (max-width: 576px) {
-        .custom-accordion {
-            width: 500px !important;
-            margin: 20px auto;
-        }
-    }
-
     .carousel-control-next-icon {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);transform: ;msFilter:;'%3E%3Cpath d='M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z'%3E%3C/path%3E%3C/svg%3E") !important;
         background-size: 24px;
@@ -104,25 +97,13 @@
         background-color: #48a4ff;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 576px) {
         body .satu {
-            width: 100% !important;
+            width: 100%;
             flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
-            margin-top: 120px !important;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-        }
-
-        body .dua {
-            width: 100% !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
-            margin-top: 0 !important;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
+            margin-top: 30px;
+            margin-left: 0;
+            margin-right: 0;
         }
 
         .h1 {
@@ -130,9 +111,12 @@
             text-align: center !important;
         }
 
-        .solusi {
-            margin: 0 50px !important;
-            text-align: center !important;
+        .satu .slogan,
+        .twp .slogan,
+        .tihZa .slogan,
+        .empat .slogan {
+            font-size: 17px !important;
+            margin: 50% 0;
         }
 
         .giv-blob {
@@ -199,30 +183,21 @@
         .accordion-item .yoi {
             width: 100% !important;
         }
-    }
 
-    .slideshow-container {
-        position: relative;
-        z-index: 1;
-        max-width: 600px;
+        .slides {
+            margin-top: 30px;
+            width: 90% !important;
+            border-radius: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
     }
 
     .slides {
-        display: none;
-        width: 100%;
+        position: relative;
+        z-index: 1;
+        max-width: 600px;
         border-radius: 20px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .active {
-        display: block;
-    }
-
-    @media (max-width: 768px) {
-        .slideshow-container {
-            margin: 30px !important;
-            margin-top: 40px;
-        }
     }
 </style>
 @extends('layout.headerAsli')
@@ -230,48 +205,42 @@
     {{-- konten pertama --}}
     <div class="satu bg-white vh-100 d-flex justify-content-evenly flex-row align-items-center">
         <div class="span d-flex flex-column">
-            <h1 class="atas h1" style="font-family: 'Montserrat'; color: #000; font-weight: bold; font-size: 4em">
+            <h1 class="atas h1 text-black fw-bold" style="font-family: 'Montserrat'; font-size: 4em">
                 {{ __('home.judul_satu') }}
             </h1>
-            <h1 class="kiri to-everyone h1"
-                style="font-family: 'Montserrat'; color: #000; margin-bottom: 30px; font-weight: bold; font-size: 4em">
+            <h1 class="kiri to-everyone h1 text-black fw-bold"
+                style="font-family: 'Montserrat'; margin-bottom: 30px; font-size: 4em">
                 {{ __('home.judul_dua') }}
             </h1>
-            <div class="solusi">
-                <span class="fs-5 kanan">{{ __('home.slogan') }}</span>
-            </div>
+            <span class="slogan text-center fs-5 kanan">{{ __('home.slogan') }}</span>
             <a href="{{ route('login') }}" class="a-masuk">
-                <button class="bawah btn mb-3 mt-5"
-                    style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 415px; height: 50px"><i
+                <button class="bawah slogan btn mb-3 mt-5 text-white"
+                    style="background-color: #72B5F6; border-radius: 20px; width: 415px; height: 50px"><i
                         class="fa-solid fa-door-open me-2"></i> {{ __('home.masuk') }}</button>
             </a>
         </div>
-        {{-- @include('layout.slideshowHome') --}}
-        <div class="slideshow-container kanan">
-            <img class="slides active" src="{{ asset('img/penjadwalan.png') }}" alt="">
-            <img class="slides" src="{{ asset('img/votingan.png') }}" alt="">
-        </div>
-        <span class="kanan giv-blob" style="position: absolute; right: 0; margin-right: 100px">
+        <img class="slides" src="{{ asset('img/penjadwalan.png') }}" alt="">
+        <span class="kanan giv-blob position-absolute" style="right: 0; margin-right: 100px">
             <img width="500" src="{{ asset('img/svg.gif') }}" alt="">
         </span>
     </div>
     {{-- end konten pertama --}}
 
     {{-- konten kedua --}}
-    <div class="d-flex flex-column align-items-center m-5">
+    <div class="two d-flex flex-column align-items-center m-5">
         <span class="fs-2 fw-bold span-title"
             style="color: #72B5F6; font-family: 'Montserrat';">{{ __('home.judul_fitur') }}</span>
         <span class="mb-5 span-kami span-sub">{{ __('home.ket_fitur') }}</span>
-        <div class="w-75 dua d-flex w-100 align-items-center mt-5 justify-content-around">
-            <span class="kiri span-blob" style="position: absolute; left: 0; margin-left: -350px; z-index: -1">
+        <div class="w-100 dua d-flex align-items-center mt-5 justify-content-around">
+            <span class="kiri span-blob position-absolute" style="left: 0; margin-left: -350px; z-index: -1">
                 <svg width="500px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path fill="#E8F4FF"
                         d="M43.1,-75.1C56.1,-67.2,67,-56.1,74.2,-43C81.4,-30,84.9,-15,84.9,0C85,15.1,81.7,30.1,74.4,43.1C67.2,56.1,56.1,67,43,75.2C30,83.5,15,89.1,-0.2,89.4C-15.4,89.7,-30.7,84.8,-44.3,76.8C-57.8,68.8,-69.5,57.9,-76.5,44.6C-83.5,31.3,-85.8,15.6,-86.5,-0.4C-87.2,-16.5,-86.4,-32.9,-79.8,-47C-73.3,-61.1,-61,-72.8,-46.8,-79.9C-32.5,-87.1,-16.3,-89.7,-0.6,-88.6C15.1,-87.6,30.2,-83,43.1,-75.1Z"
                         transform="translate(100 100)" />
                 </svg>
             </span>
-            <div class="fitur kiri">
-                <div class="accordion custom-accordion" id="featureAccordion1">
+            <div class="kiri">
+                <div class="accordion custom-accordion" style="max-width: 100%;" id="featureAccordion1">
                     @foreach ($fitur as $items)
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="heading{{ $items->id }}">
@@ -316,11 +285,10 @@
                 </div>
             </div>
             <div class="image-carousel kanan shadow-lg" id="carousel1">
-                <img src="{{ asset('img/Screenshot (77).png') }}" alt="Voting Feature 1" class="carousel-image" />
-                <img src="{{ asset('img/Screenshot (78).png') }}" alt="Voting Feature 2" class="carousel-image" />
-                <img src="{{ asset('img/Screenshot (79).png') }}" alt="Voting Feature 3" class="carousel-image" />
-                <img src="{{ asset('img/Screenshot (78).png') }}" alt="Voting Feature 4" class="carousel-image" />
-                <img src="{{ asset('img/Screenshot (77).png') }}" alt="Voting Feature 5" class="carousel-image" />
+                @foreach ($fitur as $itemss)
+                    <img src="{{ asset('storage/images/' . $itemss->gambar) }}" alt="Voting Feature $"
+                        class="carousel-image" />
+                @endforeach
             </div>
         </div>
     </div>
@@ -346,79 +314,46 @@
     {{-- end konten ketiga --}}
 
     {{-- konten keempat --}}
-    <div class="container d-flex justify-content-center flex-column align-item-center" style="height: 30rem">
+    <div class="empat container d-flex justify-content-center flex-column align-item-center" style="height: 30rem">
         <span class="fs-2 fw-bold text-center span-title"
             style="color: #72B5F6; margin-top: 50px; margin-bottom: 30px; font-family: 'Montserrat';">{{ __('home.judul_testimoni') }}</span>
         <section class="py-5 bawah">
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                <div class="testimonial-content text-center">
-                                    <img src="{{ asset('img/jempol.png') }}" width="50" height="50"
-                                        alt="Budi Santoso" class="avatar mb-3 border border-2 rounded-circle">
-                                    <div class="ratings mb-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <p class="lead">
-                                        "Fitur sangat mudah difahami, top markotop"
-                                    </p>
-                                    <p class="font-weight-bold text-primary">- Budi Santoso</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @foreach ($testimoni as $key => $item)
+                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="testimonial-content text-center">
+                                        @php
+                                            $initial = strtoupper(substr($item->rating->user->nama, 0, 1));
+                                        @endphp
 
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                <div class="testimonial-content text-center">
-                                    <img src="{{ asset('img/jempol.png') }}" width="50" height="50"
-                                        alt="Dewi Kusuma" class="avatar mb-3 border border-2 rounded-circle">
-                                    <div class="ratings mb-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                    <p class="lead">
-                                        "Mantap, mungkin untuk fitur oke, lengkap, dan juga sangat mudah digunakan."
-                                    </p>
-                                    <p class="font-weight-bold text-primary">- Dewi Kusuma</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                        <div class="mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle text-white"
+                                            style="width: 48px; height: 48px; font-size: 18px; background-color: #8854BB">
+                                            {{ $initial }}
+                                        </div>
 
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                <div class="testimonial-content text-center">
-                                    <img src="{{ asset('img/jempol.png') }}" width="50" height="50"
-                                        alt="PT Maju Bersama" class="avatar mb-3 border border-2 rounded-circle">
-                                    <div class="ratings mb-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
+                                        <div class="ratings mb-2">
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($i <= $item->rating->rating)
+                                                    <i class="fas fa-star"></i>
+                                                @else
+                                                    <i class="far fa-star"></i>
+                                                @endif
+                                            @endfor
+                                        </div>
+
+                                        <p class="lead slogan">
+                                            {{ $item->rating->pesan }}
+                                        </p>
+                                        <p class="slogan font-weight-bold text-primary">- {{ $item->rating->user->nama }}
+                                        </p>
                                     </div>
-                                    <p class="lead">
-                                        "Tidak pernah mengecewakan, hasil dari vote akurat, dan dengan adanya fitur
-                                        avalible
-                                        mempercepat penjadwalan."
-                                    </p>
-                                    <p class="font-weight-bold text-primary">- PT Maju Bersama</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
 
                 <button class="carousel-control-prev butin" type="button" data-bs-target="#testimonialCarousel"

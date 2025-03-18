@@ -18,39 +18,13 @@
             padding: 0;
         }
 
-        .navbar {
-            background: #FFF;
-            transition: all 0.3s ease-in-out;
-        }
-
         .nav-link:hover {
-            color: #72B5F6;
-        }
-
-        .nav-link {
-            color: black;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .navbar-brand {
             color: #72B5F6 !important;
-        }
-
-        .navbar-fixed {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
         }
 
         .navbar .nav-link.active {
             color: #72B5F6 !important;
             font-weight: 500;
-        }
-
-        .btn-login {
-            transition: all 0.3s ease-in-out;
         }
 
         .btn-login:hover {
@@ -60,12 +34,12 @@
 
         @media (max-width: 768px) {
             body {
-                width: 100% !important;
+                /* width: 100% !important; */
             }
 
             .navbar {
-                width: 100% !important;
-                max-width: 100% !important;
+                width: 100vh;
+                max-width: 100vh;
             }
 
             .container-fluid {
@@ -149,9 +123,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-fixed p-3 shadow-sm w-100">
+    <nav class="navbar bg-white navbar-expand-lg position-fixed p-3 shadow-sm w-100"
+        style="transition: all 0.3s ease-in-out; top: 0; left: 0; z-index: 1000;">
         <div class="container-fluid mx-5">
-            <a class="navbar-brand fs-4 fw-bold" href="{{ route('beranda') }}">VibeFour</a>
+            <a style="color: #72B5F6;" class="text-decoration-none fs-4 fw-bold"
+                href="{{ route('beranda') }}">VibeFour</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa-solid fa-bars"></span>
@@ -159,12 +135,14 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item ms-3">
-                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}"
+                        <a style="transition: color 0.3s ease-in-out;"
+                            class="text-dark nav-link {{ Request::is('/') ? 'active' : '' }}"
                             href="{{ route('beranda') }}">{{ __('header.beranda') }}</a>
                     </li>
                     <li class="nav-item dropdown ms-3">
-                        <a class="nav-link dropdown-toggle" href="#" id="produkDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a style="transition: color 0.3s ease-in-out;" class="text-dark nav-link dropdown-toggle"
+                            href="#" id="produkDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             {{ __('header.produk') }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="produkDropdown">
@@ -178,16 +156,19 @@
                         </ul>
                     </li>
                     <li class="nav-item ms-3">
-                        <a class="nav-link {{ Request::is('tentang') ? 'active' : '' }}"
+                        <a style="transition: color 0.3s ease-in-out;"
+                            class="text-dark nav-link {{ Request::is('tentang') ? 'active' : '' }}"
                             href="{{ route('tentang') }}">{{ __('header.tentang') }}<a>
                     </li>
                     <li class="nav-item ms-3">
-                        <a class="nav-link {{ Request::is('kontak') ? 'active' : '' }}"
+                        <a style="transition: color 0.3s ease-in-out;"
+                            class="text-dark nav-link {{ Request::is('kontak') ? 'active' : '' }}"
                             href="{{ route('kontak') }}">{{ __('header.kontak') }}<a>
                     </li>
                     <li class="nav-item dropdown ms-3">
-                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a style="transition: color 0.3s ease-in-out;" class="text-dark nav-link dropdown-toggle"
+                            href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <img src="{{ asset(session('locale') == 'en' ? 'img/inggrisjpeg.jpeg' : 'img/indo.png') }}"
                                 width="25" height="25" class="border rounded-pill" alt="">
 
@@ -208,7 +189,7 @@
                     <li class="nav-item ms-3">
                         <a href="{{ route('login') }}">
                             <button class="btn btn-login"
-                                style="background-color: #72B5F6; color: #FFF; border-radius: 20px; width: 120px;"><i
+                                style="transition: all 0.3s ease-in-out; background-color: #72B5F6; color: #FFF; border-radius: 20px; width: 120px;"><i
                                     class="fa-solid fa-door-open me-2"></i>{{ __('header.masuk') }}</button>
                         </a>
                     </li>

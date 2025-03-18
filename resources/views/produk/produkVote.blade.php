@@ -171,20 +171,21 @@
     <div class="satu bg-white w-100 vh-100 d-flex justify-content-evenly flex-row align-items-center">
         <div class="left marlef w-50 ms-5">
             <div class="mb-5 mt-5 atas">
-                <span class="h1"
-                    style="color: #000; font-weight: 600; font-size: 4em; font-family: 'Montserrat';">@lang('vote.judul')</span><br>
+                <span class="h1 text-black"
+                    style="font-weight: 600; font-size: 4em; font-family: 'Montserrat';">@lang('vote.judul')</span><br>
             </div>
             <div class="kiri vib" style="width: 90%">
                 <span>@lang('vote.deskripsi')</span>
             </div>
             <div class="tombol">
-                <button onclick="window.location.href='{{ route('login') }}'" class="bawah btn-coba btn shadow mb-3 mt-5"
-                    style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; width: 250px; height: 50px"><i
+                <button onclick="window.location.href='{{ route('login') }}'"
+                    class="bawah btn-coba btn shadow text-white mb-3 mt-5"
+                    style="background-color: #72B5F6; font-weight: 500; border-radius: 20px; width: 250px; height: 50px"><i
                         class="fa-solid fa-rocket me-2"></i> @lang('vote.btn_coba_fitur')</button>
                 <button type="button" class="bawah lihat btn btn-secondary shadow ms-4 mb-3 mt-5" data-bs-toggle="modal"
                     data-bs-target="#modalVideo" style="border-radius: 20px; width: 200px; height: 50px"><i
                         class="fa-regular fa-circle-play me-2 fs-5"></i> @lang('vote.btn_lihat_tutor')</button>
-                <iframe class="video shadow-lg" style="width: 100%; height: 190px" src="{{ __('vote.video') }}"
+                <iframe class="video shadow-lg w-100" style="height: 190px" src="{{ __('vote.video') }}"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -192,8 +193,8 @@
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
                             <div class="modal-body d-flex justify-content-center align-items-center">
-                                <iframe style="width: 100%; height: 100%" src="{{ __('vote.video') }}"
-                                    title="YouTube video player" frameborder="0"
+                                <iframe class="w-100 h-100" src="{{ __('vote.video') }}" title="YouTube video player"
+                                    frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
@@ -204,7 +205,7 @@
         </div>
         <img class="shadow-lg blob mt-5 kanan" src="{{ asset('storage/images/' . __('vote.gambar')) }}"
             style="border-radius: 20px; width: 500px; z-index: 1" alt="voting">
-        <span class="kanan blob mt-5" style="position: absolute; right: 0; margin-right: 20px; overflow: hidden;">
+        <span class="kanan blob mt-5 position-absolute" style="right: 0; margin-right: 20px; overflow: hidden;">
             <img width="450" src="{{ asset('img/svg.gif') }}" alt="">
         </span>
     </div>
@@ -212,24 +213,29 @@
 
     {{-- konten kedua --}}
     <div class="kiri dua d-flex w-100 justify-content-around flex-row align-item-center">
-        <div style="width: 50%" class="d-flex fitir justify-content-center flex-column mb-5">
+        <div class="w-50 d-flex fitir justify-content-center flex-column mb-5">
             <div class="kiri d-flex flex-column">
                 <span class="fs-2 fw-bold" style="color: #72B5F6; font-family: 'Montserrat';">@lang('vote.judul_keunggulan')</span>
                 <span class="my-4">@lang('vote.deskripsi_keunggulan')</span>
 
                 <!-- Fitur container with custom CSS to force 2 per row -->
-                <div class="fitur mt-4" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
-                    @foreach ($fitures as $item)
-                        <div class="fitur-1">
-                            <i class="fa-solid fa-address-card fs-2 mb-4" style="color: #8854BB;"></i><br>
-                            <div class="klas">
-                                <strong class="fs-5"
-                                    style="color: #72B5F6; font-family: 'Montserrat';">{{ $item->nama }}</strong>
-                                <p class="mt-2">{{ $item->deskripsi }}</p>
-                            </div>
+                <div class="fitur d-flex flex-wrap justify-content-start flex-row mt-4">
+                    @foreach ($fitures->chunk(2) as $chunk)
+                        <div class="d-flex w-100">
+                            @foreach ($chunk as $item)
+                                <div class="w-50 fitur-1 me-4">
+                                    <i class="fa-solid fa-address-card fs-2 mb-4" style="color: #8854BB;"></i><br>
+                                    <div class="klas">
+                                        <strong class="fs-5"
+                                            style="color: #72B5F6; font-family: 'Montserrat';">{{ $item->nama }}</strong>
+                                        <p class="mt-2">{{ $item->deskripsi }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     @endforeach
                 </div>
+
             </div>
         </div>
         <div id="testimonialCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
@@ -263,10 +269,8 @@
                     @foreach ($item_basic as $item)
                         <p>{{ $item->features->fitur }}</p>
                     @endforeach
-                    {{-- <p>@lang('vote.previlage_gratis_1')</p>
-                    <p>@lang('vote.previlage_gratis_2')</p> --}}
-                    <a href="{{ route('login') }}" class="btn mt-5"
-                        style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">@lang('vote.pilih_paket')</a>
+                    <a href="{{ route('login') }}" class="btn mt-5 w-100 text-white"
+                        style="background-color: #8854BB; border-radius: 20px">@lang('vote.pilih_paket')</a>
                 </div>
             </div>
             <div class="card isi bawah shadow-sm p-3" style="height: 24rem; width: 280px; border-radius: 20px">
@@ -284,8 +288,8 @@
                     @foreach ($item_month as $item)
                         <p>{{ $item->features->fitur }}</p>
                     @endforeach
-                    <a href="{{ route('login') }}" class="btn mt-5"
-                        style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">@lang('vote.pilih_paket')</a>
+                    <a href="{{ route('login') }}" class="btn mt-5 w-100 text-white"
+                        style="background-color: #8854BB; border-radius: 20px">@lang('vote.pilih_paket')</a>
                 </div>
             </div>
             <div class="card isi kanan shadow-sm p-3" style="height: 24rem; width: 280px; border-radius: 20px">
@@ -305,8 +309,8 @@
                     @foreach ($item_year as $item)
                         <p>{{ $item->features->fitur }}</p>
                     @endforeach
-                    <a href="{{ route('login') }}" class="btn mt-5"
-                        style="width: 100%; background-color: #8854BB; color: white; border-radius: 20px">@lang('vote.pilih_paket')</a>
+                    <a href="{{ route('login') }}" class="btn mt-5 w-100 text-white"
+                        style="background-color: #8854BB; border-radius: 20px">@lang('vote.pilih_paket')</a>
                 </div>
             </div>
         </div>
