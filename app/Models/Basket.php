@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Basket extends Model
 {
     use HasFactory;
-    protected $fillable = ['rating_id'];
+    protected $fillable = ['rate_id']; // Changed from rating_id to rate_id
 
-    public function rating()
+    public function rate() // Changed method name from rating to rate
     {
-        return $this->belongsTo(Rate::class, 'rating_id');
+        return $this->belongsTo(Rate::class, 'rate_id'); // Changed foreign key from rating_id to rate_id
     }
 }

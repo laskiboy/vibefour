@@ -11,6 +11,7 @@ use App\Models\Home;
 use App\Models\Missions;
 use App\Models\News;
 use App\Models\Packages;
+use App\Models\Rate;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,8 @@ class ContactController extends Controller
     {
         $isi_pencapaian = Achievement::where('bahasa_id', app()->getLocale() == 'id' ? 1 : 2)->get();
         $fitur = Feature::where('bahasa_id', app()->getLocale() == 'id' ? 1 : 2)->get();
-        $testimoni = Basket::all();
+        $testimoni = Rate::get();
+        // dd($testimoni);
 
         return view('beranda', compact('isi_pencapaian', 'fitur', 'testimoni'));
     }
@@ -79,17 +81,30 @@ class ContactController extends Controller
         return view('produk.produkPenjadwalan', compact('fitur', 'fitures', 'basic', 'item_basic', 'month', 'item_month', 'year', 'item_year'));
     }
 
+    protected function getBahasaId()
+    {
+        $localeToId = [
+            'id' => 1,
+            'en' => 2,
+        ];
+
+        return $localeToId[app()->getLocale()] ?? 1; // fallback ke ID bahasa Indonesia (1)
+    }
+
     public function news()
     {
-        $news = News::all();
         Carbon::setLocale('id');
+        $news = News::where('bahasa_id', app()->getLocale() == 'id' ? 1 : 2)->get();
         return view('berita.berita', compact('news'));
     }
 
     public function show($id)
     {
-        $berita = News::findOrFail($id);
         Carbon::setLocale('id');
+        $berita = News::where('id', $id)
+            ->where('bahasa_id', app()->getLocale() == 'id' ? 1 : 2)
+            ->firstOrFail();
+
         return view('berita.detailBerita', compact('berita'));
     }
 }

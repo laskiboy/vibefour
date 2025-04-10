@@ -1,4 +1,3 @@
-@extends('layout.headerAsli')
 <style>
     .position-relative {
         position: relative;
@@ -64,7 +63,7 @@
         }
     }
 </style>
-@section('konten')
+<?php $__env->startSection('konten'); ?>
     <div class="container w-100 vh-100 d-flex justify-content-center align-items-center">
         <div class="form-container position-relative" style="width: 75%; height: 70%; margin-top: 70px;">
             <div class="kartu card shadow-sm w-100 h-100" style="border-radius: 20px;">
@@ -75,26 +74,27 @@
                         style="transition: transform 0.8s ease-in-out;">
                         <img class="w-100 h-100"
                             style="border-radius: 20px 0 0 20px; object-fit: cover; filter: brightness(60%);"
-                            src="{{ asset('img/logkin.jpg') }}" alt="">
+                            src="<?php echo e(asset('img/logkin.jpg')); ?>" alt="">
                         <div class="kata text-white text-center" style="position: absolute;">
-                            <h1 style="color: #72B5F6; font-weight: 600">@lang('masuk.nama_brand')</h1>
-                            <p>@lang('masuk.slogan')</p>
+                            <h1 style="color: #72B5F6; font-weight: 600"><?php echo app('translator')->get('masuk.nama_brand'); ?></h1>
+                            <p><?php echo app('translator')->get('masuk.slogan'); ?></p>
                         </div>
                     </div>
                     <div class="right w-50 h-100 d-flex flex-column justify-content-center align-items-center">
-                        <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">@lang('masuk.masuk')</h2>
+                        <h2 class="mb-5" style="font-weight: 600; color: #72B5F6"><?php echo app('translator')->get('masuk.masuk'); ?></h2>
                         <div id="message"></div>
-                        @if (session('error'))
+                        <?php if(session('error')): ?>
                             <p style="color: red" class="w-75 mb-4 forum text-center">
-                                {{ session('error') }}
+                                <?php echo e(session('error')); ?>
+
                             </p>
-                        @endif
+                        <?php endif; ?>
                         <form id="loginForm" class="w-100 d-flex justify-content-center align-items-center flex-column">
                             <div class="mb-4 forum w-75">
                                 <div class="position-relative">
                                     <input id="customInput1" placeholder=" " name="usernameAndEmail" type="text"
                                         class="ps-3 form-control">
-                                    <label for="customInput1" class="floating-label">@lang('masuk.input_usn_email')</label>
+                                    <label for="customInput1" class="floating-label"><?php echo app('translator')->get('masuk.input_usn_email'); ?></label>
                                 </div>
                             </div>
                             <div class="mb-4 forum w-75">
@@ -102,7 +102,7 @@
                                     <div class="input-group">
                                         <input id="password" placeholder=" " type="password" class="form-control"
                                             name="password">
-                                        <label for="password" class="floating-label">@lang('masuk.input_password')</label>
+                                        <label for="password" class="floating-label"><?php echo app('translator')->get('masuk.input_password'); ?></label>
                                         <button class="btn btn-outline-secondary toggle-password" type="button"
                                             data-target="password">
                                             <i class="fa-solid fa-eye"></i>
@@ -113,15 +113,15 @@
 
                             <div class="w-75 forum mb-4">
                                 <a class="ms-1 lupa" style="text-decoration: none; color: #000"
-                                    href="{{ route('lupa-password') }}">@lang('masuk.lupa_pw')</a>
+                                    href="<?php echo e(route('lupa-password')); ?>"><?php echo app('translator')->get('masuk.lupa_pw'); ?></a>
                             </div>
                             <button type="submit" class="btn forum mb-4 w-75"
                                 style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
-                                @lang('masuk.masuk')</button>
+                                <?php echo app('translator')->get('masuk.masuk'); ?></button>
                         </form>
                         <div class="daftar botom forum text-end w-75">
-                            <span>@lang('masuk.regis') </span><a href="#" id="show-daftar"
-                                style="text-decoration: none; color: #72B5F6">@lang('masuk.daftar')</a>
+                            <span><?php echo app('translator')->get('masuk.regis'); ?> </span><a href="#" id="show-daftar"
+                                style="text-decoration: none; color: #72B5F6"><?php echo app('translator')->get('masuk.daftar'); ?></a>
                         </div>
                     </div>
                 </div>
@@ -131,15 +131,15 @@
                 class="daftar card shadow-sm d-flex flex-row overflow-hidden w-100 h-100 position-absolute top-0"
                 style="border-radius: 20px; opacity: 0; z-index: 1; transition: opacity 0.5s ease-in-out, z-index 0.1s 0.5s;">
                 <div class="left w-50 h-100 d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="mb-5" style="font-weight: 600; color: #72B5F6">@lang('masuk.daftar')</h2>
-                    <form id="registerForm" action="{{ route('register.process') }}" method="POST"
+                    <h2 class="mb-5" style="font-weight: 600; color: #72B5F6"><?php echo app('translator')->get('masuk.daftar'); ?></h2>
+                    <form id="registerForm" action="<?php echo e(route('register.process')); ?>" method="POST"
                         class="w-100 d-flex justify-content-center align-items-center flex-column">
-                        @csrf
+                        <?php echo csrf_field(); ?>
                         <div class="mb-4 forum w-75">
                             <div class="position-relative">
                                 <input id="customInput3" placeholder=" " name="username" type="text"
                                     class="ps-3 form-control">
-                                <label for="customInput3" class="floating-label">@lang('masuk.input_usn')</label>
+                                <label for="customInput3" class="floating-label"><?php echo app('translator')->get('masuk.input_usn'); ?></label>
                             </div>
                             <div class="invalid-feedback" id="error-username"></div>
                         </div>
@@ -148,7 +148,7 @@
                             <div class="position-relative">
                                 <input id="customInput4" placeholder=" " name="email" type="email"
                                     class="ps-3 form-control">
-                                <label for="customInput4" class="floating-label">@lang('masuk.input_email')</label>
+                                <label for="customInput4" class="floating-label"><?php echo app('translator')->get('masuk.input_email'); ?></label>
                             </div>
                             <div class="invalid-feedback" id="error-email"></div>
                         </div>
@@ -157,19 +157,19 @@
                             <div class="position-relative">
                                 <input id="customInput5" placeholder=" " name="nama" type="text"
                                     class="ps-3 form-control">
-                                <label for="customInput5" class="floating-label">@lang('masuk.input_nama')</label>
+                                <label for="customInput5" class="floating-label"><?php echo app('translator')->get('masuk.input_nama'); ?></label>
                             </div>
                             <div class="invalid-feedback" id="error-nama"></div>
                         </div>
                         <button type="submit" id="daftar" class="btn mb-4 forum w-75"
                             style="background-color: #72B5F6; color: #FFF; font-weight: 500; border-radius: 20px; height: 40px">
-                            @lang('masuk.daftar')
+                            <?php echo app('translator')->get('masuk.daftar'); ?>
                         </button>
                     </form>
 
                     <div class="masuk botom forum text-end w-75">
-                        <span>@lang('masuk.login') </span><a href="#" id="show-masuk"
-                            style="text-decoration: none; color: #72B5F6">@lang('masuk.masuk')</a>
+                        <span><?php echo app('translator')->get('masuk.login'); ?> </span><a href="#" id="show-masuk"
+                            style="text-decoration: none; color: #72B5F6"><?php echo app('translator')->get('masuk.masuk'); ?></a>
                     </div>
                 </div>
                 <div id="register-img-div"
@@ -177,10 +177,10 @@
                     style="transition: transform 0.8s ease-in-out; transform: translateX(100%);">
                     <img class="w-100 h-100"
                         style="border-radius: 0 20px 20px 0; object-fit: cover; filter: brightness(60%);"
-                        src="{{ asset('img/logkin.jpg') }}" alt="">
+                        src="<?php echo e(asset('img/logkin.jpg')); ?>" alt="">
                     <div class="kata text-white text-center" style="position: absolute;">
-                        <h1 style="color: #72B5F6; font-weight: 600">@lang('masuk.nama_brand')</h1>
-                        <p>@lang('masuk.slogan')</p>
+                        <h1 style="color: #72B5F6; font-weight: 600"><?php echo app('translator')->get('masuk.nama_brand'); ?></h1>
+                        <p><?php echo app('translator')->get('masuk.slogan'); ?></p>
                     </div>
                 </div>
             </div>
@@ -262,11 +262,11 @@
             e.preventDefault();
 
             $.ajax({
-                url: "{{ url('/login') }}",
+                url: "<?php echo e(url('/login')); ?>",
                 type: "POST",
                 data: $(this).serialize(),
                 headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>'
                 },
                 success: function(response) {
                     console.log("Success response:", response); // Debug respons
@@ -298,7 +298,7 @@
                 $('#submitBtn').attr('disabled', true);
 
                 $.ajax({
-                    url: "{{ route('register.process') }}",
+                    url: "<?php echo e(route('register.process')); ?>",
                     type: "POST",
                     data: formData,
                     success: function(response) {
@@ -439,4 +439,6 @@
         //     });
         // });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout.headerAsli', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\VibeFourWebsite\resources\views/auth/login.blade.php ENDPATH**/ ?>

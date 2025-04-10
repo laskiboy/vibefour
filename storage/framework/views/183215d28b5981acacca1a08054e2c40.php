@@ -200,37 +200,39 @@
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     }
 </style>
-@extends('layout.headerAsli')
-@section('konten')
-    {{-- konten pertama --}}
+
+<?php $__env->startSection('konten'); ?>
+    
     <div class="satu bg-white vh-100 d-flex justify-content-evenly flex-row align-items-center">
         <div class="span d-flex flex-column">
             <h1 class="atas h1 text-black fw-bold" style="font-family: 'Montserrat'; font-size: 4em">
-                {{ __('home.judul_satu') }}
+                <?php echo e(__('home.judul_satu')); ?>
+
             </h1>
             <h1 class="kiri to-everyone h1 text-black fw-bold"
                 style="font-family: 'Montserrat'; margin-bottom: 30px; font-size: 4em">
-                {{ __('home.judul_dua') }}
+                <?php echo e(__('home.judul_dua')); ?>
+
             </h1>
-            <span class="slogan text-center fs-5 kanan">{{ __('home.slogan') }}</span>
-            <a href="{{ route('login') }}" class="a-masuk">
+            <span class="slogan text-center fs-5 kanan"><?php echo e(__('home.slogan')); ?></span>
+            <a href="<?php echo e(route('login')); ?>" class="a-masuk">
                 <button class="bawah slogan btn mb-3 mt-5 text-white"
                     style="background-color: #72B5F6; border-radius: 20px; width: 415px; height: 50px"><i
-                        class="fa-solid fa-door-open me-2"></i> {{ __('home.masuk') }}</button>
+                        class="fa-solid fa-door-open me-2"></i> <?php echo e(__('home.masuk')); ?></button>
             </a>
         </div>
-        <img class="slides" src="{{ asset('img/penjadwalan.png') }}" alt="">
+        <img class="slides" src="<?php echo e(asset('img/penjadwalan.png')); ?>" alt="">
         <span class="kanan giv-blob position-absolute" style="right: 0; margin-right: 100px">
-            <img width="500" src="{{ asset('img/svg.gif') }}" alt="">
+            <img width="500" src="<?php echo e(asset('img/svg.gif')); ?>" alt="">
         </span>
     </div>
-    {{-- end konten pertama --}}
+    
 
-    {{-- konten kedua --}}
+    
     <div class="two d-flex flex-column align-items-center m-5">
         <span class="fs-2 fw-bold span-title"
-            style="color: #72B5F6; font-family: 'Montserrat';">{{ __('home.judul_fitur') }}</span>
-        <span class="mb-5 span-kami span-sub">{{ __('home.ket_fitur') }}</span>
+            style="color: #72B5F6; font-family: 'Montserrat';"><?php echo e(__('home.judul_fitur')); ?></span>
+        <span class="mb-5 span-kami span-sub"><?php echo e(__('home.ket_fitur')); ?></span>
         <div class="w-100 dua d-flex align-items-center mt-5 justify-content-around">
             <span class="kiri span-blob position-absolute" style="left: 0; margin-left: -350px; z-index: -1">
                 <svg width="500px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -241,119 +243,127 @@
             </span>
             <div class="kiri">
                 <div class="accordion custom-accordion" style="max-width: 100%;" id="featureAccordion1">
-                    @foreach ($fitur as $items)
+                    <?php $__currentLoopData = $fitur; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading{{ $items->id }}">
+                            <h2 class="accordion-header" id="heading<?php echo e($items->id); ?>">
                                 <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse{{ $items->id }}"
-                                    aria-expanded="false" aria-controls="collapse{{ $items->id }}">
-                                    {{ $items->nama }}
+                                    data-bs-toggle="collapse" data-bs-target="#collapse<?php echo e($items->id); ?>"
+                                    aria-expanded="false" aria-controls="collapse<?php echo e($items->id); ?>">
+                                    <?php echo e($items->nama); ?>
+
                                 </button>
                             </h2>
-                            <div id="collapse{{ $items->id }}" class="accordion-collapse collapse"
-                                aria-labelledby="heading{{ $items->id }}" data-bs-parent="#featureAccordion1">
+                            <div id="collapse<?php echo e($items->id); ?>" class="accordion-collapse collapse"
+                                aria-labelledby="heading<?php echo e($items->id); ?>" data-bs-parent="#featureAccordion1">
                                 <div class="accordion-body">
                                     <p class="mb-0">
-                                        {{ $items->deskripsi }}
+                                        <?php echo e($items->deskripsi); ?>
+
                                     </p>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
 
                 <div class="accordion d-none custom-accordion" id="featureAccordion2">
-                    @foreach ($fitur as $items)
+                    <?php $__currentLoopData = $fitur; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading{{ $items->id }}">
+                            <h2 class="accordion-header" id="heading<?php echo e($items->id); ?>">
                                 <button class="accordion-button collapsed" style="font-family: 'Montserrat';" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse{{ $items->id }}"
-                                    aria-expanded="false" aria-controls="collapse{{ $items->id }}">
-                                    {{ $items->nama }}
+                                    data-bs-toggle="collapse" data-bs-target="#collapse<?php echo e($items->id); ?>"
+                                    aria-expanded="false" aria-controls="collapse<?php echo e($items->id); ?>">
+                                    <?php echo e($items->nama); ?>
+
                                 </button>
                             </h2>
-                            <div id="collapse{{ $items->id }}" class="accordion-collapse collapse"
-                                aria-labelledby="heading{{ $items->id }}" data-bs-parent="#featureAccordion1">
+                            <div id="collapse<?php echo e($items->id); ?>" class="accordion-collapse collapse"
+                                aria-labelledby="heading<?php echo e($items->id); ?>" data-bs-parent="#featureAccordion1">
                                 <div class="accordion-body">
                                     <p class="mb-0">
-                                        {{ $items->deskripsi }}
+                                        <?php echo e($items->deskripsi); ?>
+
                                     </p>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
             </div>
             <div class="image-carousel kanan shadow-lg" id="carousel1">
-                @foreach ($fitur as $itemss)
-                    <img src="{{ asset('storage/images/' . $itemss->gambar) }}" alt="Voting Feature $"
+                <?php $__currentLoopData = $fitur; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $itemss): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <img src="<?php echo e(asset('storage/images/' . $itemss->gambar)); ?>" alt="Voting Feature $"
                         class="carousel-image" />
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </div>
-    {{-- end konten kedua --}}
+    
 
-    {{-- konten ketiga --}}
+    
     <div class="bg-light tiha d-flex justify-content-center flex-column align-items-center"
         style="padding-top: 100px; padding-bottom: 100px;">
         <span class="fs-2 mb-3 fw-bold span-title"
-            style="color: #72B5F6; font-family: 'Montserrat';">{{ __('home.judul_pencapaian') }}</span>
+            style="color: #72B5F6; font-family: 'Montserrat';"><?php echo e(__('home.judul_pencapaian')); ?></span>
         <span class="span-title span-bangga w-50 text-center"
-            style="margin-bottom: 100px">{{ __('home.ket_pencapaian') }}</span>
+            style="margin-bottom: 100px"><?php echo e(__('home.ket_pencapaian')); ?></span>
         <div class="d-flex justify-content-around pencapaian">
-            @foreach ($isi_pencapaian as $item)
+            <?php $__currentLoopData = $isi_pencapaian; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="w-25 poin kiri d-flex flex-column text-center">
-                    {!! $item->icon !!}
-                    <strong class="fs-5 mb-3" style="font-family: 'Montserrat';">{{ $item->judul }}</strong>
-                    <span>{{ $item->deskripsi }}</span>
+                    <?php echo $item->icon; ?>
+
+                    <strong class="fs-5 mb-3" style="font-family: 'Montserrat';"><?php echo e($item->judul); ?></strong>
+                    <span><?php echo e($item->deskripsi); ?></span>
                 </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </div>
-    {{-- end konten ketiga --}}
+    
 
-    {{-- konten keempat --}}
+    
     <div class="empat container d-flex justify-content-center flex-column align-item-center" style="height: 30rem">
         <span class="fs-2 fw-bold text-center span-title"
-            style="color: #72B5F6; margin-top: 50px; margin-bottom: 30px; font-family: 'Montserrat';">{{ __('home.judul_testimoni') }}</span>
+            style="color: #72B5F6; margin-top: 50px; margin-bottom: 30px; font-family: 'Montserrat';"><?php echo e(__('home.judul_testimoni')); ?></span>
         <section class="py-5 bawah">
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    @foreach ($testimoni as $key => $item)
-                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                    <?php $__currentLoopData = $testimoni; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="carousel-item <?php echo e($key == 0 ? 'active' : ''); ?>">
                             <div class="row justify-content-center">
                                 <div class="col-md-8">
                                     <div class="testimonial-content text-center">
-                                        @php
+                                        <?php
                                             $initial = strtoupper(substr($item->user->nama, 0, 1));
-                                        @endphp
+                                        ?>
 
                                         <div class="mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle text-white"
                                             style="width: 48px; height: 48px; font-size: 18px; background-color: #8854BB">
-                                            {{ $initial }}
+                                            <?php echo e($initial); ?>
+
                                         </div>
 
                                         <div class="ratings mb-2">
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $item->rating)
+                                            <?php for($i = 1; $i <= 5; $i++): ?>
+                                                <?php if($i <= $item->rating): ?>
                                                     <i class="fas fa-star"></i>
-                                                @else
+                                                <?php else: ?>
                                                     <i class="far fa-star"></i>
-                                                @endif
-                                            @endfor
+                                                <?php endif; ?>
+                                            <?php endfor; ?>
                                         </div>
 
                                         <p class="lead slogan">
-                                            {{ $item->pesan }}
+                                            <?php echo e($item->pesan); ?>
+
                                         </p>
-                                        <p class="slogan font-weight-bold text-primary">- {{ $item->user->nama }}
+                                        <p class="slogan font-weight-bold text-primary">- <?php echo e($item->user->nama); ?>
+
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
 
                 <button class="carousel-control-prev butin" type="button" data-bs-target="#testimonialCarousel"
@@ -369,10 +379,10 @@
             </div>
         </section>
     </div>
-    {{-- end konten keempat --}}
+    
 
-    {{-- footer --}}
-    @include('layout.footer')
+    
+    <?php echo $__env->make('layout.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -500,4 +510,6 @@
 
         showSlides();
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout.headerAsli', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\VibeFourWebsite\resources\views/beranda.blade.php ENDPATH**/ ?>
